@@ -139,7 +139,7 @@ const projectsData = [
         "Optimized JavaScript for responsiveness",
         "Tested on multiple browsers and devices"
     ],
-    liveDemo: "#"
+    liveDemo: "https://mohsinedahnaoui.github.io/DATAvIZ/"
 },
     {
         id: 5,
