@@ -72,14 +72,12 @@ const projectsData = [
         liveDemo: "#"
     },
     {
-        id: 3,
-        title: "BerMaths",
+    id: 3,
+    title: "BerMaths",
     description: "An educational website offering math lessons tailored for high school students.",
     longDescription: "BerMaths is designed as a digital platform to help students access math courses easily. It organizes lessons by grade level, includes exercises, and provides downloadable resources to support students’ learning journeys.",
-    image: "bermaths/home.png",
+    image: "project3/project3_home.png",
     gallery: [
-        "bermaths/lesson1.png",
-        "bermaths/lesson2.png"
     ],
     technologies: ["HTML", "CSS", "JavaScript"],
     icon: "fas fa-square-root-alt",
@@ -87,7 +85,7 @@ const projectsData = [
     bgColor: "bg-green-100",
     status: "in-development",
     year: 2025,
-    duration: "32 Weeks",
+    duration: "To Be Determined",
     teamSize: "Me and Mehdi Zineddine (maths teacher)",
     features: [
         "Organized lessons by educational level",
@@ -111,10 +109,8 @@ const projectsData = [
     title: "DATAvIZ",
     description: "A data visualization web project showcasing various interactive charts and graphs.",
     longDescription: "DATAvIZ is a project focused on representing complex data visually through an intuitive HTML interface. It includes dynamic charts, filtering options, and responsive design to help users explore data easily and meaningfully.",
-    image: "dataviz/home.png",
+    image: "project4/project4_home.png",
     gallery: [
-        "dataviz/chart1.png",
-        "dataviz/chart2.png"
     ],
     technologies: ["HTML", "CSS", "JavaScript", "Chart.js"],
     icon: "fas fa-chart-bar",
@@ -122,7 +118,7 @@ const projectsData = [
     bgColor: "bg-purple-100",
     status: "completed",
     year: 2025,
-    duration: "3 Weeks",
+    duration: "4 Days",
     teamSize: "Solo",
     features: [
         "Interactive charts and graphs",
@@ -142,22 +138,20 @@ const projectsData = [
     liveDemo: "https://mohsinedahnaoui.github.io/DATAvIZ/"
 },
     {
-        id: 5,
-        title: "MyWork",
+    id: 5,
+    title: "MyWork",
     description: "A school-oriented app for managing and sharing students’ tasks and projects.",
     longDescription: "MyWork is designed to streamline the assignment management process between students and teachers. The app provides task creation, submission tracking, and a collaborative environment to facilitate schoolwork.",
-    image: "mywork/home.png",
+    image: "project5/project5_home.png",
     gallery: [
-        "mywork/task1.png",
-        "mywork/task2.png"
     ],
-    technologies: ["Web Development", "Database", "UI/UX"],
+    technologies: ["Web Development", "Database", "UI/UX", "PHP"],
     icon: "fas fa-tasks",
     iconColor: "text-yellow-500",
     bgColor: "bg-yellow-100",
-    status: "in progress",
+    status: "in-development",
     year: 2025,
-    duration: "5 Weeks",
+    duration: "To Be Determined",
     teamSize: "Solo",
     features: [
         "Task creation and assignment",
