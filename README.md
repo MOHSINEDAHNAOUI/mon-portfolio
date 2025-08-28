@@ -1,6 +1,6 @@
 # Mohsine Dahnaoui - Portfolio Website
 
-A modern, responsive portfolio website showcasing my skills, projects, and experience as a Full-Stack Web Developer.
+A modern, responsive portfolio website showcasing my skills, projects, and experience as a Web Developer.
 
 ## 🌟 Features
 
@@ -10,6 +10,7 @@ A modern, responsive portfolio website showcasing my skills, projects, and exper
 - **Interactive Elements**: Hover effects, smooth animations, and dynamic content
 - **Professional Navigation**: Fixed navigation with smooth scrolling
 - **Mobile-Friendly**: Optimized mobile menu with professional modal design
+- **Accessible Footer**: High-contrast background for excellent text readability
 
 ### Content Sections
 - **Hero Section**: Introduction with animated profile image
@@ -206,6 +207,7 @@ PORTFOLIO/
 ### Social Links
 - **LinkedIn**: [Mohsine Dahnaoui](https://www.linkedin.com/in/mohsine-dahnaoui-005246368/)
 - **GitHub**: [MOHSINEDAHNAOUI](https://github.com/MOHSINEDAHNAOUI)
+- **Instagram**: [@mohsine_dahnaoui](https://www.instagram.com/mohsine_dahnaoui)
 - **WhatsApp**: [Direct Link](https://wa.me/212658603438)
 
 ## 📝 License
@@ -218,6 +220,6 @@ This is a personal portfolio project. For suggestions or feedback, please contac
 
 ---
 
-**Last Updated**: July 2025  
+**Last Updated**: August 2025  
 **Version**: 1.0.0  
 **Developer**: Mohsine Dahnaoui 

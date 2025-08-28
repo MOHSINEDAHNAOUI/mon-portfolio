@@ -169,6 +169,43 @@ const projectsData = [
         "Created role-based access control"
     ],
     liveDemo: "#"
+},
+{
+    id: 6,
+    title: "GéoPropriétés",
+    description: "A web application for managing and visualizing real estate listings on an interactive map.",
+    longDescription: "GeoProperties is a web application that enables administrators to manage and visualize real estate listings on an interactive map, with secure authentication, role-based access, and optimized performance for large datasets.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/World_map_-_low_resolution.svg/1200px-World_map_-_low_resolution.svg.png",
+    gallery: [
+    ],
+    technologies: ["Web Development", "Database", "UI/UX", "PHP"],
+    icon: "fas fa-map-marker-alt",
+    iconColor: "text-blue-500",
+    bgColor: "bg-blue-100",
+    status: "completed",
+    year: 2025,
+    duration: "2 Weeks",
+    teamSize: "Solo",
+    features: [
+        "Property management and visualization on an interactive map",
+        "Add, edit, and delete real estate listings",
+        "Advanced search by location, price, and property features",
+        "Admin dashboard for monitoring and management",
+        "Export and generate property reports"
+    ],
+    challenges: [
+        "Integrating a smooth and accurate interactive map",
+        "Ensuring data security and user privacy",
+        "Optimizing performance with large volumes of property data",
+        "Managing multiple user roles (agents, administrators)"
+    ],
+    solutions: [
+        "Used mapping APIs (Leaflet/Google Maps) for interactive map features",
+        "Implemented secure authentication with hashed passwords",
+        "Optimized SQL queries and applied pagination for faster loading",
+        "Developed role-based access control for user management"
+    ],
+    liveDemo: "https://mohsinedahnaoui.github.io/GeoProprietes/"
 }
 ];
 
