@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="mon image.jpg">
+    <link rel="icon" type="image/x-icon" href="logo.svg">
     <title>Mohsine Dahnaoui | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -103,7 +103,7 @@
             </button>
             <div class="flex flex-col items-center mb-6 mt-2">
                 <div class="w-28 h-28 rounded-full overflow-hidden border-4 border-gradient-to-r from-blue-500 to-purple-600 shadow-lg mb-3 flex items-center justify-center">
-                <img src="mon image3.jpg" alt="Mohsine Dahnaoui" class="w-full h-full object-cover">
+                <img src="images/mon image0.jpg" alt="Mohsine Dahnaoui" class="w-full h-full object-cover">
                 </div>
                 <span class="font-bold text-xl gradient-text text-center">Mohsine Dahnaoui</span>
                 <span class="text-gray-500 text-sm mt-1 text-center">Web Developer</span>
@@ -146,21 +146,51 @@
                         A passionate developer with a strong interest in web development, programming, and creative digital solutions. Enjoy building responsive websites, writing clean code, and turning ideas into interactive experiences. Always curious and motivated, Constantly learning and exploring new technologies to grow as a developer
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#projects" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-medium hover:shadow-lg transition duration-300">
+                        <a href="#projects" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-medium shadow hover:shadow-lg transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400 hover:scale-105 hover:from-blue-600 hover:to-purple-700">
                             View My Work
                         </a>
-                        <a href="#contact" class="px-6 py-3 border border-gray-300 rounded-lg font-medium hover:bg-gray-800 hover:text-white transition duration-300">
+                        <a href="#contact" class="text-white px-6 py-3 border border-gray-300 rounded-lg font-medium hover:bg-gray-800 hover:text-white transition duration-300">
                             Contact Me
                         </a>
-                        <a href="CV.pdf" class="px-6 py-3 border border-gray-300 rounded-lg font-medium hover:bg-blue-900 hover:text-blue-300 transition duration-300">
+                        <!-- CV Button triggers modal -->
+                        <a href="#" id="cv-btn" class="text-white px-6 py-3 border border-gray-300 rounded-lg font-medium hover:bg-blue-900 hover:text-blue-300 transition duration-300">
                             CV
                         </a>
+                        <!-- CV Modal -->
+                        <div id="cv-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 hidden">
+                            <div class="bg-white rounded-xl shadow-2xl p-4 relative w-full max-w-3xl">
+                                <button id="close-cv-modal" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900">
+                                    <i class="fas fa-times text-2xl"></i>
+                                </button>
+                                <h3 class="text-lg font-semibold mb-4">My CV</h3>
+                                <div class="w-full h-[32rem]">
+                                    <iframe src="CV.pdf" width="100%" height="100%" style="border:0;" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            // Show CV modal
+                            document.getElementById('cv-btn').addEventListener('click', function(e) {
+                                e.preventDefault();
+                                document.getElementById('cv-modal').classList.remove('hidden');
+                            });
+                            // Hide CV modal
+                            document.getElementById('close-cv-modal').addEventListener('click', function() {
+                                document.getElementById('cv-modal').classList.add('hidden');
+                            });
+                            // Hide modal when clicking outside
+                            document.getElementById('cv-modal').addEventListener('click', function(e) {
+                                if (e.target === this) {
+                                    this.classList.add('hidden');
+                                }
+                            });
+                        </script>
                     </div>
                 </div>
                 <div class="md:w-1/2 flex flex-col items-center justify-center space-y-6">
                     <div class="relative w-96 h-96 md:w-[28rem] md:h-[28rem] shadow-2xl group transition-transform duration-500 hover:scale-105"
-                        style="background: rgba(35,37,38,0.85); border: 2px solid #6366f1; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25); transform: rotate(-6deg);">
-                        <img src="mon image.jpg"
+                        style="background: rgba(35,37,38,0.85); border: 2px solid #6366f1; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25); transform: rotate(+6deg);">
+                        <img src="images/mon image1.jpg"
                             alt="Mohsine Dahnaoui"
                             class="absolute inset-0 w-full h-full object-cover rounded-[60%_40%_30%_70%/60%_30%_70%_40%] opacity-90 transition-transform duration-500 group-hover:scale-105"
                             style="z-index: 1;">
@@ -189,7 +219,7 @@
                 <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
                     <div class="relative w-80 h-80 md:w-[28rem] md:h-[28rem] shadow-2xl group transition-transform duration-500 hover:scale-105"
                          style="background: #fffbe7; border: 2px solid #facc15; border-radius: 12px 60px 24px 36px / 24px 48px 60px 12px; box-shadow: 0 8px 32px 0 rgba(0,0,0,0.15); transform: rotate(-4deg);">
-                        <img src="mon image2.jpg" 
+                        <img src="images/mon image2.jpg" 
                              alt="Mohsine Dahnaoui" 
                              class="absolute inset-0 w-full h-full object-cover rounded-[12px_60px_24px_36px/24px_48px_60px_12px] opacity-90 transition-transform duration-500 group-hover:scale-105" 
                              style="z-index: 1;">
@@ -207,9 +237,9 @@
                     <p class="text-gray-600 mb-6">
                         I'm Mohsine Dahnaoui, a self-driven and passionate web developer who loves turning ideas into real digital experiences. With a strong foundation in front-end and back-end development, I enjoy building clean, user-friendly websites and web applications. I’m particularly interested in creating solutions that are both functional and visually engaging.
 
-I’m always exploring new technologies and frameworks to enhance my skills and stay up to date with modern development trends. Whether it's crafting a responsive interface with HTML, CSS, and JavaScript, or developing dynamic features with PHP, MySQL, or Flutter — I enjoy every step of the process.
+                        I’m always exploring new technologies and frameworks to enhance my skills and stay up to date with modern development trends. Whether it's crafting a responsive interface with HTML, CSS, and JavaScript, or developing dynamic features with PHP, MySQL, or Flutter — I enjoy every step of the process.
 
-When I’m not coding, I like designing, solving problems, and sharing what I build with others.
+                        When I’m not coding, I like designing, solving problems, and sharing what I build with others.
                     </p>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -243,35 +273,113 @@ When I’m not coding, I like designing, solving problems, and sharing what I bu
                     </div>
                     
                     <div class="flex flex-wrap gap-4">
-                        <!-- Published Books with Modal -->
+                        <!-- Published Books with Modal (Carousel) -->
                         <a href="#" id="published-books-link" class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium flex items-center relative group">
                             <i class="fas fa-book mr-2 text-blue-500"></i> Published Books
                         </a>
-                        <!-- Modal for Published Books -->
+                        <!-- Modal for Published Books Carousel -->
                         <div id="published-books-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 hidden">
                             <div class="bg-white rounded-xl shadow-2xl p-8 relative w-96 max-w-full flex flex-col items-center">
                                 <button id="close-published-books-modal" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900">
                                     <i class="fas fa-times text-2xl"></i>
                                 </button>
                                 <h3 class="text-xl font-semibold mb-4">Published Books</h3>
-                                <!-- Placeholder for book image -->
-                                <div class="w-40 h-56 bg-gray-200 rounded-lg flex items-center justify-center mb-4">
-                                    <img src="3D_book.png" alt="Published Book" class="w-full h-full object-cover rounded-lg">
+                                <!-- Carousel with arrows spaced from the book image -->
+                                <div class="flex items-center justify-center w-full mb-4" style="min-height:14rem;">
+                                    <!-- Left arrow, spaced from book -->
+                                    <div class="flex-1 flex justify-end pr-6">
+                                        <button id="prev-book" class="bg-gray-100 hover:bg-gray-200 rounded-full p-2 shadow" style="z-index:2;">
+                                            <i class="fas fa-chevron-left text-lg"></i>
+                                        </button>
+                                    </div>
+                                    <!-- Book image and link button -->
+                                    <div class="relative flex-shrink-0 w-40 h-56 flex flex-col items-center justify-center">
+                                        <a id="book-link" href="" target="_blank" class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded text-xs font-semibold shadow transition" style="z-index:3; display:none;">
+                                            View Book
+                                        </a>
+                                        <div id="book-carousel" class="w-40 h-56 bg-gray-200 rounded-lg flex items-center justify-center overflow-hidden">
+                                            <!-- Book slides will be injected here -->
+                                        </div>
+                                    </div>
+                                    <!-- Right arrow, spaced from book -->
+                                    <div class="flex-1 flex justify-start pl-6">
+                                        <button id="next-book" class="bg-gray-100 hover:bg-gray-200 rounded-full p-2 shadow" style="z-index:2;">
+                                            <i class="fas fa-chevron-right text-lg"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                                <p class="text-gray-600 text-center">Le Voyage Du Développeur</p>
+                                <!-- Book Title -->
+                                <p id="book-title" class="text-gray-600 text-center mb-2"></p>
+                                <!-- Carousel indicators -->
+                                <div id="carousel-indicators" class="flex gap-2 mt-2"></div>
                             </div>
                         </div>
                         <script>
-                            // Modal hover logic for Published Books
+                            // Book data for the carousel
+                            const books = [
+                                {
+                                    title: "Le Voyage Du Développeur",
+                                    image: "images/books/3D_book1.png",
+                                    link: "https://anyflip.com/rjxrr/xfnx"
+                                },
+                                {
+                                    title: "The Magical Coloring Book",
+                                    image: "images/books/3D_book2.png",
+                                    link: "https://anyflip.com/rjxrr/zkgy"
+                                }
+                                // Ajoutez d'autres livres ici si besoin
+                            ];
+
+                            // Modal logic
                             const publishedBooksLink = document.getElementById('published-books-link');
                             const publishedBooksModal = document.getElementById('published-books-modal');
                             const closePublishedBooksModal = document.getElementById('close-published-books-modal');
+                            const bookCarousel = document.getElementById('book-carousel');
+                            const bookTitle = document.getElementById('book-title');
+                            const bookLink = document.getElementById('book-link');
+                            const prevBookBtn = document.getElementById('prev-book');
+                            const nextBookBtn = document.getElementById('next-book');
+                            const carouselIndicators = document.getElementById('carousel-indicators');
 
                             let modalTimeout;
+                            let currentBook = 0;
+
+                            function showBook(index) {
+                                // Clamp index
+                                if (index < 0) index = books.length - 1;
+                                if (index >= books.length) index = 0;
+                                currentBook = index;
+
+                                // Update carousel image
+                                bookCarousel.innerHTML = `
+                                    <img src="${books[index].image}" alt="${books[index].title}" class="w-full h-full object-cover rounded-lg">
+                                `;
+
+                                // Update title
+                                bookTitle.textContent = books[index].title;
+
+                                // Update link
+                                if (books[index].link) {
+                                    bookLink.href = books[index].link;
+                                    bookLink.style.display = '';
+                                } else {
+                                    bookLink.style.display = 'none';
+                                }
+
+                                // Update indicators
+                                carouselIndicators.innerHTML = '';
+                                for (let i = 0; i < books.length; i++) {
+                                    const dot = document.createElement('button');
+                                    dot.className = 'w-2 h-2 rounded-full ' + (i === index ? 'bg-blue-500' : 'bg-gray-300');
+                                    dot.addEventListener('click', () => showBook(i));
+                                    carouselIndicators.appendChild(dot);
+                                }
+                            }
 
                             publishedBooksLink.addEventListener('mouseenter', () => {
                                 clearTimeout(modalTimeout);
                                 publishedBooksModal.classList.remove('hidden');
+                                showBook(currentBook);
                             });
 
                             publishedBooksLink.addEventListener('mouseleave', () => {
@@ -290,6 +398,21 @@ When I’m not coding, I like designing, solving problems, and sharing what I bu
 
                             closePublishedBooksModal.addEventListener('click', () => {
                                 publishedBooksModal.classList.add('hidden');
+                            });
+
+                            prevBookBtn.addEventListener('click', (e) => {
+                                e.stopPropagation();
+                                showBook(currentBook - 1);
+                            });
+
+                            nextBookBtn.addEventListener('click', (e) => {
+                                e.stopPropagation();
+                                showBook(currentBook + 1);
+                            });
+
+                            // Initialize on first open
+                            publishedBooksLink.addEventListener('mouseenter', () => {
+                                showBook(currentBook);
                             });
                         </script>
                         <a href="#projects" class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium flex items-center">
@@ -313,10 +436,14 @@ When I’m not coding, I like designing, solving problems, and sharing what I bu
                 <!-- Les projets seront générés dynamiquement par JavaScript depuis le fichier projects-data.js -->
             </div>
             
-            <div class="text-center mt-12">
-                <a href="projects.html" class="px-6 py-3 border border-gray-300 rounded-lg font-medium hover:bg-gray-100 transition duration-300 inline-flex items-center">
-                    <i class="fas fa-folder-open mr-2"></i> View All Projects
+            <div class="flex flex-col items-center mt-12">
+                <a href="projects.html"
+                   class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:from-blue-600 hover:to-purple-700 hover:scale-105 transition duration-300 inline-flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                   style="font-size:1.15rem;">
+                    <i class="fas fa-folder-open text-xl"></i>
+                    View All Projects
                 </a>
+                <span class="mt-4 text-gray-500 text-sm">Explore my complete projects and academic work</span>
             </div>
         </div>
     </section>
@@ -431,46 +558,210 @@ When I’m not coding, I like designing, solving problems, and sharing what I bu
             </div>
             
             <div class="mt-16">
-                <h3 class="text-xl font-semibold mb-6 text-center">Tools & Technologies</h3>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <div class="flex flex-col items-center">
-                        <div class="bg-gray-100 p-4 rounded-full mb-2">
-                            <i class="fab fa-html5 text-orange-500 text-2xl"></i>
+                <div class="flex justify-center gap-4 mb-8">
+                    <button id="toolsBtn" class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:from-blue-600 hover:to-purple-700 hover:scale-105 transition duration-300 inline-flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-blue-400" style="font-size:1.15rem;">Tools & Technologies</button>
+                    <button id="certsBtn" class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:from-blue-600 hover:to-purple-700 hover:scale-105 transition duration-300 inline-flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-blue-400" style="font-size:1.15rem;">Certificates</button>
+                </div>
+                <!-- Tools & Technologies Section -->
+                <div id="toolsSection">
+                    <h3 class="text-2xl font-bold mb-6 text-center gradient-text flex items-center justify-center gap-3">
+                        Tools & Technologies
+                    </h3>
+                    <!-- Tools Carousel (Horizontal Infinite Scroll, seamless, keeps names) -->
+                    <div class="relative w-full overflow-hidden" style="height: 11rem;">
+                        <div id="tools-carousel" class="flex items-center gap-10 absolute left-0 top-0" style="will-change: transform;">
+                            <!-- Tool items (repeat for seamless loop) -->
+                            <div class="flex flex-col items-center min-w-[7rem]">
+                                <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
+                                    <i class="fab fa-html5 text-orange-500 text-4xl"></i>
+                                </div>
+                                <span class="text-sm font-medium text-gray-700">HTML5</span>
+                            </div>
+                            <div class="flex flex-col items-center min-w-[7rem]">
+                                <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
+                                    <i class="fab fa-css3-alt text-blue-500 text-4xl"></i>
+                                </div>
+                                <span class="text-sm font-medium text-gray-700">CSS3</span>
+                            </div>
+                            <div class="flex flex-col items-center min-w-[7rem]">
+                                <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
+                                    <i class="fab fa-js text-yellow-500 text-4xl"></i>
+                                </div>
+                                <span class="text-sm font-medium text-gray-700">JavaScript</span>
+                            </div>
+                            <div class="flex flex-col items-center min-w-[7rem]">
+                                <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
+                                    <i class="fab fa-php text-purple-700 text-4xl"></i>
+                                </div>
+                                <span class="text-sm font-medium text-gray-700">PHP</span>
+                            </div>
+                            <div class="flex flex-col items-center min-w-[7rem]">
+                                <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
+                                    <i class="fas fa-database text-blue-400 text-4xl"></i>
+                                </div>
+                                <span class="text-sm font-medium text-gray-700">SQL</span>
+                            </div>
+                            <div class="flex flex-col items-center min-w-[7rem]">
+                                <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
+                                    <i class="fas fa-terminal text-gray-800 text-4xl"></i>
+                                </div>
+                                <span class="text-sm font-medium text-gray-700">C/C++</span>
+                            </div>
+                            <div class="flex flex-col items-center min-w-[7rem]">
+                                <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg flex items-center justify-center">
+                                    <img src="https://th.bing.com/th/id/OIP.4j7LvA999TgVzlsDg_Uu7AHaEx?w=301&h=193&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Tailwind CSS" class="w-12 h-12">
+                                </div>
+                                <span class="text-sm font-medium text-gray-700">Tailwind CSS</span>
+                            </div>
+                            <div class="flex flex-col items-center min-w-[7rem]">
+                                <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg flex items-center justify-center">
+                                    <img src="https://static.canva.com/static/images/favicon.ico" alt="Canva" class="w-12 h-12">
+                                </div>
+                                <span class="text-sm font-medium text-gray-700">Canva</span>
+                            </div>
+                            <div class="flex flex-col items-center min-w-[7rem]">
+                                <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg flex items-center justify-center">
+                                    <img src="https://th.bing.com/th/id/OIP.nYQJ8xcSBFuXQSiKzvAFngHaEn?w=284&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Flutter" class="w-12 h-12">
+                                </div>
+                                <span class="text-sm font-medium text-gray-700">Flutter</span>
+                            </div>
+                            <!-- Duplicate for seamless infinite scroll -->
+                            <div class="flex flex-col items-center min-w-[7rem]">
+                                <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
+                                    <i class="fab fa-html5 text-orange-500 text-4xl"></i>
+                                </div>
+                                <span class="text-sm font-medium text-gray-700">HTML5</span>
+                            </div>
+                            <div class="flex flex-col items-center min-w-[7rem]">
+                                <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
+                                    <i class="fab fa-css3-alt text-blue-500 text-4xl"></i>
+                                </div>
+                                <span class="text-sm font-medium text-gray-700">CSS3</span>
+                            </div>
+                            <div class="flex flex-col items-center min-w-[7rem]">
+                                <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
+                                    <i class="fab fa-js text-yellow-500 text-4xl"></i>
+                                </div>
+                                <span class="text-sm font-medium text-gray-700">JavaScript</span>
+                            </div>
+                            <div class="flex flex-col items-center min-w-[7rem]">
+                                <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
+                                    <i class="fab fa-php text-purple-700 text-4xl"></i>
+                                </div>
+                                <span class="text-sm font-medium text-gray-700">PHP</span>
+                            </div>
+                            <div class="flex flex-col items-center min-w-[7rem]">
+                                <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
+                                    <i class="fas fa-database text-blue-400 text-4xl"></i>
+                                </div>
+                                <span class="text-sm font-medium text-gray-700">SQL</span>
+                            </div>
+                            <div class="flex flex-col items-center min-w-[7rem]">
+                                <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
+                                    <i class="fas fa-terminal text-gray-800 text-4xl"></i>
+                                </div>
+                                <span class="text-sm font-medium text-gray-700">C/C++</span>
+                            </div>
+                            <div class="flex flex-col items-center min-w-[7rem]">
+                                <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg flex items-center justify-center">
+                                    <img src="https://th.bing.com/th/id/OIP.4j7LvA999TgVzlsDg_Uu7AHaEx?w=301&h=193&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Tailwind CSS" class="w-12 h-12">
+                                </div>
+                                <span class="text-sm font-medium text-gray-700">Tailwind CSS</span>
+                            </div>
+                            <div class="flex flex-col items-center min-w-[7rem]">
+                                <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg flex items-center justify-center">
+                                    <img src="https://static.canva.com/static/images/favicon.ico" alt="Canva" class="w-12 h-12">
+                                </div>
+                                <span class="text-sm font-medium text-gray-700">Canva</span>
+                            </div>
+                            <div class="flex flex-col items-center min-w-[7rem]">
+                                <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg flex items-center justify-center">
+                                    <img src="https://th.bing.com/th/id/OIP.nYQJ8xcSBFuXQSiKzvAFngHaEn?w=284&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Flutter" class="w-12 h-12">
+                                </div>
+                                <span class="text-sm font-medium text-gray-700">Flutter</span>
+                            </div>
                         </div>
-                        <span class="text-sm">HTML5</span>
                     </div>
-                    <div class="flex flex-col items-center">
-                        <div class="bg-gray-100 p-4 rounded-full mb-2">
-                            <i class="fab fa-css3-alt text-blue-500 text-2xl"></i>
+                    <script>
+                        // Horizontal infinite scroll effect for tools carousel (seamless, keeps names)
+                        const carousel = document.getElementById('tools-carousel');
+                        let scrollAmount = 0;
+                        const speed = 3.5; // px per frame
+
+                        function animateCarousel() {
+                            scrollAmount += speed;
+                            // The scrollWidth is doubled because we duplicated the items for seamless loop
+                            const maxScroll = carousel.scrollWidth / 2;
+                            if (scrollAmount >= maxScroll) {
+                                // Instead of resetting to 0, subtract maxScroll for seamless effect
+                                scrollAmount -= maxScroll;
+                            }
+                            carousel.style.transform = `translateX(-${scrollAmount}px)`;
+                            requestAnimationFrame(animateCarousel);
+                        }
+                        animateCarousel();
+                    </script>
+                </div>
+                <!-- Certificates Section -->
+                <div id="certsSection" class="py-8 hidden">
+                    <h3 class="text-2xl font-bold mb-6 text-center gradient-text flex items-center justify-center gap-3">
+                        Certificates & diplomas
+                    </h3>
+                    <p class="text-gray-600 text-center mb-8 max-w-xl mx-auto">
+                        Recognitions and achievements earned through professional development, online courses, and academic excellence.
+                    </p>
+
+                    <div class="flex flex-wrap justify-center items-stretch gap-8 px-4">
+                        <div class="w-64 sm:w-72 md:w-80 flex flex-col items-center">
+                        <div class="w-full aspect-video rounded-lg overflow-hidden flex items-center justify-center bg-white">
+                            <img src="certificates/cert1.jpg" alt="Certificate 1" class="max-w-full max-h-full object-contain" />
                         </div>
-                        <span class="text-sm">CSS3</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="bg-gray-100 p-4 rounded-full mb-2">
-                            <i class="fab fa-js text-yellow-500 text-2xl"></i>
                         </div>
-                        <span class="text-sm">JavaScript</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="bg-gray-100 p-4 rounded-full mb-2">
-                            <i class="fab fa-php text-red-500 text-2xl"></i>
+
+                        <div class="w-64 sm:w-72 md:w-80 flex flex-col items-center">
+                        <div class="w-full aspect-video rounded-lg overflow-hidden flex items-center justify-center bg-white">
+                            <img src="certificates/cert2.jpg" alt="Certificate 2" class="max-w-full max-h-full object-contain" />
                         </div>
-                        <span class="text-sm">PHP</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="bg-gray-100 p-4 rounded-full mb-2">
-                            <i class="fas fa-database text-blue-400 text-2xl"></i>
                         </div>
-                        <span class="text-sm">SQL</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="bg-gray-100 p-4 rounded-full mb-2">
-                            <i class="fas fa-terminal text-gray-800 text-2xl"></i>
+
+                        <div class="w-64 sm:w-72 md:w-80 flex flex-col items-center">
+                        <div class="w-full aspect-video rounded-lg overflow-hidden flex items-center justify-center bg-white">
+                            <img src="certificates/cert3.jpg" alt="Certificate 3" class="max-w-full max-h-full object-contain" />
                         </div>
-                        <span class="text-sm">C/C++</span>
+                        </div>
+
+                        <!-- autres certificats -->
                     </div>
                 </div>
+
             </div>
+            <script>
+                // Toggle between Tools & Technologies and Certificates
+                const toolsBtn = document.getElementById('toolsBtn');
+                const certsBtn = document.getElementById('certsBtn');
+                const toolsSection = document.getElementById('toolsSection');
+                const certsSection = document.getElementById('certsSection');
+
+                // Initial state: show tools, hide certificates
+                toolsSection.classList.remove('hidden');
+                certsSection.classList.add('hidden');
+                toolsBtn.classList.add('ring-2', 'ring-blue-400');
+                certsBtn.classList.remove('ring-2', 'ring-purple-400');
+
+                toolsBtn.addEventListener('click', () => {
+                    toolsSection.classList.remove('hidden');
+                    certsSection.classList.add('hidden');
+                    toolsBtn.classList.add('ring-2', 'ring-blue-400');
+                    certsBtn.classList.remove('ring-2', 'ring-purple-400');
+                });
+
+                certsBtn.addEventListener('click', () => {
+                    certsSection.classList.remove('hidden');
+                    toolsSection.classList.add('hidden');
+                    certsBtn.classList.add('ring-2', 'ring-purple-400');
+                    toolsBtn.classList.remove('ring-2', 'ring-blue-400');
+                });
+            </script>
         </div>
     </section>
 
@@ -489,26 +780,26 @@ When I’m not coding, I like designing, solving problems, and sharing what I bu
                 <div class="md:w-1/2">
                     <div class="bg-white p-8 rounded-xl shadow-md">
                         <h3 class="text-xl font-semibold mb-6">Send Me a Message</h3>
-                        <form id="contact-form">
+                        <form id="contact-form" action="https://formspree.io/f/xqadwvgn" method="POST">
                             <div class="mb-6">
                                 <label for="name" class="block text-gray-700 mb-2">Your Name</label>
-                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                             </div>
                             <div class="mb-6">
                                 <label for="email" class="block text-gray-700 mb-2">Your Email</label>
-                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                             </div>
                             <div class="mb-6">
                                 <label for="subject" class="block text-gray-700 mb-2">Subject</label>
-                                <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <input type="text" id="subject" name="subject" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                             </div>
                             <div class="mb-6">
                                 <label for="message" class="block text-gray-700 mb-2">Your Message</label>
-                                <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                                <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                             </div>
-                            <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-medium hover:shadow-lg transition duration-300">
-                                Send Message
-                            </button>
+                            <div class="flex justify-center">
+                                <button type="submit" id="messsageBtn" class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:from-blue-600 hover:to-purple-700 hover:scale-105 transition duration-300 inline-flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-blue-400" style="font-size:1.15rem;">Send message</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -741,25 +1032,7 @@ When I’m not coding, I like designing, solving problems, and sharing what I bu
             });
         });
         
-        // Form submission
-        const contactForm = document.getElementById('contact-form');
         
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            // Here you would typically send the form data to a server
-            // For this example, we'll just show an alert
-            alert(`Thank you, ${name}! Your message has been received. I'll get back to you soon.`);
-            
-            // Reset form
-            contactForm.reset();
-        });
         
         // Animate skill bars on scroll
         const animateSkillBars = () => {
