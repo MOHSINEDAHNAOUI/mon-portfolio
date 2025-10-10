@@ -1,225 +1,172 @@
-# Mohsine Dahnaoui - Portfolio Website
+# 🚀 Mohsine Dahnaoui - Portfolio
 
-A modern, responsive portfolio website showcasing my skills, projects, and experience as a Web Developer.
+A modern, professional portfolio website showcasing full-stack web development projects and technical expertise.
 
-## 🌟 Features
+## ✨ Features
 
-### Design & User Experience
-- **Modern Design**: Clean, professional layout with gradient accents
-- **Responsive**: Fully responsive design that works on all devices
-- **Interactive Elements**: Hover effects, smooth animations, and dynamic content
-- **Professional Navigation**: Fixed navigation with smooth scrolling
-- **Mobile-Friendly**: Optimized mobile menu with professional modal design
-- **Accessible Footer**: High-contrast background for excellent text readability
-
-### Content Sections
-- **Hero Section**: Introduction with animated profile image
-- **About Me**: Personal story, skills overview, and published book showcase
-- **Projects**: Dynamic project grid with detailed project information
-- **Skills**: Visual skill bars with percentages and technology icons
-- **Contact**: Contact form and multiple contact methods
-- **Legal Pages**: Privacy Policy and Terms of Service
-
-### Technical Features
-- **Dynamic Content**: Projects loaded from external JavaScript file
-- **Interactive Modals**: Hover-activated modals for additional information
-- **Form Handling**: Contact form with validation
-- **Smooth Animations**: CSS transitions and JavaScript animations
-- **Back to Top**: Floating action button for easy navigation
-
-## 📁 Project Structure
-
-```
-PORTFOLIO/
-├── index.html              # Main portfolio page
-├── privacy-policy.html     # Privacy policy page
-├── terms-of-service.html   # Terms of service page
-├── projects-data.js        # Dynamic project data
-├── README.md              # This file
-├── CV.pdf                 # Resume/CV document
-├── mon image.jpg          # Profile image (hero section)
-├── mon image2.jpg         # Profile image (about section)
-├── mon image3.jpg         # Profile image (mobile menu)
-├── 3D_book.png           # Published book cover
-├── project1/              # Project 1 assets
-├── project2/              # Project 2 assets
-├── project3/              # Project 3 assets
-├── project4/              # Project 4 assets
-└── project5/              # Project 5 assets
-```
+- **Modern Design**: Clean, professional interface with smooth animations
+- **Dark/Light Mode**: Toggle between dark and light themes with persistent preferences
+- **Responsive Layout**: Optimized for all devices and screen sizes
+- **Interactive Projects**: Detailed project showcases with filtering capabilities
+- **Professional Presentation**: Career-focused content and skills demonstration
+- **SEO Optimized**: Complete meta tags and social media integration
+- **Performance Focused**: Fast loading times and smooth user experience
+- **Accessibility**: High contrast modes and keyboard navigation support
 
 ## 🛠️ Technologies Used
 
 ### Frontend
-- **HTML5**: Semantic markup structure
-- **CSS3**: Modern styling with Tailwind CSS
-- **JavaScript**: Interactive functionality and dynamic content
-- **Tailwind CSS**: Utility-first CSS framework
-- **Font Awesome**: Icon library
-- **Google Fonts**: Poppins font family
+- **HTML5** - Semantic markup and structure
+- **CSS3** - Modern styling with Flexbox and Grid
+- **JavaScript (ES6+)** - Interactive functionality and animations
+- **Tailwind CSS** - Utility-first CSS framework
+- **Font Awesome** - Professional icons
 
-### External Services
-- **Google Maps**: Location embedding
-- **CDN Services**: Font Awesome, Tailwind CSS, Google Fonts
+### Backend & Database
+- **PHP** - Server-side development
+- **MySQL** - Database management and design
+- **RESTful APIs** - API development and integration
 
-## 🚀 Getting Started
+### Tools & Libraries
+- **Chart.js** - Data visualization
+- **D3.js** - Advanced data visualization
+- **Bootstrap** - UI components
+- **jQuery** - DOM manipulation
+- **Git & GitHub** - Version control
 
-### Prerequisites
-- A modern web browser
-- Local web server (optional, for development)
+## 📁 Project Structure
 
-### Installation
-1. Clone or download the project files
-2. Open `index.html` in your web browser
-3. For development, use a local server:
-   ```bash
-   # Using Python
-   python -m http.server 8000
-   
-   # Using Node.js
-   npx serve .
-   
-   # Using PHP
-   php -S localhost:8000
-   ```
+```
+portfolio/
+├── index.html              # Main portfolio page
+├── projects.html           # Complete projects showcase
+├── cv.html                 # Interactive CV/Resume page
+├── projects-data.js        # Projects data for homepage
+├── all-projects-data.js    # Complete projects data
+├── dark-mode.js           # Dark mode utility script
+├── images/                 # Project images and assets
+├── certificates/           # Professional certificates
+├── project1/              # Individual project assets
+├── project2/
+├── project3/
+├── project4/
+├── project5/
+├── logo.svg               # Portfolio logo
+├── privacy-policy.html    # Privacy policy
+├── terms-of-service.html  # Terms of service
+└── README.md              # This file
+```
 
-### File Structure Explanation
+## 🎯 Key Projects
 
-#### Core Files
-- **`index.html`**: Main portfolio page with all sections
-- **`projects-data.js`**: Contains project information and images
-- **`privacy-policy.html`**: Legal privacy policy page
-- **`terms-of-service.html`**: Legal terms of service page
+### 1. eCartes - Student Card Appointment System
+- **Type**: Full-Stack Web Application
+- **Technologies**: HTML, CSS, JavaScript, PHP, MySQL, Bootstrap
+- **Features**: User authentication, appointment scheduling, admin dashboard
+- **Duration**: 4 weeks
 
-#### Assets
-- **Profile Images**: Multiple images for different sections
-- **Project Images**: Organized in project folders (project1-5)
-- **Documents**: CV and published book cover
+### 2. Ciné Nova - Cinema Ticket Reservation
+- **Type**: E-commerce Web Application
+- **Technologies**: HTML, CSS, JavaScript, PHP, MySQL, jQuery
+- **Features**: Seat selection, payment integration, booking management
+- **Duration**: 1 week
 
-## 📋 Customization Guide
+### 3. DATAvIZ - Data Visualization Platform
+- **Type**: Interactive Data Visualization
+- **Technologies**: HTML, CSS, JavaScript, Chart.js, D3.js, Bootstrap
+- **Features**: Dynamic charts, filtering, export functionality
+- **Duration**: 4 days
+- **Live Demo**: [View Project](https://mohsinedahnaoui.github.io/DATAvIZ/)
 
-### Adding New Projects
-1. Edit `projects-data.js`
-2. Add new project object with required fields:
-   ```javascript
-   {
-       title: "Project Title",
-       description: "Project description",
-       image: "project-folder/project-image.png",
-       technologies: ["HTML", "CSS", "JavaScript"],
-       link: "project-url",
-       category: "Web Development"
-   }
-   ```
-
-### Updating Personal Information
-- **Contact Details**: Update in `index.html` contact section
-- **Skills**: Modify skill percentages in the skills section
-- **About Text**: Edit the about section content
-- **Images**: Replace profile images with your own
-
-### Styling Customization
-- **Colors**: Modify gradient colors in CSS variables
-- **Fonts**: Change font family in CSS imports
-- **Layout**: Adjust Tailwind classes for different layouts
+### 4. GéoPropriétés - Real Estate Management
+- **Type**: Property Management System
+- **Technologies**: HTML, CSS, JavaScript, Tailwind CSS, PHP, MySQL, Leaflet
+- **Features**: Interactive maps, property management, search functionality
+- **Duration**: 2 weeks
+- **Live Demo**: [View Project](https://mohsinedahnaoui.github.io/GeoProprietes/)
 
 ## 🎨 Design Features
 
-### Color Scheme
-- **Primary**: Blue to Purple gradient (#3b82f6 to #8b5cf6)
-- **Background**: Light gray (#f9fafb)
-- **Text**: Dark gray (#1f2937)
-- **Accents**: Various shades for different sections
-
-### Typography
-- **Font Family**: Poppins (Google Fonts)
-- **Weights**: 300, 400, 500, 600, 700
-- **Responsive**: Scales appropriately on all devices
-
-### Interactive Elements
-- **Hover Effects**: Smooth transitions on buttons and links
-- **Modal Windows**: Professional modal designs for additional content
-- **Skill Bars**: Animated progress bars
-- **Navigation**: Active state indicators
+- **Color Scheme**: Professional blue and purple gradients
+- **Dark/Light Mode**: Seamless theme switching with localStorage persistence
+- **Typography**: Modern Poppins font family
+- **Animations**: Smooth transitions and hover effects
+- **Layout**: Grid-based responsive design
+- **Accessibility**: High contrast and keyboard navigation support
+- **Theme Persistence**: User preferences saved across sessions
 
 ## 📱 Responsive Design
 
-### Breakpoints
-- **Mobile**: < 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: > 1024px
+The portfolio is fully responsive and optimized for:
+- **Desktop** (1200px+)
+- **Tablet** (768px - 1199px)
+- **Mobile** (320px - 767px)
 
-### Mobile Features
-- **Collapsible Menu**: Professional modal-style mobile navigation
-- **Touch-Friendly**: Optimized for touch interactions
-- **Readable Text**: Appropriate font sizes for mobile screens
+## 🌙 Dark Mode Features
 
-## 🔧 Browser Compatibility
+- **Toggle Button**: Easy switching between light and dark themes
+- **Persistent Preferences**: User choice saved in localStorage
+- **Smooth Transitions**: Animated theme switching
+- **Icon Updates**: Dynamic sun/moon icons based on current theme
+- **Cross-Page Consistency**: Theme preference maintained across all pages
+- **Mobile Support**: Dark mode toggle available in mobile menu
 
-### Supported Browsers
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
+## 📄 Interactive CV Features
 
-### Features Used
-- CSS Grid and Flexbox
-- CSS Custom Properties
-- Modern JavaScript (ES6+)
-- CSS Animations and Transitions
+- **Modern Design**: Clean, professional layout with responsive design
+- **Print-Ready**: Optimized for printing and PDF generation
+- **Interactive Elements**: Animated skill bars and hover effects
+- **Comprehensive Content**: Professional summary, skills, experience, and projects
+- **Download Options**: Print to PDF or download functionality
+- **Dark Mode Support**: Consistent theming across all pages
+- **Mobile Responsive**: Optimized for all device sizes
 
-## 📄 Legal Pages
+## 🚀 Performance Optimizations
 
-### Privacy Policy
-- GDPR compliant
-- Data collection and usage information
-- User rights and contact information
-- Cookie and tracking policy
+- **Lazy Loading**: Images load as needed
+- **Minified Assets**: Optimized CSS and JavaScript
+- **CDN Integration**: Fast loading of external resources
+- **SEO Optimization**: Complete meta tags and structured data
+- **Progressive Enhancement**: Works without JavaScript
+- **Theme Persistence**: Efficient localStorage usage for preferences
 
-### Terms of Service
-- Usage license and restrictions
-- Intellectual property rights
-- User conduct guidelines
-- Liability limitations
-- Moroccan law jurisdiction
+## 📊 SEO Features
 
-## 🚀 Performance Optimization
+- **Meta Tags**: Complete Open Graph and Twitter Card support
+- **Structured Data**: Schema.org markup for better search visibility
+- **Semantic HTML**: Proper heading hierarchy and content structure
+- **Alt Tags**: Descriptive image alt text for accessibility
+- **Sitemap**: XML sitemap for search engines
 
-### Loading Speed
-- **CDN Resources**: External libraries loaded from CDN
-- **Optimized Images**: Compressed image files
-- **Minimal Dependencies**: Only essential external resources
+## 🔗 Live Demo
 
-### SEO Features
-- **Semantic HTML**: Proper heading structure
-- **Meta Tags**: Appropriate meta descriptions
-- **Alt Text**: Descriptive image alt attributes
-- **Structured Content**: Logical content organization
+Visit the live portfolio: [https://mohsinedahnaoui.github.io](https://mohsinedahnaoui.github.io)
 
 ## 📞 Contact Information
 
-### Developer Contact
 - **Email**: dahnaouimohsine@gmail.com
 - **Phone**: +212 6 58 60 34 38
-- **Location**: Bloc 5, Hay El Massira Oued Zem, Morocco
-
-### Social Links
+- **Location**: Oued Zem, Morocco
 - **LinkedIn**: [Mohsine Dahnaoui](https://www.linkedin.com/in/mohsine-dahnaoui-005246368/)
 - **GitHub**: [MOHSINEDAHNAOUI](https://github.com/MOHSINEDAHNAOUI)
-- **Instagram**: [@mohsine_dahnaoui](https://www.instagram.com/mohsine_dahnaoui)
-- **WhatsApp**: [Direct Link](https://wa.me/212658603438)
 
-## 📝 License
+## 📄 License
 
-This project is created by Mohsine Dahnaoui. All rights reserved.
+This project is open source and available under the [MIT License](LICENSE).
 
 ## 🤝 Contributing
 
-This is a personal portfolio project. For suggestions or feedback, please contact me directly through the provided contact information.
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/MOHSINEDAHNAOUI/portfolio/issues).
+
+## 🙏 Acknowledgments
+
+- **Font Awesome** for the beautiful icons
+- **Tailwind CSS** for the utility-first CSS framework
+- **Unsplash** for the high-quality background images
+- **Google Fonts** for the Poppins font family
 
 ---
 
-**Last Updated**: August 2025  
-**Version**: 1.0.0  
-**Developer**: Mohsine Dahnaoui 
+**Built with ❤️ by Mohsine Dahnaoui**
+
+*Full-Stack Web Developer | Available for Opportunities*

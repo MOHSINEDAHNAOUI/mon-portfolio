@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="mon image.jpg">
+    <link rel="icon" href="logo.svg">
     <title>Privacy Policy | Mohsine Dahnaoui</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="dark-mode.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         
@@ -22,8 +23,19 @@
             color: transparent;
         }
         
+        .gradient-bg {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
         .nav-link {
             position: relative;
+            transition: all 0.3s ease;
         }
         
         .nav-link::after {
@@ -40,170 +52,1222 @@
         .nav-link:hover::after {
             width: 100%;
         }
+        
+        .active::after {
+            width: 100%;
+        }
+        
+        .section-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .section-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .success-box {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border-left: 4px solid #10b981;
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+        
+        .shape:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .sticky-nav {
+            position: sticky;
+            top: 80px;
+            z-index: 10;
+        }
+        
+        .toc-link {
+            display: block;
+            padding: 8px 16px;
+            color: #64748b;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .toc-link:hover {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            color: #334155;
+            transform: translateX(4px);
+        }
+        
+        .toc-link.active {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            color: white;
+        }
+        
+        /* Custom animations */
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #2563eb, #7c3aed);
+        }
+        
+        /* ===== DARK MODE STYLES ===== */
+        
+        /* Dark mode base styles */
+        .dark {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        
+        .dark .glass-effect {
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+        
+        .dark .section-card {
+            background: linear-gradient(145deg, #1e293b 0%, #334155 100%);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+        
+        .dark .section-card:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark .highlight-box {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .dark .warning-box {
+            background: linear-gradient(135deg, #92400e 0%, #b45309 100%);
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .dark .success-box {
+            background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+            border-left: 4px solid #10b981;
+        }
+        
+        .dark .toc-link {
+            color: #94a3b8;
+        }
+        
+        .dark .toc-link:hover {
+            background: linear-gradient(135deg, #334155 0%, #475569 100%);
+            color: #e2e8f0;
+        }
+        
+        .dark .toc-link.active {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            color: white;
+        }
+        
+        .dark .shape {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+        }
+        
+        .dark ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        
+        .dark ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+        }
+        
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #2563eb, #7c3aed);
+        }
+        .dark {
+            color-scheme: dark;
+        
+        }
+        .dark body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            color: #e2e8f0;
+        }
+        
+        /* Navigation dark mode */
+        .dark nav {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(51, 65, 85, 0.3);
+        }
+        
+        .dark .nav-link {
+            color: #cbd5e1;
+        }
+        
+        .dark .nav-link:hover {
+            color: #f1f5f9;
+        }
+        
+        /* Cards and sections dark mode */
+        .dark .section-card {
+            background: linear-gradient(145deg, #1e293b 0%, #334155 100%);
+            border: 1px solid rgba(51, 65, 85, 0.3);
+        }
+        
+        .dark .section-card:hover {
+            background: linear-gradient(145deg, #334155 0%, #475569 100%);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Text colors dark mode */
+        .dark .text-gray-600 {
+            color: #94a3b8 !important;
+        }
+        
+        .dark .text-gray-700 {
+            color: #cbd5e1 !important;
+        }
+        
+        .dark .text-gray-800 {
+            color: #e2e8f0 !important;
+        }
+        
+        .dark .text-gray-900 {
+            color: #f1f5f9 !important;
+        }
+        
+        /* Highlight boxes dark mode */
+        .dark .highlight-box {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .dark .warning-box {
+            background: linear-gradient(135deg, #92400e 0%, #b45309 100%);
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .dark .success-box {
+            background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+            border-left: 4px solid #10b981;
+        }
+        
+        .dark .error-box {
+            background: linear-gradient(135deg, #991b1b 0%, #dc2626 100%);
+            border-left: 4px solid #ef4444;
+        }
+        
+        /* Gradient text dark mode */
+        .dark .gradient-text {
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Links dark mode */
+        .dark a {
+            color: #60a5fa;
+        }
+        
+        .dark a:hover {
+            color: #93c5fd;
+        }
+        
+        /* Footer dark mode */
+        .dark footer {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-top: 1px solid rgba(51, 65, 85, 0.3);
+        }
+        
+        /* Table of contents dark mode */
+        .dark .toc-link {
+            color: #94a3b8;
+        }
+        
+        .dark .toc-link:hover {
+            background: linear-gradient(135deg, #334155 0%, #475569 100%);
+            color: #e2e8f0;
+        }
+        
+        .dark .toc-link.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        /* Floating shapes dark mode */
+        .dark .shape {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+        }
+        
+        /* Dark mode transition */
+        * {
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Additional dark mode fixes for white elements */
+        .dark .bg-white {
+            background-color: #1e293b !important;
+        }
+        
+        .dark .text-gray-500 {
+            color: #94a3b8 !important;
+        }
+        
+        .dark .border-gray-200 {
+            border-color: #374151 !important;
+        }
+        
+        .dark .bg-gray-50 {
+            background-color: #1e293b !important;
+        }
+        
+        .dark .bg-gray-100 {
+            background-color: #334155 !important;
+        }
+        
+        .dark .bg-gray-200 {
+            background-color: #475569 !important;
+        }
+        
+        .dark .bg-blue-50 {
+            background-color: #1e3a8a !important;
+        }
+        
+        .dark .bg-yellow-50 {
+            background-color: #92400e !important;
+        }
+        
+        .dark .bg-green-50 {
+            background-color: #065f46 !important;
+        }
+        
+        .dark .bg-red-50 {
+            background-color: #7f1d1d !important;
+        }
+        
+        .dark .bg-indigo-50 {
+            background-color: #312e81 !important;
+        }
+        
+        .dark .bg-purple-50 {
+            background-color: #581c87 !important;
+        }
+        
+        .dark .bg-pink-50 {
+            background-color: #831843 !important;
+        }
+        
+        .dark .bg-cyan-50 {
+            background-color: #164e63 !important;
+        }
+        
+        .dark .bg-emerald-50 {
+            background-color: #064e3b !important;
+        }
+        
+        .dark .bg-orange-50 {
+            background-color: #9a3412 !important;
+        }
+        
+        .dark .bg-teal-50 {
+            background-color: #134e4a !important;
+        }
+        
+        .dark .bg-lime-50 {
+            background-color: #365314 !important;
+        }
+        
+        .dark .bg-amber-50 {
+            background-color: #78350f !important;
+        }
+        
+        .dark .bg-rose-50 {
+            background-color: #881337 !important;
+        }
+        
+        .dark .bg-sky-50 {
+            background-color: #0c4a6e !important;
+        }
+        
+        .dark .bg-violet-50 {
+            background-color: #4c1d95 !important;
+        }
+        
+        .dark .bg-fuchsia-50 {
+            background-color: #701a75 !important;
+        }
+        
+        .dark .bg-slate-50 {
+            background-color: #0f172a !important;
+        }
+        
+        .dark .bg-zinc-50 {
+            background-color: #18181b !important;
+        }
+        
+        .dark .bg-neutral-50 {
+            background-color: #171717 !important;
+        }
+        
+        .dark .bg-stone-50 {
+            background-color: #1c1917 !important;
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 min-h-screen">
+    <!-- Floating Background Shapes -->
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white shadow-sm z-50">
+    <nav class="fixed w-full glass-effect z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <a href="index.html" class="text-xl font-bold gradient-text">Mohsine Dahnaoui</a>
+                    <a href="index.html" class="text-xl font-bold gradient-text flex items-center">
+                        Mohsine Dahnaoui
+                    </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html#home" class="nav-link">Home</a>
-                    <a href="index.html#about" class="nav-link">About</a>
-                    <a href="index.html#projects" class="nav-link">Projects</a>
-                    <a href="index.html#skills" class="nav-link">Skills</a>
-                    <a href="index.html#contact" class="nav-link">Contact</a>
+                    <a href="index.html#home" class="nav-link text-gray-600 hover:text-gray-900 transition">Home</a>
+                    <a href="index.html#about" class="nav-link text-gray-600 hover:text-gray-900 transition">About</a>
+                    <a href="index.html#projects" class="nav-link text-gray-600 hover:text-gray-900 transition">Projects</a>
+                    <a href="index.html#skills" class="nav-link text-gray-600 hover:text-gray-900 transition">Skills</a>
+                    <a href="index.html#contact" class="nav-link text-gray-600 hover:text-gray-900 transition">Contact</a>
+                    <!-- Dark Mode Toggle -->
+                    <button id="dark-mode-toggle" class="relative p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-all duration-300 dark:bg-gray-700 dark:hover:bg-gray-600 group" title="Toggle Dark Mode">
+                        <i id="dark-mode-icon" class="fas fa-moon text-gray-600 dark:text-yellow-400 transition-all duration-300"></i>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-700 hover:text-gray-900">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <section class="pt-24 pb-16">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white rounded-xl shadow-lg p-8 md:p-12">
-                <div class="text-center mb-12">
-                    <h1 class="text-4xl font-bold mb-4">Privacy <span class="gradient-text">Policy</span></h1>
-                    <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-4"></div>
-                    <p class="text-gray-600">Last updated: July 2025</p>
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mb-6">
+                    <i class="fas fa-shield-alt text-white text-2xl"></i>
                 </div>
-
-                <div class="prose prose-lg max-w-none">
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4 text-gray-800">1. Introduction</h2>
-                        <p class="text-gray-600 mb-4">
-                            Welcome to Mohsine Dahnaoui's portfolio website. This Privacy Policy explains how I collect, use, and protect your information when you visit my website. By using this website, you agree to the collection and use of information in accordance with this policy.
-                        </p>
-                    </div>
-
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4 text-gray-800">2. Information I Collect</h2>
-                        <div class="space-y-4">
-                            <div>
-                                <h3 class="text-xl font-medium mb-2 text-gray-700">2.1 Personal Information</h3>
-                                <p class="text-gray-600 mb-2">When you contact me through the contact form, I may collect:</p>
-                                <ul class="list-disc list-inside text-gray-600 ml-4 space-y-1">
-                                    <li>Your name</li>
-                                    <li>Email address</li>
-                                    <li>Phone number (if provided)</li>
-                                    <li>Message content</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-medium mb-2 text-gray-700">2.2 Automatically Collected Information</h3>
-                                <p class="text-gray-600 mb-2">When you visit my website, certain information is automatically collected:</p>
-                                <ul class="list-disc list-inside text-gray-600 ml-4 space-y-1">
-                                    <li>IP address</li>
-                                    <li>Browser type and version</li>
-                                    <li>Operating system</li>
-                                    <li>Pages visited and time spent</li>
-                                    <li>Referring website</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4 text-gray-800">3. How I Use Your Information</h2>
-                        <p class="text-gray-600 mb-4">I use the collected information for the following purposes:</p>
-                        <ul class="list-disc list-inside text-gray-600 ml-4 space-y-2">
-                            <li>To respond to your inquiries and provide customer support</li>
-                            <li>To improve my website and user experience</li>
-                            <li>To analyze website traffic and usage patterns</li>
-                            <li>To protect against fraud and ensure website security</li>
-                            <li>To comply with legal obligations</li>
-                        </ul>
-                    </div>
-
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4 text-gray-800">4. Information Sharing</h2>
-                        <p class="text-gray-600 mb-4">
-                            I do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except in the following circumstances:
-                        </p>
-                        <ul class="list-disc list-inside text-gray-600 ml-4 space-y-2">
-                            <li>When required by law or to comply with legal processes</li>
-                            <li>To protect my rights, property, or safety</li>
-                            <li>With trusted service providers who assist in operating my website (under strict confidentiality agreements)</li>
-                        </ul>
-                    </div>
-
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4 text-gray-800">5. Data Security</h2>
-                        <p class="text-gray-600 mb-4">
-                            I implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure, and I cannot guarantee absolute security.
-                        </p>
-                    </div>
-
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4 text-gray-800">6. Cookies and Tracking</h2>
-                        <p class="text-gray-600 mb-4">
-                            This website may use cookies and similar tracking technologies to enhance your browsing experience. You can control cookie settings through your browser preferences.
-                        </p>
-                    </div>
-
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4 text-gray-800">7. Third-Party Services</h2>
-                        <p class="text-gray-600 mb-4">
-                            This website may contain links to third-party websites or use third-party services (such as Google Fonts, Font Awesome). These services have their own privacy policies, and I am not responsible for their practices.
-                        </p>
-                    </div>
-
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4 text-gray-800">8. Your Rights</h2>
-                        <p class="text-gray-600 mb-4">You have the right to:</p>
-                        <ul class="list-disc list-inside text-gray-600 ml-4 space-y-2">
-                            <li>Access your personal information</li>
-                            <li>Correct inaccurate information</li>
-                            <li>Request deletion of your information</li>
-                            <li>Object to processing of your information</li>
-                            <li>Withdraw consent at any time</li>
-                        </ul>
-                    </div>
-
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4 text-gray-800">9. Children's Privacy</h2>
-                        <p class="text-gray-600 mb-4">
-                            This website is not intended for children under 13 years of age. I do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided personal information, please contact me.
-                        </p>
-                    </div>
-
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4 text-gray-800">10. Changes to This Policy</h2>
-                        <p class="text-gray-600 mb-4">
-                            I may update this Privacy Policy from time to time. I will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.
-                        </p>
-                    </div>
-
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4 text-gray-800">11. Contact Information</h2>
-                        <p class="text-gray-600 mb-4">
-                            If you have any questions about this Privacy Policy, please contact me:
-                        </p>
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <p class="text-gray-600 mb-2"><strong>Email:</strong> <a href="mailto:dahnaouimohsine@gmail.com" class="text-blue-600 hover:text-blue-800">dahnaouimohsine@gmail.com</a></p>
-                            <p class="text-gray-600 mb-2"><strong>Phone:</strong> <a href="tel:+212 6 58 60 34 38" class="text-blue-600 hover:text-blue-800">+212 6 58 60 34 38</a></p>
-                            <p class="text-gray-600"><strong>Location:</strong> Bloc 5, Hay El Massira Oued Zem, Morocco</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center mt-12">
-                    <a href="index.html" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-medium hover:shadow-lg transition duration-300">
-                        <i class="fas fa-arrow-left mr-2"></i> Back to Portfolio
-                    </a>
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                    Privacy <span class="gradient-text">Policy</span>
+                </h1>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Your privacy is important to us. This policy explains how we collect, use, and protect your information when you visit our website.
+                </p>
+                <div class="mt-8 flex items-center justify-center space-x-4 text-sm text-gray-500">
+                    <span class="flex items-center">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        Last updated: October 10, 2025
+                    </span>
+                    <span class="flex items-center">
+                        <i class="fas fa-clock mr-2"></i>
+                        Reading time: 9 minutes
+                    </span>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Main Content -->
+    <section class="pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <!-- Table of Contents -->
+                <div class="lg:col-span-1">
+                    <div class="sticky-nav">
+                        <div class="section-card rounded-2xl p-6">
+                            <h3 class="text-lg font-semibold mb-4 text-gray-800">
+                                <i class="fas fa-list-ul mr-2"></i>
+                                Table of Contents
+                            </h3>
+                            <nav class="space-y-2">
+                                <a href="#introduction" class="toc-link">1. Introduction</a>
+                                <a href="#information-collection" class="toc-link">2. Information Collection</a>
+                                <a href="#data-usage" class="toc-link">3. How We Use Data</a>
+                                <a href="#data-sharing" class="toc-link">4. Data Sharing</a>
+                                <a href="#data-security" class="toc-link">5. Data Security</a>
+                                <a href="#cookies" class="toc-link">6. Cookies & Tracking</a>
+                                <a href="#third-party" class="toc-link">7. Third-Party Services</a>
+                                <a href="#user-rights" class="toc-link">8. Your Rights</a>
+                                <a href="#children-privacy" class="toc-link">9. Children's Privacy</a>
+                                <a href="#policy-changes" class="toc-link">10. Policy Changes</a>
+                                <a href="#contact" class="toc-link">11. Contact Us</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="lg:col-span-3 space-y-8">
+                    <!-- Introduction -->
+                    <div id="introduction" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-info-circle text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Introduction</h2>
+                        </div>
+                        <div class="highlight-box p-6 rounded-xl mb-6">
+                            <p class="text-gray-700 leading-relaxed">
+                                Welcome to Mohsine Dahnaoui's portfolio website. We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.
+                            </p>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">
+                            By accessing and using this website, you consent to the data practices described in this policy. If you do not agree with the terms of this Privacy Policy, please do not access the website.
+                        </p>
+                    </div>
+
+                    <!-- Information Collection -->
+                    <div id="information-collection" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-database text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Information We Collect</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
+                                <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+                                    <i class="fas fa-user mr-2 text-blue-600"></i>
+                                    Personal Information
+                                </h3>
+                                <p class="text-gray-600 mb-4">When you contact us, we may collect:</p>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        Full name and email address
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        Phone number (optional)
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        Company name and job title
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        Project details and requirements
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
+                                <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+                                    <i class="fas fa-chart-line mr-2 text-purple-600"></i>
+                                    Technical Information
+                                </h3>
+                                <p class="text-gray-600 mb-4">We automatically collect:</p>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        IP address and browser type
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        Device information and OS
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        Pages visited and session duration
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        Referring website URLs
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Usage -->
+                    <div id="data-usage" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-cogs text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">How We Use Your Information</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 text-center">
+                                <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-comments text-white text-xl"></i>
+                                </div>
+                                <h3 class="font-semibold mb-2 text-gray-800">Communication</h3>
+                                <p class="text-sm text-gray-600">Respond to inquiries and provide support</p>
+                            </div>
+                            
+                            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 text-center">
+                                <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-chart-bar text-white text-xl"></i>
+                                </div>
+                                <h3 class="font-semibold mb-2 text-gray-800">Analytics</h3>
+                                <p class="text-sm text-gray-600">Improve website performance and user experience</p>
+                            </div>
+                            
+                            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 text-center">
+                                <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-shield-alt text-white text-xl"></i>
+                                </div>
+                                <h3 class="font-semibold mb-2 text-gray-800">Security</h3>
+                                <p class="text-sm text-gray-600">Protect against fraud and ensure safety</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Sharing -->
+                    <div id="data-sharing" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-pink-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-share-alt text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Data Sharing & Disclosure</h2>
+                        </div>
+                        
+                        <div class="warning-box p-6 rounded-xl mb-6">
+                            <h3 class="font-semibold mb-2 text-gray-800 flex items-center">
+                                <i class="fas fa-exclamation-triangle mr-2"></i>
+                                We Do Not Sell Your Data
+                            </h3>
+                            <p class="text-gray-700">
+                                We do not sell, trade, or rent your personal information to third parties for marketing purposes.
+                            </p>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-gavel text-red-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">Legal Requirements</h3>
+                                    <p class="text-gray-600">When required by law or to comply with legal processes</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-shield-alt text-orange-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">Safety & Security</h3>
+                                    <p class="text-gray-600">To protect our rights, property, or safety</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-handshake text-blue-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">Trusted Partners</h3>
+                                    <p class="text-gray-600">With service providers under strict confidentiality agreements</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Security -->
+                    <div id="data-security" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-lock text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Data Security</h2>
+                        </div>
+                        
+                        <div class="success-box p-6 rounded-xl mb-6">
+                            <h3 class="font-semibold mb-2 text-gray-800 flex items-center">
+                                <i class="fas fa-check-circle mr-2"></i>
+                                Security Measures
+                            </h3>
+                            <p class="text-gray-700">
+                                We implement industry-standard security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.
+                            </p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-4">
+                                <h3 class="text-lg font-semibold text-gray-800">Technical Safeguards</h3>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        SSL/TLS encryption
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        Secure data transmission
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        Regular security updates
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        Access controls and monitoring
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <h3 class="text-lg font-semibold text-gray-800">Administrative Safeguards</h3>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        Staff training on data protection
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        Limited access to personal data
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        Regular security audits
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        Incident response procedures
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="warning-box p-6 rounded-xl mt-6">
+                            <p class="text-gray-700">
+                                <strong>Important:</strong> While we strive to protect your personal information, no method of transmission over the internet or electronic storage is 100% secure. We cannot guarantee absolute security.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Cookies -->
+                    <div id="cookies" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-cookie-bite text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Cookies & Tracking Technologies</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 text-center">
+                                <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-cog text-white text-xl"></i>
+                                </div>
+                                <h3 class="font-semibold mb-2 text-gray-800">Essential Cookies</h3>
+                                <p class="text-sm text-gray-600">Required for website functionality and security</p>
+                            </div>
+                            
+                            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 text-center">
+                                <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-chart-line text-white text-xl"></i>
+                                </div>
+                                <h3 class="font-semibold mb-2 text-gray-800">Analytics Cookies</h3>
+                                <p class="text-sm text-gray-600">Help us understand website usage and performance</p>
+                            </div>
+                            
+                            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 text-center">
+                                <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-user-cog text-white text-xl"></i>
+                                </div>
+                                <h3 class="font-semibold mb-2 text-gray-800">Preference Cookies</h3>
+                                <p class="text-sm text-gray-600">Remember your settings and preferences</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 p-6 bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
+                            <h3 class="font-semibold mb-2 text-gray-800">Cookie Management</h3>
+                        <p class="text-gray-600 mb-4">
+                                You can control and manage cookies through your browser settings. However, disabling certain cookies may affect website functionality.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Chrome</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Firefox</span>
+                                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Safari</span>
+                                <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">Edge</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Third-Party Services -->
+                    <div id="third-party" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-external-link-alt text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Third-Party Services</h2>
+                        </div>
+                        
+                        <p class="text-gray-600 mb-6">
+                            Our website may use third-party services to enhance functionality and user experience. These services have their own privacy policies and data practices.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
+                                <div class="flex items-center">
+                                    <i class="fab fa-google text-red-500 text-xl mr-3"></i>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Google Fonts</h3>
+                                        <p class="text-sm text-gray-600">Web font delivery service</p>
+                                    </div>
+                                </div>
+                                <a href="https://policies.google.com/privacy" target="_blank" class="text-blue-600 hover:text-blue-800 text-sm">
+                                    Privacy Policy <i class="fas fa-external-link-alt ml-1"></i>
+                                </a>
+                            </div>
+                            
+                            <div class="flex items-center justify-between p-4 bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
+                                <div class="flex items-center">
+                                    <i class="fab fa-font-awesome text-blue-500 text-xl mr-3"></i>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Font Awesome</h3>
+                                        <p class="text-sm text-gray-600">Icon font library</p>
+                                    </div>
+                                </div>
+                                <a href="https://fontawesome.com/privacy" target="_blank" class="text-blue-600 hover:text-blue-800 text-sm">
+                                    Privacy Policy <i class="fas fa-external-link-alt ml-1"></i>
+                                </a>
+                            </div>
+                            
+                            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                                <div class="flex items-center">
+                                    <i class="fab fa-github text-gray-800 text-xl mr-3"></i>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">GitHub Pages</h3>
+                                        <p class="text-sm text-gray-600">Website hosting service</p>
+                                    </div>
+                                </div>
+                                <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" class="text-blue-600 hover:text-blue-800 text-sm">
+                                    Privacy Policy <i class="fas fa-external-link-alt ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- User Rights -->
+                    <div id="user-rights" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-user-shield text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Your Rights & Choices</h2>
+                        </div>
+                        
+                        <div class="success-box p-6 rounded-xl mb-6">
+                            <h3 class="font-semibold mb-2 text-gray-800 flex items-center">
+                                <i class="fas fa-gavel mr-2"></i>
+                                Your Data Protection Rights
+                            </h3>
+                            <p class="text-gray-700">
+                                You have certain rights regarding your personal information under applicable data protection laws.
+                            </p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <i class="fas fa-eye text-blue-600 text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Right to Access</h3>
+                                        <p class="text-gray-600 text-sm">Request a copy of your personal data</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <i class="fas fa-edit text-green-600 text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Right to Rectification</h3>
+                                        <p class="text-gray-600 text-sm">Correct inaccurate or incomplete data</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <i class="fas fa-trash text-red-600 text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Right to Erasure</h3>
+                                        <p class="text-gray-600 text-sm">Request deletion of your data</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <i class="fas fa-ban text-yellow-600 text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Right to Object</h3>
+                                        <p class="text-gray-600 text-sm">Object to processing of your data</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <i class="fas fa-download text-purple-600 text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Right to Portability</h3>
+                                        <p class="text-gray-600 text-sm">Receive your data in a portable format</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <i class="fas fa-hand-paper text-indigo-600 text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Right to Restrict</h3>
+                                        <p class="text-gray-600 text-sm">Limit how we process your data</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 p-6 bg-blue-50 rounded-xl">
+                            <h3 class="font-semibold mb-2 text-gray-800">How to Exercise Your Rights</h3>
+                            <p class="text-gray-600 mb-4">
+                                To exercise any of these rights, please contact us using the information provided in the Contact section. We will respond to your request within 30 days.
+                            </p>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                <span>We may require identity verification before processing your request</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Children's Privacy -->
+                    <div id="children-privacy" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-child text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Children's Privacy</h2>
+                        </div>
+                        
+                        <div class="warning-box p-6 rounded-xl">
+                            <h3 class="font-semibold mb-2 text-gray-800 flex items-center">
+                                <i class="fas fa-exclamation-triangle mr-2"></i>
+                                Age Restrictions
+                            </h3>
+                            <p class="text-gray-700 mb-4">
+                                Our website is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13.
+                            </p>
+                            <p class="text-gray-700">
+                                If you are a parent or guardian and believe your child has provided personal information to us, please contact us immediately. We will take steps to remove such information from our records.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Policy Changes -->
+                    <div id="policy-changes" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-gray-500 to-slate-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-sync-alt text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Changes to This Policy</h2>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <p class="text-gray-600">
+                                We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors.
+                            </p>
+                            
+                            <div class="bg-gray-50 p-6 rounded-xl">
+                                <h3 class="font-semibold mb-3 text-gray-800">How We Notify You of Changes</h3>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        Posting the updated policy on this page
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        Updating the "Last updated" date
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        Sending email notifications for significant changes
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="highlight-box p-6 rounded-xl">
+                                <p class="text-gray-700">
+                                    <strong>Your continued use of the website after any changes constitutes acceptance of the updated Privacy Policy.</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+                    <div id="contact" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Contact Us</h2>
+                        </div>
+                        
+                        <p class="text-gray-600 mb-8">
+                            If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please don't hesitate to contact us.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="space-y-6">
+                                <div class="flex items-center space-x-4 p-4 bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
+                                    <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-envelope text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Email</h3>
+                                        <a href="mailto:dahnaouimohsine@gmail.com" class="text-blue-600 hover:text-blue-800">
+                                            dahnaouimohsine@gmail.com
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4 p-4 bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
+                                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-phone text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Phone</h3>
+                                        <a href="tel:+212658603438" class="text-green-600 hover:text-green-800">
+                                            +212 6 58 60 34 38
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4 p-4 bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
+                                    <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-map-marker-alt text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Location</h3>
+                                        <p class="text-gray-600">Bloc 5, Hay El Massira<br>Oued Zem, Morocco</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
+                                <h3 class="font-semibold mb-4 text-gray-800">Response Time</h3>
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-gray-600">General inquiries</span>
+                                        <span class="text-sm font-medium text-gray-800">24-48 hours</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-gray-600">Privacy requests</span>
+                                        <span class="text-sm font-medium text-gray-800">30 days</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-gray-600">Urgent matters</span>
+                                        <span class="text-sm font-medium text-gray-800">Same day</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Portfolio -->
+    <section class="pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <a href="index.html" class="inline-flex items-center px-8 py-4 bg-white rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-lg">
+                    <i class="fas fa-arrow-left mr-3"></i>
+                    Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-gray-400">© 2025 Mohsine Dahnaoui. All rights reserved.</p>
+    <footer class="bg-gray-900 to-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex items-center justify-center mb-4">
+                    <span class="text-xl font-bold">Mohsine Dahnaoui</span>
+                </div>
+                <p class="text-gray-400 mb-4">Full-Stack Web Developer & Digital Solutions Expert</p>
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="mailto:dahnaouimohsine@gmail.com" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                    <a href="tel:+212658603438" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fas fa-phone text-xl"></i>
+                    </a>
+                    <a href="https://github.com/mohsinedahnaoui" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/mohsine-dahnaoui" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                </div>
+                <p class="text-gray-500 text-sm">© 2025 Mohsine Dahnaoui. All rights reserved.</p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Smooth scrolling for table of contents
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active section highlighting
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('[id]');
+            const navLinks = document.querySelectorAll('.toc-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html> 

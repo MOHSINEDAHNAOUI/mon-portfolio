@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="mon image.jpg">
+    <link rel="icon" href="logo.svg">
     <title>Terms of Service | Mohsine Dahnaoui</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="dark-mode.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         
@@ -22,8 +23,19 @@
             color: transparent;
         }
         
+        .gradient-bg {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
         .nav-link {
             position: relative;
+            transition: all 0.3s ease;
         }
         
         .nav-link::after {
@@ -40,159 +52,1503 @@
         .nav-link:hover::after {
             width: 100%;
         }
+        
+        .active::after {
+            width: 100%;
+        }
+        
+        .section-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .section-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .success-box {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border-left: 4px solid #10b981;
+        }
+        
+        .error-box {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            border-left: 4px solid #ef4444;
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+        
+        .shape:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .sticky-nav {
+            position: sticky;
+            top: 80px;
+            z-index: 10;
+        }
+        
+        .toc-link {
+            display: block;
+            padding: 8px 16px;
+            color: #64748b;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .toc-link:hover {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            color: #334155;
+            transform: translateX(4px);
+        }
+        
+        .toc-link.active {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            color: white;
+        }
+        
+        .prohibited-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .prohibited-item i {
+            color: #ef4444;
+            margin-right: 12px;
+            width: 20px;
+        }
+        
+        /* Custom animations */
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #2563eb, #7c3aed);
+        }
+        
+        /* ===== DARK MODE STYLES ===== */
+        
+        /* Dark mode base styles */
+        .dark {
+            color-scheme: dark;
+        }
+        
+        .dark body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            color: #e2e8f0;
+        }
+        
+        /* Navigation dark mode */
+        .dark nav {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(51, 65, 85, 0.3);
+        }
+        
+        .dark .nav-link {
+            color: #cbd5e1;
+        }
+        
+        .dark .nav-link:hover {
+            color: #f1f5f9;
+        }
+        
+        /* Cards and sections dark mode */
+        .dark .section-card {
+            background: linear-gradient(145deg, #1e293b 0%, #334155 100%);
+            border: 1px solid rgba(51, 65, 85, 0.3);
+        }
+        
+        .dark .section-card:hover {
+            background: linear-gradient(145deg, #334155 0%, #475569 100%);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Text colors dark mode */
+        .dark .text-gray-600 {
+            color: #94a3b8 !important;
+        }
+        
+        .dark .text-gray-700 {
+            color: #cbd5e1 !important;
+        }
+        
+        .dark .text-gray-800 {
+            color: #e2e8f0 !important;
+        }
+        
+        .dark .text-gray-900 {
+            color: #f1f5f9 !important;
+        }
+        
+        /* Highlight boxes dark mode */
+        .dark .highlight-box {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .dark .warning-box {
+            background: linear-gradient(135deg, #92400e 0%, #b45309 100%);
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .dark .success-box {
+            background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+            border-left: 4px solid #10b981;
+        }
+        
+        .dark .error-box {
+            background: linear-gradient(135deg, #991b1b 0%, #dc2626 100%);
+            border-left: 4px solid #ef4444;
+        }
+        
+        /* Prohibited items dark mode */
+        .dark .prohibited-item {
+            background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+            border: 1px solid #dc2626;
+        }
+        
+        .dark .prohibited-item i {
+            color: #fca5a5;
+        }
+        
+        /* Gradient text dark mode */
+        .dark .gradient-text {
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Links dark mode */
+        .dark a {
+            color: #60a5fa;
+        }
+        
+        .dark a:hover {
+            color: #93c5fd;
+        }
+        
+        /* Footer dark mode */
+        .dark footer {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-top: 1px solid rgba(51, 65, 85, 0.3);
+        }
+        
+        /* Table of contents dark mode */
+        .dark .toc-link {
+            color: #94a3b8;
+        }
+        
+        .dark .toc-link:hover {
+            background: linear-gradient(135deg, #334155 0%, #475569 100%);
+            color: #e2e8f0;
+        }
+        
+        .dark .toc-link.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        /* Floating shapes dark mode */
+        .dark .shape {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+        }
+        
+        /* Dark mode transition */
+        * {
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Additional dark mode fixes for white elements */
+        .dark .bg-white {
+            background-color: #1e293b !important;
+        }
+        
+        .dark .text-gray-500 {
+            color: #94a3b8 !important;
+        }
+        
+        .dark .border-gray-200 {
+            border-color: #374151 !important;
+        }
+        
+        .dark .bg-gray-50 {
+            background-color: #1e293b !important;
+        }
+        
+        .dark .bg-gray-100 {
+            background-color: #334155 !important;
+        }
+        
+        .dark .bg-gray-200 {
+            background-color: #475569 !important;
+        }
+        
+        .dark .bg-blue-50 {
+            background-color: #1e3a8a !important;
+        }
+        
+        .dark .bg-yellow-50 {
+            background-color: #92400e !important;
+        }
+        
+        .dark .bg-green-50 {
+            background-color: #065f46 !important;
+        }
+        
+        .dark .bg-red-50 {
+            background-color: #7f1d1d !important;
+        }
+        
+        .dark .bg-indigo-50 {
+            background-color: #312e81 !important;
+        }
+        
+        .dark .bg-purple-50 {
+            background-color: #581c87 !important;
+        }
+        
+        .dark .bg-pink-50 {
+            background-color: #831843 !important;
+        }
+        
+        .dark .bg-cyan-50 {
+            background-color: #164e63 !important;
+        }
+        
+        .dark .bg-emerald-50 {
+            background-color: #064e3b !important;
+        }
+        
+        .dark .bg-orange-50 {
+            background-color: #9a3412 !important;
+        }
+        
+        .dark .bg-teal-50 {
+            background-color: #134e4a !important;
+        }
+        
+        .dark .bg-lime-50 {
+            background-color: #365314 !important;
+        }
+        
+        .dark .bg-amber-50 {
+            background-color: #78350f !important;
+        }
+        
+        .dark .bg-rose-50 {
+            background-color: #881337 !important;
+        }
+        
+        .dark .bg-sky-50 {
+            background-color: #0c4a6e !important;
+        }
+        
+        .dark .bg-violet-50 {
+            background-color: #4c1d95 !important;
+        }
+        
+        .dark .bg-fuchsia-50 {
+            background-color: #701a75 !important;
+        }
+        
+        .dark .bg-slate-50 {
+            background-color: #0f172a !important;
+        }
+        
+        .dark .bg-zinc-50 {
+            background-color: #18181b !important;
+        }
+        
+        .dark .bg-neutral-50 {
+            background-color: #171717 !important;
+        }
+        
+        .dark .bg-stone-50 {
+            background-color: #1c1917 !important;
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 min-h-screen">
+    <!-- Floating Background Shapes -->
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white shadow-sm z-50">
+    <nav class="fixed w-full glass-effect z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <a href="index.html" class="text-xl font-bold gradient-text">Mohsine Dahnaoui</a>
+                    <a href="index.html" class="text-xl font-bold gradient-text flex items-center">
+                        Mohsine Dahnaoui
+                    </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html#home" class="nav-link">Home</a>
-                    <a href="index.html#about" class="nav-link">About</a>
-                    <a href="index.html#projects" class="nav-link">Projects</a>
-                    <a href="index.html#skills" class="nav-link">Skills</a>
-                    <a href="index.html#contact" class="nav-link">Contact</a>
+                    <a href="index.html#home" class="nav-link text-gray-600 hover:text-gray-900 transition">Home</a>
+                    <a href="index.html#about" class="nav-link text-gray-600 hover:text-gray-900 transition">About</a>
+                    <a href="index.html#projects" class="nav-link text-gray-600 hover:text-gray-900 transition">Projects</a>
+                    <a href="index.html#skills" class="nav-link text-gray-600 hover:text-gray-900 transition">Skills</a>
+                    <a href="index.html#contact" class="nav-link text-gray-600 hover:text-gray-900 transition">Contact</a>
+                    <!-- Dark Mode Toggle -->
+                    <button id="dark-mode-toggle" class="relative p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-all duration-300 dark:bg-gray-700 dark:hover:bg-gray-600 group" title="Toggle Dark Mode">
+                        <i id="dark-mode-icon" class="fas fa-moon text-gray-600 dark:text-yellow-400 transition-all duration-300"></i>
+                    </button>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-700 hover:text-gray-900">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <section class="pt-24 pb-16">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white rounded-xl shadow-lg p-8 md:p-12">
-                <div class="text-center mb-12">
-                    <h1 class="text-4xl font-bold mb-4">Terms of <span class="gradient-text">Service</span></h1>
-                    <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-4"></div>
-                    <p class="text-gray-600">Last updated: July 2025</p>
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mb-6">
+                    <i class="fas fa-file-contract text-white text-2xl"></i>
                 </div>
-
-                <div class="prose prose-lg max-w-none">
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4 text-gray-800">1. Acceptance of Terms</h2>
-                        <p class="text-gray-600 mb-4">
-                            By accessing and using Mohsine Dahnaoui's portfolio website, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
-                        </p>
-                    </div>
-
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4 text-gray-800">2. Use License</h2>
-                        <div class="space-y-4">
-                            <p class="text-gray-600 mb-4">
-                                Permission is granted to temporarily download one copy of the materials (information or software) on Mohsine Dahnaoui's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
-                            </p>
-                            <ul class="list-disc list-inside text-gray-600 ml-4 space-y-2">
-                                <li>Modify or copy the materials</li>
-                                <li>Use the materials for any commercial purpose or for any public display (commercial or non-commercial)</li>
-                                <li>Attempt to decompile or reverse engineer any software contained on the website</li>
-                                <li>Remove any copyright or other proprietary notations from the materials</li>
-                                <li>Transfer the materials to another person or "mirror" the materials on any other server</li>
-                            </ul>
-                            <p class="text-gray-600 mb-4">
-                                This license shall automatically terminate if you violate any of these restrictions and may be terminated by Mohsine Dahnaoui at any time.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4 text-gray-800">3. Disclaimer</h2>
-                        <p class="text-gray-600 mb-4">
-                            The materials on Mohsine Dahnaoui's website are provided on an 'as is' basis. Mohsine Dahnaoui makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
-                        </p>
-                    </div>
-
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4 text-gray-800">4. Limitations</h2>
-                        <p class="text-gray-600 mb-4">
-                            In no event shall Mohsine Dahnaoui or his suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on the website, even if Mohsine Dahnaoui or a Mohsine Dahnaoui authorized representative has been notified orally or in writing of the possibility of such damage.
-                        </p>
-                    </div>
-
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4 text-gray-800">5. Accuracy of Materials</h2>
-                        <p class="text-gray-600 mb-4">
-                            The materials appearing on Mohsine Dahnaoui's website could include technical, typographical, or photographic errors. Mohsine Dahnaoui does not warrant that any of the materials on the website are accurate, complete, or current. Mohsine Dahnaoui may make changes to the materials contained on the website at any time without notice.
-                        </p>
-                    </div>
-
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4 text-gray-800">6. Links</h2>
-                        <p class="text-gray-600 mb-4">
-                            Mohsine Dahnaoui has not reviewed all of the sites linked to the website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by Mohsine Dahnaoui of the site. Use of any such linked website is at the user's own risk.
-                        </p>
-                    </div>
-
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4 text-gray-800">7. Modifications</h2>
-                        <p class="text-gray-600 mb-4">
-                            Mohsine Dahnaoui may revise these terms of service for the website at any time without notice. By using this website, you are agreeing to be bound by the then current version of these Terms of Service.
-                        </p>
-                    </div>
-
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4 text-gray-800">8. Governing Law</h2>
-                        <p class="text-gray-600 mb-4">
-                            These terms and conditions are governed by and construed in accordance with the laws of Morocco and you irrevocably submit to the exclusive jurisdiction of the courts in that location.
-                        </p>
-                    </div>
-
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4 text-gray-800">9. Intellectual Property Rights</h2>
-                        <p class="text-gray-600 mb-4">
-                            All content on this website, including but not limited to text, graphics, logos, images, and software, is the property of Mohsine Dahnaoui and is protected by copyright laws. Unauthorized use of any content may violate copyright, trademark, and other applicable laws.
-                        </p>
-                    </div>
-
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4 text-gray-800">10. User Conduct</h2>
-                        <p class="text-gray-600 mb-4">When using this website, you agree not to:</p>
-                        <ul class="list-disc list-inside text-gray-600 ml-4 space-y-2">
-                            <li>Use the website for any unlawful purpose</li>
-                            <li>Attempt to gain unauthorized access to any part of the website</li>
-                            <li>Interfere with or disrupt the website or servers</li>
-                            <li>Transmit any harmful, offensive, or inappropriate content</li>
-                            <li>Use automated systems to access the website</li>
-                        </ul>
-                    </div>
-
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4 text-gray-800">11. Privacy Policy</h2>
-                        <p class="text-gray-600 mb-4">
-                            Your use of this website is also governed by our Privacy Policy, which is incorporated into these Terms of Service by reference. Please review our Privacy Policy, which also governs your use of the website, to understand our practices.
-                        </p>
-                    </div>
-
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4 text-gray-800">12. Contact Information</h2>
-                        <p class="text-gray-600 mb-4">
-                            If you have any questions about these Terms of Service, please contact me:
-                        </p>
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <p class="text-gray-600 mb-2"><strong>Email:</strong> <a href="mailto:dahnaouimohsine@gmail.com" class="text-blue-600 hover:text-blue-800">dahnaouimohsine@gmail.com</a></p>
-                            <p class="text-gray-600 mb-2"><strong>Phone:</strong> <a href="tel:+212 6 58 60 34 38" class="text-blue-600 hover:text-blue-800">+212 6 58 60 34 38</a></p>
-                            <p class="text-gray-600"><strong>Location:</strong> Bloc 5, Hay El Massira Oued Zem, Morocco</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center mt-12">
-                    <a href="index.html" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-medium hover:shadow-lg transition duration-300">
-                        <i class="fas fa-arrow-left mr-2"></i> Back to Portfolio
-                    </a>
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                    Terms of <span class="gradient-text">Service</span>
+                </h1>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Please read these terms carefully before using our website. By accessing and using this site, you agree to be bound by these terms and conditions.
+                </p>
+                <div class="mt-8 flex items-center justify-center space-x-4 text-sm text-gray-500">
+                    <span class="flex items-center">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        Last updated: January 2025
+                    </span>
+                    <span class="flex items-center">
+                        <i class="fas fa-clock mr-2"></i>
+                        Reading time: 10 minutes
+                    </span>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Main Content -->
+    <section class="pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <!-- Table of Contents -->
+                <div class="lg:col-span-1">
+                    <div class="sticky-nav">
+                        <div class="section-card rounded-2xl p-6">
+                            <h3 class="text-lg font-semibold mb-4 text-gray-800">
+                                <i class="fas fa-list-ul mr-2"></i>
+                                Table of Contents
+                            </h3>
+                            <nav class="space-y-2">
+                                <a href="#acceptance" class="toc-link">1. Acceptance of Terms</a>
+                                <a href="#license" class="toc-link">2. Use License</a>
+                                <a href="#disclaimer" class="toc-link">3. Disclaimer</a>
+                                <a href="#limitations" class="toc-link">4. Limitations</a>
+                                <a href="#accuracy" class="toc-link">5. Accuracy of Materials</a>
+                                <a href="#links" class="toc-link">6. External Links</a>
+                                <a href="#modifications" class="toc-link">7. Modifications</a>
+                                <a href="#governing-law" class="toc-link">8. Governing Law</a>
+                                <a href="#intellectual-property" class="toc-link">9. Intellectual Property</a>
+                                <a href="#user-conduct" class="toc-link">10. User Conduct</a>
+                                <a href="#privacy" class="toc-link">11. Privacy Policy</a>
+                                <a href="#termination" class="toc-link">12. Termination</a>
+                                <a href="#contact" class="toc-link">13. Contact Information</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="lg:col-span-3 space-y-8">
+                    <!-- Acceptance of Terms -->
+                    <div id="acceptance" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-handshake text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Acceptance of Terms</h2>
+                        </div>
+                        
+                        <div class="highlight-box p-6 rounded-xl mb-6">
+                            <p class="text-gray-700 leading-relaxed">
+                                By accessing and using Mohsine Dahnaoui's portfolio website, you accept and agree to be bound by the terms and provisions of this agreement. These Terms of Service constitute a legally binding agreement between you and Mohsine Dahnaoui.
+                        </p>
+                    </div>
+
+                        <div class="space-y-4">
+                            <p class="text-gray-600 leading-relaxed">
+                                If you do not agree to abide by the above, please do not use this service. Your continued use of the website following the posting of any changes to these Terms of Service will mean that you accept those changes.
+                            </p>
+                            
+                            <div class="warning-box p-6 rounded-xl">
+                                <h3 class="font-semibold mb-2 text-gray-800 flex items-center">
+                                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                                    Important Notice
+                                </h3>
+                                <p class="text-gray-700">
+                                    These terms apply to all visitors, users, and others who access or use the website. By using our website, you represent that you are at least 18 years old or have parental consent.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Use License -->
+                    <div id="license" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-key text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Use License</h2>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <p class="text-gray-600 leading-relaxed">
+                                Permission is granted to temporarily download one copy of the materials (information or software) on Mohsine Dahnaoui's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
+                                    <h3 class="text-lg font-semibold mb-4 text-gray-800 flex items-center">
+                                        <i class="fas fa-ban text-red-600 mr-2"></i>
+                                        Prohibited Uses
+                                    </h3>
+                                    <div class="space-y-3">
+                                        <div class="prohibited-item">
+                                            <i class="fas fa-times"></i>
+                                            <span class="text-gray-700">Modify or copy the materials</span>
+                                        </div>
+                                        <div class="prohibited-item">
+                                            <i class="fas fa-times"></i>
+                                            <span class="text-gray-700">Use for commercial purposes</span>
+                                        </div>
+                                        <div class="prohibited-item">
+                                            <i class="fas fa-times"></i>
+                                            <span class="text-gray-700">Decompile or reverse engineer</span>
+                                        </div>
+                                        <div class="prohibited-item">
+                                            <i class="fas fa-times"></i>
+                                            <span class="text-gray-700">Remove copyright notices</span>
+                                        </div>
+                                        <div class="prohibited-item">
+                                            <i class="fas fa-times"></i>
+                                            <span class="text-gray-700">Transfer or mirror materials</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
+                                    <h3 class="text-lg font-semibold mb-4 text-gray-800 flex items-center">
+                                        <i class="fas fa-check-circle text-green-600 mr-2"></i>
+                                        Permitted Uses
+                                    </h3>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center text-gray-700">
+                                            <i class="fas fa-check text-green-500 mr-3"></i>
+                                            <span>Personal, non-commercial viewing</span>
+                                        </div>
+                                        <div class="flex items-center text-gray-700">
+                                            <i class="fas fa-check text-green-500 mr-3"></i>
+                                            <span>Educational purposes</span>
+                                        </div>
+                                        <div class="flex items-center text-gray-700">
+                                            <i class="fas fa-check text-green-500 mr-3"></i>
+                                            <span>Portfolio review</span>
+                                        </div>
+                                        <div class="flex items-center text-gray-700">
+                                            <i class="fas fa-check text-green-500 mr-3"></i>
+                                            <span>Contact for business inquiries</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="error-box p-6 rounded-xl">
+                                <p class="text-gray-700">
+                                    <strong>License Termination:</strong> This license shall automatically terminate if you violate any of these restrictions and may be terminated by Mohsine Dahnaoui at any time. Upon terminating your viewing of these materials or upon the termination of this license, you must destroy any downloaded materials in your possession.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Disclaimer -->
+                    <div id="disclaimer" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-exclamation-triangle text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Disclaimer</h2>
+                        </div>
+                        
+                        <div class="warning-box p-6 rounded-xl mb-6">
+                            <h3 class="font-semibold mb-2 text-gray-800 flex items-center">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                Website Disclaimer
+                            </h3>
+                            <p class="text-gray-700">
+                                The materials on Mohsine Dahnaoui's website are provided on an 'as is' basis. Mohsine Dahnaoui makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties.
+                            </p>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 p-6 rounded-xl">
+                                <h3 class="font-semibold mb-3 text-gray-800">What We Disclaim</h3>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-times text-red-500 mr-2 mt-1"></i>
+                                        <span>Implied warranties of merchantability</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-times text-red-500 mr-2 mt-1"></i>
+                                        <span>Fitness for a particular purpose</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-times text-red-500 mr-2 mt-1"></i>
+                                        <span>Non-infringement of intellectual property</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-times text-red-500 mr-2 mt-1"></i>
+                                        <span>Other violation of rights</span>
+                                    </li>
+                            </ul>
+                            </div>
+                            
+                            <p class="text-gray-600 leading-relaxed">
+                                Furthermore, Mohsine Dahnaoui does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on its website or otherwise relating to such materials or on any sites linked to this site.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Limitations -->
+                    <div id="limitations" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-pink-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-shield-alt text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Limitations of Liability</h2>
+                        </div>
+                        
+                        <div class="error-box p-6 rounded-xl mb-6">
+                            <h3 class="font-semibold mb-2 text-gray-800 flex items-center">
+                                <i class="fas fa-exclamation-triangle mr-2"></i>
+                                Limitation of Damages
+                            </h3>
+                            <p class="text-gray-700">
+                                In no event shall Mohsine Dahnaoui or his suppliers be liable for any damages arising out of the use or inability to use the materials on the website, even if Mohsine Dahnaoui or an authorized representative has been notified.
+                        </p>
+                    </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-4">
+                                <h3 class="text-lg font-semibold text-gray-800">Types of Damages Excluded</h3>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-times text-red-500 mr-2"></i>
+                                        Loss of data or profit
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-times text-red-500 mr-2"></i>
+                                        Business interruption
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-times text-red-500 mr-2"></i>
+                                        Consequential damages
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-times text-red-500 mr-2"></i>
+                                        Punitive damages
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <h3 class="text-lg font-semibold text-gray-800">Circumstances Covered</h3>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        Website downtime
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        Technical errors
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        Third-party issues
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        Force majeure events
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 p-6 bg-blue-50 rounded-xl">
+                            <p class="text-gray-700">
+                                <strong>Note:</strong> Some jurisdictions do not allow limitations on implied warranties or limitations of liability for consequential or incidental damages, so these limitations may not apply to you.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Accuracy of Materials -->
+                    <div id="accuracy" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-search text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Accuracy of Materials</h2>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <p class="text-gray-600 leading-relaxed">
+                                The materials appearing on Mohsine Dahnaoui's website could include technical, typographical, or photographic errors. Mohsine Dahnaoui does not warrant that any of the materials on the website are accurate, complete, or current.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 text-center">
+                                    <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-exclamation-triangle text-white text-xl"></i>
+                                    </div>
+                                    <h3 class="font-semibold mb-2 text-gray-800">Technical Errors</h3>
+                                    <p class="text-sm text-gray-600">Code examples and technical content may contain errors</p>
+                                </div>
+                                
+                                <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 text-center">
+                                    <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-edit text-white text-xl"></i>
+                                    </div>
+                                    <h3 class="font-semibold mb-2 text-gray-800">Typographical Errors</h3>
+                                    <p class="text-sm text-gray-600">Text content may contain spelling or grammar errors</p>
+                                </div>
+                                
+                                <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 text-center">
+                                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-camera text-white text-xl"></i>
+                                    </div>
+                                    <h3 class="font-semibold mb-2 text-gray-800">Visual Errors</h3>
+                                    <p class="text-sm text-gray-600">Images and graphics may not display correctly</p>
+                                </div>
+                            </div>
+                            
+                            <div class="highlight-box p-6 rounded-xl">
+                                <h3 class="font-semibold mb-2 text-gray-800 flex items-center">
+                                    <i class="fas fa-sync-alt mr-2"></i>
+                                    Updates and Changes
+                                </h3>
+                                <p class="text-gray-700">
+                                    Mohsine Dahnaoui may make changes to the materials contained on the website at any time without notice. However, Mohsine Dahnaoui does not make any commitment to update the materials.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- External Links -->
+                    <div id="links" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-external-link-alt text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">External Links</h2>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <p class="text-gray-600 leading-relaxed">
+                                Mohsine Dahnaoui has not reviewed all of the sites linked to the website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by Mohsine Dahnaoui of the site.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 text-center">
+                                    <h3 class="font-semibold mb-4 text-gray-800 flex items-center">
+                                        <i class="fas fa-exclamation-triangle text-red-600 mr-2"></i>
+                                        Use at Your Own Risk
+                                    </h3>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-times text-red-500 mr-2"></i>
+                                            <span>We don't control external sites</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-times text-red-500 mr-2"></i>
+                                            <span>Different privacy policies apply</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-times text-red-500 mr-2"></i>
+                                            <span>Content may be inappropriate</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-times text-red-500 mr-2"></i>
+                                            <span>Security risks may exist</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 text-center">
+                                    <h3 class="font-semibold mb-4 text-gray-800 flex items-center">
+                                        <i class="fas fa-info-circle text-blue-600 mr-2"></i>
+                                        Our Responsibility
+                                    </h3>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>We provide links for convenience</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>We don't endorse linked content</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>We're not liable for external sites</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>You access them at your own risk</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="warning-box p-6 rounded-xl">
+                                <p class="text-gray-700">
+                                    <strong>Recommendation:</strong> We recommend that you review the privacy policy and terms of service of any external website you visit through links from our site.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modifications -->
+                    <div id="modifications" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-edit text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Modifications</h2>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <p class="text-gray-600 leading-relaxed">
+                            Mohsine Dahnaoui may revise these terms of service for the website at any time without notice. By using this website, you are agreeing to be bound by the then current version of these Terms of Service.
+                        </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 text-center">
+                                    <h3 class="font-semibold mb-4 text-gray-800 flex items-center">
+                                        <i class="fas fa-bell text-green-600 mr-2"></i>
+                                        How We Notify You
+                                    </h3>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Posting updated terms on this page</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Updating the "Last updated" date</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Email notifications for major changes</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 text-center">
+                                    <h3 class="font-semibold mb-4 text-gray-800 flex items-center">
+                                        <i class="fas fa-user-check text-blue-600 mr-2"></i>
+                                        Your Acceptance
+                                    </h3>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Continued use = acceptance</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Check this page regularly</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Contact us with questions</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="highlight-box p-6 rounded-xl">
+                                <h3 class="font-semibold mb-2 text-gray-800 flex items-center">
+                                    <i class="fas fa-calendar-alt mr-2"></i>
+                                    Effective Date
+                                </h3>
+                                <p class="text-gray-700">
+                                    Changes to these terms become effective immediately upon posting. Your continued use of the website after any changes constitutes acceptance of the updated Terms of Service.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Governing Law -->
+                    <div id="governing-law" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-gray-500 to-slate-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-gavel text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Governing Law</h2>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <p class="text-gray-600 leading-relaxed">
+                            These terms and conditions are governed by and construed in accordance with the laws of Morocco and you irrevocably submit to the exclusive jurisdiction of the courts in that location.
+                        </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 text-center">
+                                    <h3 class="font-semibold mb-4 text-gray-800 flex items-center">
+                                        <i class="fas fa-flag text-blue-600 mr-2"></i>
+                                        Applicable Law
+                                    </h3>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Moroccan law applies</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>International treaties</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Local regulations</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 text-center">
+                                    <h3 class="font-semibold mb-4 text-gray-800 flex items-center">
+                                        <i class="fas fa-balance-scale text-purple-600 mr-2"></i>
+                                        Jurisdiction
+                                    </h3>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Moroccan courts have jurisdiction</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Exclusive jurisdiction</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>No other courts apply</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="warning-box p-6 rounded-xl">
+                                <p class="text-gray-700">
+                                    <strong>International Users:</strong> If you are accessing this website from outside Morocco, you are responsible for compliance with local laws and regulations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Intellectual Property -->
+                    <div id="intellectual-property" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-copyright text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Intellectual Property Rights</h2>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <div class="success-box p-6 rounded-xl">
+                                <h3 class="font-semibold mb-2 text-gray-800 flex items-center">
+                                    <i class="fas fa-shield-alt mr-2"></i>
+                                    Protected Content
+                                </h3>
+                                <p class="text-gray-700">
+                                    All content on this website, including but not limited to text, graphics, logos, images, and software, is the property of Mohsine Dahnaoui and is protected by copyright laws.
+                                </p>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-4">
+                                    <h3 class="text-lg font-semibold text-gray-800">What's Protected</h3>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Website design and layout</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Written content and copy</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Images and graphics</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Code and software</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Brand names and logos</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="space-y-4">
+                                    <h3 class="text-lg font-semibold text-gray-800">Legal Consequences</h3>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
+                                            <span>Copyright infringement</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
+                                            <span>Trademark violations</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
+                                            <span>Legal action possible</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
+                                            <span>Financial damages</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="highlight-box p-6 rounded-xl">
+                                <h3 class="font-semibold mb-2 text-gray-800 flex items-center">
+                                    <i class="fas fa-handshake mr-2"></i>
+                                    Fair Use Policy
+                                </h3>
+                                <p class="text-gray-700">
+                                    Limited use for educational, review, or commentary purposes may be permitted under fair use provisions. However, commercial use without permission is strictly prohibited.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- User Conduct -->
+                    <div id="user-conduct" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-pink-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-user-slash text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">User Conduct</h2>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <p class="text-gray-600 leading-relaxed">
+                                When using this website, you agree to use it in a lawful and respectful manner. The following activities are strictly prohibited:
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-4">
+                                    <h3 class="text-lg font-semibold text-gray-800">Prohibited Activities</h3>
+                                    <div class="space-y-3">
+                                        <div class="prohibited-item">
+                                            <i class="fas fa-ban"></i>
+                                            <span class="text-gray-700">Use for unlawful purposes</span>
+                                        </div>
+                                        <div class="prohibited-item">
+                                            <i class="fas fa-ban"></i>
+                                            <span class="text-gray-700">Attempt unauthorized access</span>
+                                        </div>
+                                        <div class="prohibited-item">
+                                            <i class="fas fa-ban"></i>
+                                            <span class="text-gray-700">Interfere with website operation</span>
+                                        </div>
+                                        <div class="prohibited-item">
+                                            <i class="fas fa-ban"></i>
+                                            <span class="text-gray-700">Transmit harmful content</span>
+                                        </div>
+                                        <div class="prohibited-item">
+                                            <i class="fas fa-ban"></i>
+                                            <span class="text-gray-700">Use automated systems</span>
+                                        </div>
+                                        <div class="prohibited-item">
+                                            <i class="fas fa-ban"></i>
+                                            <span class="text-gray-700">Violate intellectual property</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-4">
+                                    <h3 class="text-lg font-semibold text-gray-800">Consequences</h3>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center p-3 bg-red-50 rounded-lg">
+                                            <i class="fas fa-times text-red-500 mr-3"></i>
+                                            <span class="text-gray-700">Immediate access termination</span>
+                                        </div>
+                                        <div class="flex items-center p-3 bg-orange-50 rounded-lg">
+                                            <i class="fas fa-exclamation-triangle text-orange-500 mr-3"></i>
+                                            <span class="text-gray-700">Legal action may be taken</span>
+                                        </div>
+                                        <div class="flex items-center p-3 bg-yellow-50 rounded-lg">
+                                            <i class="fas fa-ban text-yellow-500 mr-3"></i>
+                                            <span class="text-gray-700">Permanent IP blocking</span>
+                                        </div>
+                                        <div class="flex items-center p-3 bg-red-50 rounded-lg">
+                                            <i class="fas fa-gavel text-red-500 mr-3"></i>
+                                            <span class="text-gray-700">Report to authorities</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="warning-box p-6 rounded-xl">
+                                <h3 class="font-semibold mb-2 text-gray-800 flex items-center">
+                                    <i class="fas fa-info-circle mr-2"></i>
+                                    Monitoring and Enforcement
+                                </h3>
+                                <p class="text-gray-700">
+                                    We reserve the right to monitor user activity and take appropriate action against violations. We may report illegal activities to law enforcement authorities.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Privacy Policy -->
+                    <div id="privacy" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-user-secret text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Privacy Policy</h2>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <p class="text-gray-600 leading-relaxed">
+                                Your use of this website is also governed by our Privacy Policy, which is incorporated into these Terms of Service by reference. Please review our Privacy Policy to understand our data practices.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 text-center">
+                                    <h3 class="font-semibold mb-4 text-gray-800 flex items-center">
+                                        <i class="fas fa-shield-alt text-blue-600 mr-2"></i>
+                                        Data Protection
+                                    </h3>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Secure data collection</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Limited data sharing</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>User rights respected</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Transparent practices</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 text-center">
+                                    <h3 class="font-semibold mb-4 text-gray-800 flex items-center">
+                                        <i class="fas fa-user-cog text-green-600 mr-2"></i>
+                                        Your Rights
+                                    </h3>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Access your data</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Correct inaccuracies</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Request deletion</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Object to processing</span>
+                                        </li>
+                        </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <a href="privacy-policy.html" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+                                    <i class="fas fa-file-alt mr-2"></i>
+                                    Read Full Privacy Policy
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Termination -->
+                    <div id="termination" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-gray-500 to-slate-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-times-circle text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Termination</h2>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <p class="text-gray-600 leading-relaxed">
+                                We may terminate or suspend your access to our website immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 text-center">
+                                    <h3 class="font-semibold mb-4 text-gray-800 flex items-center">
+                                        <i class="fas fa-ban text-red-600 mr-2"></i>
+                                        Termination Reasons
+                                    </h3>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-times text-red-500 mr-2"></i>
+                                            <span>Violation of terms</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-times text-red-500 mr-2"></i>
+                                            <span>Illegal activities</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-times text-red-500 mr-2"></i>
+                                            <span>Abuse of service</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-times text-red-500 mr-2"></i>
+                                            <span>Security threats</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 text-center">
+                                    <h3 class="font-semibold mb-4 text-gray-800 flex items-center">
+                                        <i class="fas fa-info-circle text-blue-600 mr-2"></i>
+                                        After Termination
+                                    </h3>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Access immediately revoked</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Data may be deleted</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>No refunds provided</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-green-500 mr-2"></i>
+                                            <span>Legal rights preserved</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="highlight-box p-6 rounded-xl">
+                                <h3 class="font-semibold mb-2 text-gray-800 flex items-center">
+                                    <i class="fas fa-hand-paper mr-2"></i>
+                                    Your Right to Terminate
+                                </h3>
+                                <p class="text-gray-700">
+                                    You may stop using our website at any time. Simply discontinue your use of the website and delete any downloaded materials.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div id="contact" class="section-card rounded-2xl p-8 fade-in">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Contact Information</h2>
+                        </div>
+                        
+                        <p class="text-gray-600 mb-8">
+                            If you have any questions about these Terms of Service, please don't hesitate to contact us. We're here to help clarify any concerns you may have.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="space-y-6">
+                                <div class="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-lg border border-gray-100">
+                                    <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-envelope text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Email</h3>
+                                        <a href="mailto:dahnaouimohsine@gmail.com" class="text-blue-600 hover:text-blue-800">
+                                            dahnaouimohsine@gmail.com
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-lg border border-gray-100">
+                                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-phone text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Phone</h3>
+                                        <a href="tel:+212658603438" class="text-green-600 hover:text-green-800">
+                                            +212 6 58 60 34 38
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-lg border border-gray-100">
+                                    <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-map-marker-alt text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Location</h3>
+                                        <p class="text-gray-600">Bloc 5, Hay El Massira<br>Oued Zem, Morocco</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 text-center">
+                                <h3 class="font-semibold mb-4 text-gray-800">Response Time</h3>
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-gray-600">General inquiries</span>
+                                        <span class="text-sm font-medium text-gray-800">24-48 hours</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-gray-600">Legal questions</span>
+                                        <span class="text-sm font-medium text-gray-800">3-5 business days</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-gray-600">Urgent matters</span>
+                                        <span class="text-sm font-medium text-gray-800">Same day</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-6 p-4 bg-white rounded-xl shadow-lg border border-gray-100 text-center">
+                                    <h4 class="font-semibold mb-2 text-gray-800">Business Hours</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Monday - Friday: 9:00 AM - 6:00 PM (GMT+1)<br>
+                                        Saturday: 10:00 AM - 2:00 PM (GMT+1)<br>
+                                        Sunday: Closed
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Portfolio -->
+    <section class="pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <a href="index.html" class="inline-flex items-center px-8 py-4 bg-white rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-lg">
+                    <i class="fas fa-arrow-left mr-3"></i>
+                    Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-gray-400">© 2025 Mohsine Dahnaoui. All rights reserved.</p>
+    <footer class="bg-white text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex items-center justify-center mb-4">
+                    <span class="text-xl font-bold">Mohsine Dahnaoui</span>
+                </div>
+                <p class="text-gray-400 mb-4">Full-Stack Web Developer & Digital Solutions Expert</p>
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="mailto:dahnaouimohsine@gmail.com" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                    <a href="tel:+212658603438" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fas fa-phone text-xl"></i>
+                    </a>
+                    <a href="https://github.com/mohsinedahnaoui" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/mohsine-dahnaoui" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                </div>
+                <p class="text-gray-500 text-sm">© 2025 Mohsine Dahnaoui. All rights reserved.</p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Smooth scrolling for table of contents
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active section highlighting
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('[id]');
+            const navLinks = document.querySelectorAll('.toc-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html> 

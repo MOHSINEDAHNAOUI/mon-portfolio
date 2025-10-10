@@ -4,7 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="logo.svg">
-    <title>Mohsine Dahnaoui | Portfolio</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Mohsine Dahnaoui</title>
+    <meta name="description" content="Mohsine Dahnaoui - Full-Stack Web Developer specializing in modern web applications, database design, and digital solutions. Available for freelance projects and full-time opportunities.">
+    <meta name="keywords" content="web developer, full-stack developer, PHP, JavaScript, HTML, CSS, MySQL, portfolio, Morocco, freelance">
+    <meta name="author" content="Mohsine Dahnaoui">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Mohsine Dahnaoui | Full-Stack Web Developer">
+    <meta property="og:description" content="Passionate full-stack web developer creating scalable applications and digital solutions. Available for opportunities.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mohsinedahnaoui.github.io">
+    <meta property="og:image" content="images/mon image0.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mohsine Dahnaoui | Full-Stack Web Developer">
+    <meta name="twitter:description" content="Passionate full-stack web developer creating scalable applications and digital solutions.">
+    <meta name="twitter:image" content="images/mon image0.jpg">
+    
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="msapplication-TileColor" content="#3b82f6">
+    <link rel="canonical" href="https://mohsinedahnaoui.github.io">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="projects-data.js"></script>
@@ -69,126 +93,332 @@
             background: linear-gradient(90deg, #3b82f6, #8b5cf6);
             transition: width 1s ease-in-out;
         }
+        
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .animate-fade-in-left {
+            animation: fadeInLeft 0.8s ease-out forwards;
+        }
+        
+        .animate-fade-in-right {
+            animation: fadeInRight 0.8s ease-out forwards;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #2563eb, #7c3aed);
+        }
+        
+        /* Dark Mode Styles */
+        .dark {
+            color-scheme: dark;
+        }
+        
+        .dark body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        
+        .dark .bg-white {
+            background-color: #1e293b !important;
+        }
+        
+        .dark .bg-gray-50 {
+            background-color: #0f172a !important;
+        }
+        
+        .dark .bg-gray-100 {
+            background-color: #334155 !important;
+        }
+        
+        .dark .text-gray-800 {
+            color: #e2e8f0 !important;
+        }
+        
+        .dark .text-gray-600 {
+            color: #94a3b8 !important;
+        }
+        
+        .dark .text-gray-500 {
+            color: #64748b !important;
+        }
+        
+        .dark .border-gray-200 {
+            border-color: #334155 !important;
+        }
+        
+        .dark .border-gray-300 {
+            border-color: #475569 !important;
+        }
+        
+        .dark .shadow-md {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        .dark .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        .dark .shadow-xl {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        /* Dark mode navigation */
+        .dark nav {
+            background-color: #1e293b !important;
+            border-bottom: 1px solid #334155;
+        }
+        
+        /* Dark mode form inputs */
+        .dark input, .dark textarea {
+            background-color: #334155 !important;
+            border-color: #475569 !important;
+            color: #e2e8f0 !important;
+        }
+        
+        .dark input::placeholder, .dark textarea::placeholder {
+            color: #94a3b8 !important;
+        }
+        
+        /* Dark mode cards */
+        .dark .bg-gradient-to-br {
+            background: linear-gradient(to bottom right, #1e293b, #0f172a) !important;
+        }
+        
+        /* Dark mode scrollbar */
+        .dark ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        
+        .dark ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+        }
+        
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #2563eb, #7c3aed);
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
     <!-- Navigation -->
     <nav class="fixed w-full bg-white shadow-sm z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
+            <div class="flex justify-between h-14 sm:h-16">
                 <div class="flex items-center">
-                    <a href="#home" class="text-xl font-bold gradient-text">Mohsine Dahnaoui</a>
+                    <a href="#home" class="text-lg sm:text-xl font-bold gradient-text">Mohsine Dahnaoui</a>
                 </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link active">Home</a>
-                    <a href="#about" class="nav-link">About</a>
-                    <a href="#projects" class="nav-link">Projects</a>
-                    <a href="#skills" class="nav-link">Skills</a>
-                    <a href="#contact" class="nav-link">Contact</a>
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                    <a href="#home" class="nav-link active text-sm lg:text-base">Home</a>
+                    <a href="#about" class="nav-link text-sm lg:text-base">About</a>
+                    <a href="#projects" class="nav-link text-sm lg:text-base">Projects</a>
+                    <a href="#skills" class="nav-link text-sm lg:text-base">Skills</a>
+                    <a href="#contact" class="nav-link text-sm lg:text-base">Contact</a>
+                    <!-- Dark Mode Toggle -->
+                    <button id="dark-mode-toggle" class="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-300 dark:bg-gray-700 dark:hover:bg-gray-600">
+                        <i id="dark-mode-icon" class="fas fa-moon text-gray-600 dark:text-yellow-400"></i>
+                    </button>
                 </div>
                 <div class="md:hidden flex items-center">
-                    <button id="menu-btn" class="text-gray-600 hover:text-gray-900">
-                        <i class="fas fa-bars text-2xl"></i>
+                    <button id="menu-btn" class="text-gray-600 hover:text-gray-900 p-2">
+                        <i class="fas fa-bars text-xl sm:text-2xl"></i>
                     </button>
                 </div>
             </div>
         </div>
         <!-- Mobile menu -->
         <!-- Mobile Sidebar Modal (Professional Modal Only) -->
-        <div id="mobile-menu" class="fixed inset-0 z-50 hidden md:hidden flex items-center justify-center">
+        <div id="mobile-menu" class="fixed inset-0 z-50 hidden md:hidden flex items-center justify-center p-4">
             <div class="absolute inset-0 bg-black bg-opacity-40" onclick="document.getElementById('mobile-menu').classList.add('hidden')"></div>
-            <div class="relative bg-white rounded-2xl shadow-2xl w-96 max-w-full flex flex-col items-center py-10 px-8">
-            <button class="absolute top-4 right-4 text-gray-600 hover:text-gray-900" onclick="document.getElementById('mobile-menu').classList.add('hidden')">
-                <i class="fas fa-times text-2xl"></i>
-            </button>
-            <div class="flex flex-col items-center mb-6 mt-2">
-                <div class="w-28 h-28 rounded-full overflow-hidden border-4 border-gradient-to-r from-blue-500 to-purple-600 shadow-lg mb-3 flex items-center justify-center">
-                <img src="images/mon image0.jpg" alt="Mohsine Dahnaoui" class="w-full h-full object-cover">
+            <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-sm flex flex-col items-center py-8 sm:py-10 px-6 sm:px-8">
+                <button class="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-600 hover:text-gray-900" onclick="document.getElementById('mobile-menu').classList.add('hidden')">
+                    <i class="fas fa-times text-xl sm:text-2xl"></i>
+                </button>
+                <div class="flex flex-col items-center mb-4 sm:mb-6 mt-2">
+                    <div class="w-20 h-20 sm:w-28 sm:h-28 rounded-full overflow-hidden border-4 border-gradient-to-r from-blue-500 to-purple-600 shadow-lg mb-2 sm:mb-3 flex items-center justify-center">
+                        <img src="images/mon image0.jpg" alt="Mohsine Dahnaoui" class="w-full h-full object-cover">
+                    </div>
+                    <span class="font-bold text-lg sm:text-xl gradient-text text-center">Mohsine Dahnaoui</span>
+                    <span class="text-gray-500 text-xs sm:text-sm mt-1 text-center">Web Developer</span>
                 </div>
-                <span class="font-bold text-xl gradient-text text-center">Mohsine Dahnaoui</span>
-                <span class="text-gray-500 text-sm mt-1 text-center">Web Developer</span>
-            </div>
-            <nav class="w-full mt-4">
-                <ul class="flex flex-col items-center gap-4">
-                <li><a href="#home" class="nav-link text-gray-700 font-medium text-lg hover:gradient-text transition text-center" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a></li>
-                <li><a href="#about" class="nav-link text-gray-700 font-medium text-lg hover:gradient-text transition text-center" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About</a></li>
-                <li><a href="#projects" class="nav-link text-gray-700 font-medium text-lg hover:gradient-text transition text-center" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Projects</a></li>
-                <li><a href="#skills" class="nav-link text-gray-700 font-medium text-lg hover:gradient-text transition text-center" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Skills</a></li>
-                <li><a href="#contact" class="nav-link text-gray-700 font-medium text-lg hover:gradient-text transition text-center" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="flex justify-center gap-4 mt-8">
-                <a href="https://www.linkedin.com/in/mohsine-dahnaoui-005246368/" class="text-gray-500 hover:text-blue-600 transition"><i class="fab fa-linkedin-in text-2xl"></i></a>
-                <a href="https://github.com/MOHSINEDAHNAOUI" class="text-gray-500 hover:text-gray-900 transition"><i class="fab fa-github text-2xl"></i></a>
-                <a href="https://www.instagram.com/mohsine_dahnaoui" class="text-gray-500 hover:text-pink-500 transition"><i class="fab fa-instagram text-2xl"></i></a>
-                <a href="https://wa.me/212658603438" class="text-gray-500 hover:text-green-400 transition"><i class="fab fa-whatsapp text-2xl"></i></a>
-                <a href="mailto:dahnaouimohsine@gmail.com" class="text-gray-500 hover:text-blue-500 transition"><i class="fas fa-envelope text-2xl"></i></a>
-            </div>
-            <div class="mt-6 text-center w-full">
-                <span class="text-sm text-gray-400">© 2025 Mohsine Dahnaoui. All rights reserved.</span>
-            </div>
+                <nav class="w-full mt-2 sm:mt-4">
+                    <ul class="flex flex-col items-center gap-3 sm:gap-4">
+                        <li><a href="#home" class="nav-link text-gray-700 font-medium text-base sm:text-lg hover:gradient-text transition text-center" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a></li>
+                        <li><a href="#about" class="nav-link text-gray-700 font-medium text-base sm:text-lg hover:gradient-text transition text-center" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About</a></li>
+                        <li><a href="#projects" class="nav-link text-gray-700 font-medium text-base sm:text-lg hover:gradient-text transition text-center" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Projects</a></li>
+                        <li><a href="#skills" class="nav-link text-gray-700 font-medium text-base sm:text-lg hover:gradient-text transition text-center" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Skills</a></li>
+                        <li><a href="#contact" class="nav-link text-gray-700 font-medium text-base sm:text-lg hover:gradient-text transition text-center" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="flex justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
+                    <a href="https://www.linkedin.com/in/mohsine-dahnaoui-005246368/" class="text-gray-500 hover:text-blue-600 transition"><i class="fab fa-linkedin-in text-xl sm:text-2xl"></i></a>
+                    <a href="https://github.com/MOHSINEDAHNAOUI" class="text-gray-500 hover:text-gray-900 transition"><i class="fab fa-github text-xl sm:text-2xl"></i></a>
+                    <a href="https://www.instagram.com/mohsine_dahnaoui" class="text-gray-500 hover:text-pink-500 transition"><i class="fab fa-instagram text-xl sm:text-2xl"></i></a>
+                    <a href="https://wa.me/212658603438" class="text-gray-500 hover:text-green-400 transition"><i class="fab fa-whatsapp text-xl sm:text-2xl"></i></a>
+                    <a href="mailto:dahnaouimohsine@gmail.com" class="text-gray-500 hover:text-blue-500 transition"><i class="fas fa-envelope text-xl sm:text-2xl"></i></a>
+                </div>
+                <!-- Contact Icons with Hover Info -->
+                <div class="mt-4 sm:mt-6 text-center">
+                    <div class="flex items-center justify-center gap-4">
+                        <!-- Phone -->
+                        <div class="relative group">
+                            <a href="tel:+212658603438" class="text-gray-500 hover:text-green-400 transition">
+                                <i class="fas fa-phone text-lg"></i>
+                            </a>
+                            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+                                +212 6 58 60 34 38
+                            </div>
+                        </div>
+                        <!-- Email -->
+                        <div class="relative group">
+                            <a href="mailto:dahnaouimohsine@gmail.com" class="text-gray-500 hover:text-blue-500 transition">
+                                <i class="fas fa-envelope text-lg"></i>
+                            </a>
+                            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+                                dahnaouimohsine@gmail.com
+                            </div>
+                        </div>
+                        <!-- Location -->
+                        <div class="relative group">
+                            <span class="text-gray-500 cursor-pointer">
+                                <i class="fas fa-map-marker-alt text-lg"></i>
+                            </span>
+                            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+                                Oued Zem, Morocco
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Dark Mode Toggle for Mobile -->
+                <div class="mt-4 sm:mt-6 flex justify-center">
+                    <button id="dark-mode-toggle-mobile" class="p-2 sm:p-3 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-300 dark:bg-gray-700 dark:hover:bg-gray-600">
+                        <i id="dark-mode-icon-mobile" class="fas fa-moon text-gray-600 dark:text-yellow-400 text-lg sm:text-xl"></i>
+                    </button>
+                </div>
+                <div class="mt-4 sm:mt-6 text-center w-full">
+                    <span class="text-xs sm:text-sm text-gray-400">© 2025 Mohsine Dahnaoui. All rights reserved.</span>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24" style="background: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1500&q=80') center center/cover no-repeat;">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-black bg-opacity-60 rounded-2xl">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">
-                        Hi, I'm <span class="gradient-text">Mohsine Dahnaoui</span>
+    <section id="home" class="pt-20 pb-12 sm:pt-24 sm:pb-16 md:pt-32 md:pb-24 relative overflow-hidden min-h-screen flex items-center">
+        <!-- Background with gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"></div>
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1500&q=80')] bg-cover bg-center opacity-20"></div>
+        
+        <!-- Animated background elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-60 h-60 sm:w-80 sm:h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+            <div class="absolute -bottom-40 -left-40 w-60 h-60 sm:w-80 sm:h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+                <!-- Text Content -->
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 text-white leading-tight">
+                        Hi, I'm <span class="gradient-text">Mohsine</span> <span class="gradient-text">DAHNAOUI</span>
                     </h1>
-                    <h2 class="text-2xl md:text-3xl text-gray-300 mb-6">
-                        Web Developer
+                    <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-blue-200 mb-4 sm:mb-6 font-light">
+                        Full-Stack Web Developer
                     </h2>
-                    <p class="text-gray-300 mb-8 max-w-lg">
-                        A passionate developer with a strong interest in web development, programming, and creative digital solutions. Enjoy building responsive websites, writing clean code, and turning ideas into interactive experiences. Always curious and motivated, Constantly learning and exploring new technologies to grow as a developer
+                    <p class="text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        I create <span class="text-blue-300 font-semibold">scalable web applications</span> and <span class="text-purple-300 font-semibold">digital solutions</span> that drive business growth. 
+                        Passionate about clean code, modern technologies, and delivering exceptional user experiences.
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="#projects" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-medium shadow hover:shadow-lg transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400 hover:scale-105 hover:from-blue-600 hover:to-purple-700">
+                    
+                    <!-- Key Stats -->
+                    <div class="grid grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8 max-w-md mx-auto lg:mx-0">
+                        <div class="text-center">
+                            <div class="text-xl sm:text-2xl font-bold text-white">6+</div>
+                            <div class="text-xs sm:text-sm text-gray-400">Projects</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xl sm:text-2xl font-bold text-white">2+</div>
+                            <div class="text-xs sm:text-sm text-gray-400">Years Learning</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xl sm:text-2xl font-bold text-white">100%</div>
+                            <div class="text-xs sm:text-sm text-gray-400">Dedication</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
+                        <a href="#projects" class="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400 hover:scale-105 hover:from-blue-600 hover:to-purple-700 flex items-center justify-center text-sm sm:text-base">
+                            <i class="fas fa-code mr-2"></i>
                             View My Work
                         </a>
-                        <a href="#contact" class="text-white px-6 py-3 border border-gray-300 rounded-lg font-medium hover:bg-gray-800 hover:text-white transition duration-300">
-                            Contact Me
+                        <a href="#contact" class="px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-white/30 text-white rounded-xl font-semibold hover:bg-white/10 hover:border-white/50 transition-all duration-300 flex items-center justify-center text-sm sm:text-base">
+                            <i class="fas fa-envelope mr-2"></i>
+                            Get In Touch
                         </a>
-                        <!-- CV Button triggers modal -->
-                        <a href="#" id="cv-btn" class="text-white px-6 py-3 border border-gray-300 rounded-lg font-medium hover:bg-blue-900 hover:text-blue-300 transition duration-300">
-                            CV
+                        <!-- CV Button -->
+                        <a href="cv.html" class="px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-xl font-semibold hover:bg-white/20 transition-all duration-300 flex items-center justify-center text-sm sm:text-base">
+                            <i class="fas fa-user-tie mr-2"></i>
+                            View CV
                         </a>
-                        <!-- CV Modal -->
-                        <div id="cv-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 hidden">
-                            <div class="bg-white rounded-xl shadow-2xl p-4 relative w-full max-w-3xl">
-                                <button id="close-cv-modal" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900">
-                                    <i class="fas fa-times text-2xl"></i>
-                                </button>
-                                <h3 class="text-lg font-semibold mb-4">My CV</h3>
-                                <div class="w-full h-[32rem]">
-                                    <iframe src="CV.pdf" width="100%" height="100%" style="border:0;" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </div>
-                        <script>
-                            // Show CV modal
-                            document.getElementById('cv-btn').addEventListener('click', function(e) {
-                                e.preventDefault();
-                                document.getElementById('cv-modal').classList.remove('hidden');
-                            });
-                            // Hide CV modal
-                            document.getElementById('close-cv-modal').addEventListener('click', function() {
-                                document.getElementById('cv-modal').classList.add('hidden');
-                            });
-                            // Hide modal when clicking outside
-                            document.getElementById('cv-modal').addEventListener('click', function(e) {
-                                if (e.target === this) {
-                                    this.classList.add('hidden');
-                                }
-                            });
-                        </script>
                     </div>
                 </div>
-                <div class="md:w-1/2 flex flex-col items-center justify-center space-y-6">
-                    <div class="relative w-96 h-96 md:w-[28rem] md:h-[28rem] shadow-2xl group transition-transform duration-500 hover:scale-105"
+                
+                <!-- Image Content -->
+                <div class="lg:w-1/2 flex flex-col items-center justify-center">
+                    <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] shadow-2xl group transition-transform duration-500 hover:scale-105"
                         style="background: rgba(35,37,38,0.85); border: 2px solid #6366f1; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25); transform: rotate(+6deg);">
                         <img src="images/mon image1.jpg"
                             alt="Mohsine Dahnaoui"
@@ -196,11 +426,11 @@
                             style="z-index: 1;">
                         <div class="absolute inset-0 bg-gradient-to-t from-blue-500/30 via-purple-400/20 to-transparent rounded-[60%_40%_30%_70%/60%_30%_70%_40%]" style="z-index:2;"></div>
                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10">
-                           <span class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 rounded-full text-xl font-semibold shadow-lg">
+                           <span class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 sm:px-8 py-2 sm:py-3 rounded-full text-lg sm:text-xl font-semibold shadow-lg">
                               Hello, I'm Mohsine!
                            </span>
                         </div>
-                        <div class="absolute top-0 right-0 w-20 h-10 bg-blue-900 rounded-bl-2xl shadow-md" style="transform: rotate(10deg); z-index:3;"></div>
+                        <div class="absolute top-0 right-0 w-16 h-8 sm:w-20 sm:h-10 bg-blue-900 rounded-bl-2xl shadow-md" style="transform: rotate(10deg); z-index:3;"></div>
                     </div>
                 </div>
             </div>
@@ -208,359 +438,461 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
+    <section id="about" class="py-16 sm:py-20 bg-gradient-to-br from-gray-50 to-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-2">About <span class="gradient-text">Me</span></h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">About <span class="gradient-text">Me</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-4 sm:mb-6"></div>
+                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+                    Passionate developer with a strong foundation in modern web technologies and a drive to create impactful digital solutions.
+                </p>
             </div>
             
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
-                    <div class="relative w-80 h-80 md:w-[28rem] md:h-[28rem] shadow-2xl group transition-transform duration-500 hover:scale-105"
-                         style="background: #fffbe7; border: 2px solid #facc15; border-radius: 12px 60px 24px 36px / 24px 48px 60px 12px; box-shadow: 0 8px 32px 0 rgba(0,0,0,0.15); transform: rotate(-4deg);">
-                        <img src="images/mon image2.jpg" 
-                             alt="Mohsine Dahnaoui" 
-                             class="absolute inset-0 w-full h-full object-cover rounded-[12px_60px_24px_36px/24px_48px_60px_12px] opacity-90 transition-transform duration-500 group-hover:scale-105" 
-                             style="z-index: 1;">
-                        <div class="absolute inset-0 bg-gradient-to-t from-yellow-200/40 via-yellow-100/20 to-transparent rounded-[12px_60px_24px_36px/24px_48px_60px_12px]" style="z-index:2;"></div>
-                        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10">
-                            <span class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-white px-5 py-2 rounded-full text-lg font-semibold shadow-lg">
-                                Passionate & Creative
-                            </span>
+            <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+                <!-- Image Section -->
+                <div class="order-2 lg:order-1 flex items-center justify-center h-full">
+                    <div class="relative w-full h-full max-w-none lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem]">
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl transform rotate-3"></div>
+                        <div class="relative bg-white rounded-2xl p-4 sm:p-6 lg:p-8 shadow-2xl w-full h-full flex items-center justify-center">
+                            <img src="images/mon image2.jpg" 
+                                 alt="Mohsine Dahnaoui" 
+                                 class="w-full h-full object-cover rounded-xl min-h-[16rem] sm:min-h-[22rem] lg:min-h-[28rem] min-w-[16rem] sm:min-w-[22rem] lg:min-w-[28rem]">
                         </div>
-                        <div class="absolute top-0 right-0 w-16 h-8 bg-yellow-300 rounded-bl-2xl shadow-md" style="transform: rotate(10deg); z-index:3;"></div>
                     </div>
                 </div>
-                <div class="md:w-2/3 md:pl-12">
-                    <h3 class="text-2xl font-semibold mb-4 gradient-text">Turning Ideas Into Beautiful Digital Experiences</h3>
-                    <p class="text-gray-600 mb-6">
-                        I'm Mohsine Dahnaoui, a self-driven and passionate web developer who loves turning ideas into real digital experiences. With a strong foundation in front-end and back-end development, I enjoy building clean, user-friendly websites and web applications. I’m particularly interested in creating solutions that are both functional and visually engaging.
-
-                        I’m always exploring new technologies and frameworks to enhance my skills and stay up to date with modern development trends. Whether it's crafting a responsive interface with HTML, CSS, and JavaScript, or developing dynamic features with PHP, MySQL, or Flutter — I enjoy every step of the process.
-
-                        When I’m not coding, I like designing, solving problems, and sharing what I build with others.
+                
+                <!-- Content Section -->
+                <div class="order-1 lg:order-2">
+                    <h3 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 gradient-text text-center lg:text-left">Building the Future, One Line of Code at a Time</h3>
+                    <p class="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed text-center lg:text-left">
+                        I'm <strong>Mohsine Dahnaoui</strong>, a dedicated full-stack web developer with expertise in creating 
+                        <span class="text-blue-600 font-semibold">scalable web applications</span> and 
+                        <span class="text-purple-600 font-semibold">digital solutions</span>. 
+                        My passion lies in transforming complex problems into elegant, user-friendly applications that deliver real business value.
                     </p>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                        <div class="flex items-start">
-                            <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-laptop-code text-blue-600"></i>
+                    <!-- Skills Grid -->
+                    <div class="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
+                        <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
+                            <div class="flex items-center mb-3 sm:mb-4">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-3 sm:mr-4">
+                                    <i class="fas fa-code text-blue-600 text-lg sm:text-xl"></i>
+                                </div>
+                                <h4 class="text-base sm:text-lg font-semibold">Full-Stack Development</h4>
                             </div>
-                            <div>
-                                <h4 class="font-semibold">Web Development</h4>
-                                <p class="text-gray-600 text-sm">Building responsive and interactive web applications</p>
-                            </div>
+                            <p class="text-gray-600 text-xs sm:text-sm">Building end-to-end solutions with modern frameworks and best practices</p>
                         </div>
-                        <div class="flex items-start">
-                            <div class="bg-purple-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-code text-purple-600"></i>
+                        
+                        <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
+                            <div class="flex items-center mb-3 sm:mb-4">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-3 sm:mr-4">
+                                    <i class="fas fa-database text-purple-600 text-lg sm:text-xl"></i>
+                                </div>
+                                <h4 class="text-base sm:text-lg font-semibold">Database Design</h4>
                             </div>
-                            <div>
-                                <h4 class="font-semibold">Programming</h4>
-                                <p class="text-gray-600 text-sm">C, C++ and algorithm development</p>
-                            </div>
+                            <p class="text-gray-600 text-xs sm:text-sm">Designing efficient database architectures and optimizing performance</p>
                         </div>
-                        <div class="flex items-start">
-                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-database text-indigo-600"></i>
+                        
+                        <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
+                            <div class="flex items-center mb-3 sm:mb-4">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-green-100 rounded-lg flex items-center justify-center mr-3 sm:mr-4">
+                                    <i class="fas fa-mobile-alt text-green-600 text-lg sm:text-xl"></i>
+                                </div>
+                                <h4 class="text-base sm:text-lg font-semibold">Responsive Design</h4>
                             </div>
-                            <div>
-                                <h4 class="font-semibold">Database Design</h4>
-                                <p class="text-gray-600 text-sm">MERISE modeling and database integration</p>
-                            </div>
+                            <p class="text-gray-600 text-xs sm:text-sm">Creating seamless experiences across all devices and screen sizes</p>
                         </div>
-                    </div>
-                    
-                    <div class="flex flex-wrap gap-4">
-                        <!-- Published Books with Modal (Carousel) -->
-                        <a href="#" id="published-books-link" class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium flex items-center relative group">
-                            <i class="fas fa-book mr-2 text-blue-500"></i> Published Books
+                        
+                        <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
+                            <div class="flex items-center mb-3 sm:mb-4">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-3 sm:mr-4">
+                                    <i class="fas fa-rocket text-orange-600 text-lg sm:text-xl"></i>
+                                </div>
+                                <h4 class="text-base sm:text-lg font-semibold">Performance Optimization</h4>
+                            </div>
+                            <p class="text-gray-600 text-xs sm:text-sm">Optimizing applications for speed, scalability, and user experience</p>
+                        </div>
+
+                        <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
+                            <div class="flex items-center mb-3 sm:mb-4">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-3 sm:mr-4">
+                                    <i class="fas fa-bolt text-blue-600 text-lg sm:text-xl"></i>
+                                </div>
+                                <h4 class="text-base sm:text-lg font-semibold">What Drives Me</h4>
+                            </div>
+                            <p class="text-gray-600 text-xs sm:text-sm">
+                                I believe in the power of technology to solve real-world problems. My approach combines 
+                                <strong class="text-blue-700 font-semibold">technical excellence</strong> with <strong class="text-purple-700 font-semibold">creative problem-solving</strong>, 
+                                always keeping the end user at the center of every decision.
+                            </p>
+                        </div>
+
+                        <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
+                            <div class="flex items-center mb-3 sm:mb-4">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-yellow-100 rounded-lg flex items-center justify-center mr-3 sm:mr-4">
+                                    <i class="fas fa-laptop-code text-yellow-600 text-lg sm:text-xl"></i>
+                                </div>
+                                <h4 class="text-base sm:text-lg font-semibold">Technical Excellence</h4>
+                            </div>
+                            <p class="text-gray-600 text-xs sm:text-sm">
+                                Striving for <strong class="text-blue-700 font-semibold">technical excellence</strong> means embracing best practices, continuous learning, and attention to detail. I am dedicated to building robust, scalable, and maintainable solutions that empower users and deliver impactful results.
+                            </p>
+                        </div>
+
+                        <a href="#" id="published-books-link" class="bg-white p-4 mb-4 rounded-xl shadow-lg border border-gray-100 text-center justify-center">
+                            <p class="text-base sm:text-lg font-semibold"><i class="fas fa-book mr-2 text-blue-500"></i>Published Books</p>
                         </a>
-                        <!-- Modal for Published Books Carousel -->
-                        <div id="published-books-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 hidden">
-                            <div class="bg-white rounded-xl shadow-2xl p-8 relative w-96 max-w-full flex flex-col items-center">
-                                <button id="close-published-books-modal" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900">
-                                    <i class="fas fa-times text-2xl"></i>
-                                </button>
-                                <h3 class="text-xl font-semibold mb-4">Published Books</h3>
-                                <!-- Carousel with arrows spaced from the book image -->
-                                <div class="flex items-center justify-center w-full mb-4" style="min-height:14rem;">
-                                    <!-- Left arrow, spaced from book -->
-                                    <div class="flex-1 flex justify-end pr-6">
-                                        <button id="prev-book" class="bg-gray-100 hover:bg-gray-200 rounded-full p-2 shadow" style="z-index:2;">
-                                            <i class="fas fa-chevron-left text-lg"></i>
-                                        </button>
-                                    </div>
-                                    <!-- Book image and link button -->
-                                    <div class="relative flex-shrink-0 w-40 h-56 flex flex-col items-center justify-center">
-                                        <a id="book-link" href="" target="_blank" class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded text-xs font-semibold shadow transition" style="z-index:3; display:none;">
-                                            View Book
-                                        </a>
-                                        <div id="book-carousel" class="w-40 h-56 bg-gray-200 rounded-lg flex items-center justify-center overflow-hidden">
-                                            <!-- Book slides will be injected here -->
+
+                        <div class="flex flex-wrap gap-4">
+                            <div id="published-books-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 hidden">
+                                <div class="bg-white rounded-xl shadow-2xl p-8 relative w-96 max-w-full flex flex-col items-center">
+                                    <button id="close-published-books-modal" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900">
+                                        <i class="fas fa-times text-2xl"></i>
+                                    </button>
+                                    <h3 class="text-xl font-semibold mb-4">Published Books</h3>
+                                    <!-- Carousel with arrows spaced from the book image -->
+                                    <div class="flex items-center justify-center w-full mb-4" style="min-height:14rem;">
+                                        <!-- Left arrow, spaced from book -->
+                                        <div class="flex-1 flex justify-end pr-6">
+                                            <button id="prev-book" class="bg-gray-100 hover:bg-gray-200 rounded-full p-2 shadow" style="z-index:2;">
+                                                <i class="fas fa-chevron-left text-lg"></i>
+                                            </button>
+                                        </div>
+                                        <!-- Book image and link button -->
+                                        <div class="relative flex-shrink-0 w-40 h-56 flex flex-col items-center justify-center">
+                                            <a id="book-link" href="" target="_blank" class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded text-xs font-semibold shadow transition" style="z-index:3; display:none;">
+                                                View Book
+                                            </a>
+                                            <div id="book-carousel" class="w-40 h-56 bg-gray-200 rounded-lg flex items-center justify-center overflow-hidden">
+                                                <!-- Book slides will be injected here -->
+                                            </div>
+                                        </div>
+                                        <!-- Right arrow, spaced from book -->
+                                        <div class="flex-1 flex justify-start pl-6">
+                                            <button id="next-book" class="bg-gray-100 hover:bg-gray-200 rounded-full p-2 shadow" style="z-index:2;">
+                                                <i class="fas fa-chevron-right text-lg"></i>
+                                            </button>
                                         </div>
                                     </div>
-                                    <!-- Right arrow, spaced from book -->
-                                    <div class="flex-1 flex justify-start pl-6">
-                                        <button id="next-book" class="bg-gray-100 hover:bg-gray-200 rounded-full p-2 shadow" style="z-index:2;">
-                                            <i class="fas fa-chevron-right text-lg"></i>
-                                        </button>
-                                    </div>
+                                    <!-- Book Title -->
+                                    <p id="book-title" class="text-gray-600 text-center mb-2"></p>
+                                    <!-- Carousel indicators -->
+                                    <div id="carousel-indicators" class="flex gap-2 mt-2"></div>
                                 </div>
-                                <!-- Book Title -->
-                                <p id="book-title" class="text-gray-600 text-center mb-2"></p>
-                                <!-- Carousel indicators -->
-                                <div id="carousel-indicators" class="flex gap-2 mt-2"></div>
                             </div>
-                        </div>
-                        <script>
-                            // Book data for the carousel
-                            const books = [
-                                {
-                                    title: "Le Voyage Du Développeur",
-                                    image: "images/books/3D_book1.png",
-                                    link: "https://a.co/d/5fJZRUQ"
-                                },
-                                {
-                                    title: "The Magical Coloring Book",
-                                    image: "images/books/3D_book2.png",
-                                    link: "https://anyflip.com/rjxrr/zkgy"
+                            <script>
+                                // Book data for the carousel
+                                const books = [
+                                    {
+                                        title: "Le Voyage Du Développeur",
+                                        image: "images/books/3D_book1.png",
+                                        link: "https://anyflip.com/rjxrr/xfnx"
+                                    },
+                                    {
+                                        title: "The Magical Coloring Book",
+                                        image: "images/books/3D_book2.png",
+                                        link: "https://anyflip.com/rjxrr/zkgy"
+                                    }
+                                    // Ajoutez d'autres livres ici si besoin
+                                ];
+    
+                                // Modal logic
+                                const publishedBooksLink = document.getElementById('published-books-link');
+                                const publishedBooksModal = document.getElementById('published-books-modal');
+                                const closePublishedBooksModal = document.getElementById('close-published-books-modal');
+                                const bookCarousel = document.getElementById('book-carousel');
+                                const bookTitle = document.getElementById('book-title');
+                                const bookLink = document.getElementById('book-link');
+                                const prevBookBtn = document.getElementById('prev-book');
+                                const nextBookBtn = document.getElementById('next-book');
+                                const carouselIndicators = document.getElementById('carousel-indicators');
+    
+                                let modalTimeout;
+                                let currentBook = 0;
+    
+                                function showBook(index) {
+                                    // Clamp index
+                                    if (index < 0) index = books.length - 1;
+                                    if (index >= books.length) index = 0;
+                                    currentBook = index;
+    
+                                    // Update carousel image
+                                    bookCarousel.innerHTML = `
+                                        <img src="${books[index].image}" alt="${books[index].title}" class="w-full h-full object-cover rounded-lg">
+                                    `;
+    
+                                    // Update title
+                                    bookTitle.textContent = books[index].title;
+    
+                                    // Update link
+                                    if (books[index].link) {
+                                        bookLink.href = books[index].link;
+                                        bookLink.style.display = '';
+                                    } else {
+                                        bookLink.style.display = 'none';
+                                    }
+    
+                                    // Update indicators
+                                    carouselIndicators.innerHTML = '';
+                                    for (let i = 0; i < books.length; i++) {
+                                        const dot = document.createElement('button');
+                                        dot.className = 'w-2 h-2 rounded-full ' + (i === index ? 'bg-blue-500' : 'bg-gray-300');
+                                        dot.addEventListener('click', () => showBook(i));
+                                        carouselIndicators.appendChild(dot);
+                                    }
                                 }
-                                // Ajoutez d'autres livres ici si besoin
-                            ];
-
-                            // Modal logic
-                            const publishedBooksLink = document.getElementById('published-books-link');
-                            const publishedBooksModal = document.getElementById('published-books-modal');
-                            const closePublishedBooksModal = document.getElementById('close-published-books-modal');
-                            const bookCarousel = document.getElementById('book-carousel');
-                            const bookTitle = document.getElementById('book-title');
-                            const bookLink = document.getElementById('book-link');
-                            const prevBookBtn = document.getElementById('prev-book');
-                            const nextBookBtn = document.getElementById('next-book');
-                            const carouselIndicators = document.getElementById('carousel-indicators');
-
-                            let modalTimeout;
-                            let currentBook = 0;
-
-                            function showBook(index) {
-                                // Clamp index
-                                if (index < 0) index = books.length - 1;
-                                if (index >= books.length) index = 0;
-                                currentBook = index;
-
-                                // Update carousel image
-                                bookCarousel.innerHTML = `
-                                    <img src="${books[index].image}" alt="${books[index].title}" class="w-full h-full object-cover rounded-lg">
-                                `;
-
-                                // Update title
-                                bookTitle.textContent = books[index].title;
-
-                                // Update link
-                                if (books[index].link) {
-                                    bookLink.href = books[index].link;
-                                    bookLink.style.display = '';
-                                } else {
-                                    bookLink.style.display = 'none';
-                                }
-
-                                // Update indicators
-                                carouselIndicators.innerHTML = '';
-                                for (let i = 0; i < books.length; i++) {
-                                    const dot = document.createElement('button');
-                                    dot.className = 'w-2 h-2 rounded-full ' + (i === index ? 'bg-blue-500' : 'bg-gray-300');
-                                    dot.addEventListener('click', () => showBook(i));
-                                    carouselIndicators.appendChild(dot);
-                                }
-                            }
-
-                            publishedBooksLink.addEventListener('mouseenter', () => {
-                                clearTimeout(modalTimeout);
-                                publishedBooksModal.classList.remove('hidden');
-                                showBook(currentBook);
-                            });
-
-                            publishedBooksLink.addEventListener('mouseleave', () => {
-                                modalTimeout = setTimeout(() => {
+    
+                                publishedBooksLink.addEventListener('mouseenter', () => {
+                                    clearTimeout(modalTimeout);
+                                    publishedBooksModal.classList.remove('hidden');
+                                    showBook(currentBook);
+                                });
+    
+                                publishedBooksLink.addEventListener('mouseleave', () => {
+                                    modalTimeout = setTimeout(() => {
+                                        publishedBooksModal.classList.add('hidden');
+                                    }, 200);
+                                });
+    
+                                publishedBooksModal.addEventListener('mouseenter', () => {
+                                    clearTimeout(modalTimeout);
+                                });
+    
+                                publishedBooksModal.addEventListener('mouseleave', () => {
                                     publishedBooksModal.classList.add('hidden');
-                                }, 200);
-                            });
-
-                            publishedBooksModal.addEventListener('mouseenter', () => {
-                                clearTimeout(modalTimeout);
-                            });
-
-                            publishedBooksModal.addEventListener('mouseleave', () => {
-                                publishedBooksModal.classList.add('hidden');
-                            });
-
-                            closePublishedBooksModal.addEventListener('click', () => {
-                                publishedBooksModal.classList.add('hidden');
-                            });
-
-                            prevBookBtn.addEventListener('click', (e) => {
-                                e.stopPropagation();
-                                showBook(currentBook - 1);
-                            });
-
-                            nextBookBtn.addEventListener('click', (e) => {
-                                e.stopPropagation();
-                                showBook(currentBook + 1);
-                            });
-
-                            // Initialize on first open
-                            publishedBooksLink.addEventListener('mouseenter', () => {
-                                showBook(currentBook);
-                            });
-                        </script>
-                        <a href="#projects" class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium flex items-center">
-                            <i class="fas fa-graduation-cap mr-2 text-indigo-500"></i> Academic Projects
-                        </a>
+                                });
+    
+                                closePublishedBooksModal.addEventListener('click', () => {
+                                    publishedBooksModal.classList.add('hidden');
+                                });
+    
+                                prevBookBtn.addEventListener('click', (e) => {
+                                    e.stopPropagation();
+                                    showBook(currentBook - 1);
+                                });
+    
+                                nextBookBtn.addEventListener('click', (e) => {
+                                    e.stopPropagation();
+                                    showBook(currentBook + 1);
+                                });
+    
+                                // Initialize on first open
+                                publishedBooksLink.addEventListener('mouseenter', () => {
+                                    showBook(currentBook);
+                                });
+                            </script>
+                        </div>
+                    </div>
                     </div>
                 </div>
+            </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-16 bg-gray-50">
+    <section id="projects" class="py-16 sm:py-20 bg-gradient-to-br from-gray-50 to-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-2">My <span class="gradient-text">Projects</span></h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto mt-4">
-                    Here are some of the projects I've developed during my academic journey and personal exploration.
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Featured <span class="gradient-text">Projects</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-4 sm:mb-6"></div>
+                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+                    A showcase of my most impactful projects, demonstrating technical expertise and problem-solving capabilities.
                 </p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+
+            <!-- Project Stats -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
+                <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg text-center border border-gray-100">
+                    <div class="text-2xl sm:text-3xl font-bold text-blue-600 mb-1 sm:mb-2">6+</div>
+                    <div class="text-gray-600 font-medium text-sm sm:text-base">Projects Completed</div>
+                </div>
+                <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg text-center border border-gray-100">
+                    <div class="text-2xl sm:text-3xl font-bold text-purple-600 mb-1 sm:mb-2">100%</div>
+                    <div class="text-gray-600 font-medium text-sm sm:text-base">Client Satisfaction</div>
+                </div>
+                <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg text-center border border-gray-100">
+                    <div class="text-2xl sm:text-3xl font-bold text-green-600 mb-1 sm:mb-2">5+</div>
+                    <div class="text-gray-600 font-medium text-sm sm:text-base">Technologies Used</div>
+                </div>
+                <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg text-center border border-gray-100">
+                    <div class="text-2xl sm:text-3xl font-bold text-orange-600 mb-1 sm:mb-2">2+</div>
+                    <div class="text-gray-600 font-medium text-sm sm:text-base">Years Experience</div>
+                </div>
+            </div>
+            
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" id="projects-grid">
                 <!-- Les projets seront générés dynamiquement par JavaScript depuis le fichier projects-data.js -->
             </div>
             
-            <div class="flex flex-col items-center mt-12">
+            <!-- View All Projects Button -->
+            <div class="flex flex-col items-center mt-12 sm:mt-16">
                 <a href="projects.html"
-                   class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:from-blue-600 hover:to-purple-700 hover:scale-105 transition duration-300 inline-flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                   style="font-size:1.15rem;">
-                    <i class="fas fa-folder-open text-xl"></i>
+                   class="px-8 sm:px-10 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold shadow-lg hover:from-blue-600 hover:to-purple-700 hover:scale-105 transition duration-300 inline-flex items-center gap-2 sm:gap-3 focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm sm:text-base"
+                   style="font-size:1rem;">
+                    <i class="fas fa-folder-open text-lg sm:text-xl"></i>
                     View All Projects
                 </a>
-                <span class="mt-4 text-gray-500 text-sm">Explore my complete projects and academic work</span>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-16 bg-white">
+    <section id="skills" class="py-16 sm:py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-2">My <span class="gradient-text">Skills</span></h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto mt-4">
-                    The technical skills I've acquired through my studies and personal projects.
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Technical <span class="gradient-text">Expertise</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-4 sm:mb-6"></div>
+                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+                    A comprehensive skill set built through hands-on projects and continuous learning in modern web technologies.
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-xl font-semibold mb-6 flex items-center">
-                        <i class="fas fa-laptop-code text-blue-500 mr-3"></i> Technical Skills
-                    </h3>
-                    
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">HTML/CSS</span>
-                                <span class="text-gray-500">92%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 92%"></div>
-                            </div>
+            <!-- Skills Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+                <!-- Frontend Skills -->
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 sm:p-8 rounded-2xl border border-blue-200">
+                    <div class="flex items-center mb-4 sm:mb-6">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-3 sm:mr-4">
+                            <i class="fas fa-paint-brush text-white text-lg sm:text-xl"></i>
                         </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">JavaScript</span>
-                                <span class="text-gray-500">50%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 50%"></div>
-                            </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-800">Frontend Development</h3>
+                    </div>
+                    <div class="space-y-3 sm:space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-gray-700 text-sm sm:text-base">HTML5 & CSS3</span>
+                            <span class="text-blue-600 font-semibold text-sm sm:text-base">Expert</span>
                         </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">C/C++</span>
-                                <span class="text-gray-500">38%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 38%"></div>
-                            </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-gray-700 text-sm sm:text-base">JavaScript</span>
+                            <span class="text-blue-600 font-semibold text-sm sm:text-base">Advanced</span>
                         </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">Database Design</span>
-                                <span class="text-gray-500">65%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 65%"></div>
-                            </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-gray-700 text-sm sm:text-base">Tailwind CSS</span>
+                            <span class="text-blue-600 font-semibold text-sm sm:text-base">Expert</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-gray-700 text-sm sm:text-base">Responsive Design</span>
+                            <span class="text-blue-600 font-semibold text-sm sm:text-base">Expert</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-gray-700 text-sm sm:text-base">UI/UX Design</span>
+                            <span class="text-blue-600 font-semibold text-sm sm:text-base">Advanced</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-gray-700 text-sm sm:text-base">Java</span>
+                            <span class="text-blue-600 font-semibold text-sm sm:text-base">Beginner</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-gray-700 text-sm sm:text-base">Python</span>
+                            <span class="text-blue-600 font-semibold text-sm sm:text-base">Beginner</span>
                         </div>
                     </div>
                 </div>
-                
-                <div>
-                    <h3 class="text-xl font-semibold mb-6 flex items-center">
-                        <i class="fas fa-lightbulb text-purple-500 mr-3"></i> Other Skills
-                    </h3>
-                    
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">UI/UX Design</span>
-                                <span class="text-gray-500">70%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 70%"></div>
-                            </div>
-                        </div>
                         
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">Creative Writing</span>
-                                <span class="text-gray-500">61%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 61%"></div>
-                            </div>
+                <!-- Backend Skills -->
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 sm:p-8 rounded-2xl border border-purple-200">
+                    <div class="flex items-center mb-4 sm:mb-6">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-purple-500 rounded-xl flex items-center justify-center mr-3 sm:mr-4">
+                            <i class="fas fa-server text-white text-lg sm:text-xl"></i>
                         </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">Fashion Design</span>
-                                <span class="text-gray-500">44%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 44%"></div>
-                            </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-800">Backend Development</h3>
+                    </div>
+                    <div class="space-y-3 sm:space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-gray-700 text-sm sm:text-base">PHP</span>
+                            <span class="text-purple-600 font-semibold text-sm sm:text-base">Advanced</span>
                         </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-gray-700 text-sm sm:text-base">MySQL</span>
+                            <span class="text-purple-600 font-semibold text-sm sm:text-base">Advanced</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-gray-700 text-sm sm:text-base">Database Design</span>
+                            <span class="text-purple-600 font-semibold text-sm sm:text-base">Advanced</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-gray-700 text-sm sm:text-base">API Development</span>
+                            <span class="text-purple-600 font-semibold text-sm sm:text-base">Beginner</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-gray-700 text-sm sm:text-base">Security Best Practices</span>
+                            <span class="text-purple-600 font-semibold text-sm sm:text-base">Beginner</span>
+                        </div>
+                    </div>
+                </div>
                         
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">Project Management</span>
-                                <span class="text-gray-500">71%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 71%"></div>
-                            </div>
+                <!-- Tools & Technologies -->
+                <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 sm:p-8 rounded-2xl border border-green-200 md:col-span-2 lg:col-span-1">
+                    <div class="flex items-center mb-4 sm:mb-6">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-green-500 rounded-xl flex items-center justify-center mr-3 sm:mr-4">
+                            <i class="fas fa-tools text-white text-lg sm:text-xl"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-800">Tools & Technologies</h3>
+                    </div>
+                    <div class="space-y-3 sm:space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-gray-700 text-sm sm:text-base">Git & GitHub</span>
+                            <span class="text-green-600 font-semibold text-sm sm:text-base">Intermediate</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-gray-700 text-sm sm:text-base">VS Code/Cursor</span>
+                            <span class="text-green-600 font-semibold text-sm sm:text-base">Expert</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-gray-700 text-sm sm:text-base">Chrome DevTools</span>
+                            <span class="text-green-600 font-semibold text-sm sm:text-base">Advanced</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-gray-700 text-sm sm:text-base">Figma</span>
+                            <span class="text-green-600 font-semibold text-sm sm:text-base">Intermediate</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-gray-700 text-sm sm:text-base">Project Management</span>
+                            <span class="text-green-600 font-semibold text-sm sm:text-base">Advanced</span>
                         </div>
                     </div>
                 </div>
             </div>
+                        
+            <!-- Additional Skills -->
+            <div class="bg-gradient-to-r from-blue-550 to-blue-10 p-6 sm:p-8 rounded-2xl border border-gray-200">
+                <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center text-gray-800">Additional Competencies</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                    <div class="text-center">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                            <i class="fas fa-mobile-alt text-blue-600 text-lg sm:text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 text-sm sm:text-base">Mobile-First Design</h4>
+                        <p class="text-xs sm:text-sm text-gray-600">Responsive web applications</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                            <i class="fas fa-chart-line text-purple-600 text-lg sm:text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 text-sm sm:text-base">Performance Optimization</h4>
+                        <p class="text-xs sm:text-sm text-gray-600">Fast loading applications</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                            <i class="fas fa-shield-alt text-green-600 text-lg sm:text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 text-sm sm:text-base">Security Implementation</h4>
+                        <p class="text-xs sm:text-sm text-gray-600">Secure coding practices</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                            <i class="fas fa-users text-orange-600 text-lg sm:text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 text-sm sm:text-base">Team Collaboration</h4>
+                        <p class="text-xs sm:text-sm text-gray-600">Agile development</p>
+                    </div>
+                </div>
+            </div>
             
-            <div class="mt-16">
-                <div class="flex justify-center gap-4 mb-8">
-                    <button id="toolsBtn" class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:from-blue-600 hover:to-purple-700 hover:scale-105 transition duration-300 inline-flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-blue-400" style="font-size:1.15rem;">Tools & Technologies</button>
-                    <button id="certsBtn" class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:from-blue-600 hover:to-purple-700 hover:scale-105 transition duration-300 inline-flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-blue-400" style="font-size:1.15rem;">Certificates</button>
+            <div class="mt-12 sm:mt-16">
+                <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+                    <button id="toolsBtn" class="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:from-blue-600 hover:to-purple-700 hover:scale-105 transition duration-300 inline-flex items-center justify-center gap-2 sm:gap-3 focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm sm:text-base">Tools & Technologies</button>
+                    <button id="certsBtn" class="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:from-blue-600 hover:to-purple-700 hover:scale-105 transition duration-300 inline-flex items-center justify-center gap-2 sm:gap-3 focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm sm:text-base">Certificates</button>
                 </div>
                 <!-- Tools & Technologies Section -->
                 <div id="toolsSection">
@@ -575,110 +907,134 @@
                                 <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
                                     <i class="fab fa-html5 text-orange-500 text-4xl"></i>
                                 </div>
-                                <span class="text-sm font-medium text-gray-700">HTML5</span>
+                                <span class="text-sm font-medium text-black-700">HTML5</span>
                             </div>
                             <div class="flex flex-col items-center min-w-[7rem]">
                                 <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
                                     <i class="fab fa-css3-alt text-blue-500 text-4xl"></i>
                                 </div>
-                                <span class="text-sm font-medium text-gray-700">CSS3</span>
+                                <span class="text-sm font-medium text-black-700">CSS3</span>
                             </div>
                             <div class="flex flex-col items-center min-w-[7rem]">
                                 <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
                                     <i class="fab fa-js text-yellow-500 text-4xl"></i>
                                 </div>
-                                <span class="text-sm font-medium text-gray-700">JavaScript</span>
+                                <span class="text-sm font-medium text-black-700">JavaScript</span>
                             </div>
                             <div class="flex flex-col items-center min-w-[7rem]">
                                 <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
                                     <i class="fab fa-php text-purple-700 text-4xl"></i>
                                 </div>
-                                <span class="text-sm font-medium text-gray-700">PHP</span>
+                                <span class="text-sm font-medium text-black-700">PHP</span>
                             </div>
                             <div class="flex flex-col items-center min-w-[7rem]">
                                 <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
                                     <i class="fas fa-database text-blue-400 text-4xl"></i>
                                 </div>
-                                <span class="text-sm font-medium text-gray-700">SQL</span>
+                                <span class="text-sm font-medium text-black-700">SQL</span>
                             </div>
                             <div class="flex flex-col items-center min-w-[7rem]">
                                 <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
                                     <i class="fas fa-terminal text-gray-800 text-4xl"></i>
                                 </div>
-                                <span class="text-sm font-medium text-gray-700">C/C++</span>
+                                <span class="text-sm font-medium text-black-700">C/C++</span>
+                            </div>
+                            <div class="flex flex-col items-center min-w-[7rem]">
+                                <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
+                                    <i class="fab fa-java text-orange-600 text-4xl"></i>
+                                </div>
+                                <span class="text-sm font-medium text-black-700">Java</span>
+                            </div>
+                            <div class="flex flex-col items-center min-w-[7rem]">
+                                <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
+                                    <i class="fab fa-python text-gradient bg-gradient-to-r from-yellow-400 to-blue-600 text-4xl" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                                </div>
+                                <span class="text-sm font-medium text-black-700">Python</span>
                             </div>
                             <div class="flex flex-col items-center min-w-[7rem]">
                                 <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg flex items-center justify-center">
-                                    <img src="https://th.bing.com/th/id/OIP.4j7LvA999TgVzlsDg_Uu7AHaEx?w=301&h=193&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Tailwind CSS" class="w-12 h-12">
+                                    <img src="images/tailwind-css.png" alt="Tailwind CSS" class="w-12 h-12">
                                 </div>
-                                <span class="text-sm font-medium text-gray-700">Tailwind CSS</span>
+                                <span class="text-sm font-medium text-black-700">Tailwind CSS</span>
                             </div>
                             <div class="flex flex-col items-center min-w-[7rem]">
                                 <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg flex items-center justify-center">
                                     <img src="https://static.canva.com/static/images/favicon.ico" alt="Canva" class="w-12 h-12">
                                 </div>
-                                <span class="text-sm font-medium text-gray-700">Canva</span>
+                                <span class="text-sm font-medium text-black-700">Canva</span>
                             </div>
                             <div class="flex flex-col items-center min-w-[7rem]">
                                 <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg flex items-center justify-center">
-                                    <img src="https://th.bing.com/th/id/OIP.nYQJ8xcSBFuXQSiKzvAFngHaEn?w=284&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Flutter" class="w-12 h-12">
+                                    <img src="images/flutter.png" alt="Flutter" class="w-12 h-12">
                                 </div>
-                                <span class="text-sm font-medium text-gray-700">Flutter</span>
+                                <span class="text-sm font-medium text-black-700">Flutter</span>
                             </div>
                             <!-- Duplicate for seamless infinite scroll -->
                             <div class="flex flex-col items-center min-w-[7rem]">
                                 <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
                                     <i class="fab fa-html5 text-orange-500 text-4xl"></i>
                                 </div>
-                                <span class="text-sm font-medium text-gray-700">HTML5</span>
+                                <span class="text-sm font-medium text-black-700">HTML5</span>
                             </div>
                             <div class="flex flex-col items-center min-w-[7rem]">
                                 <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
                                     <i class="fab fa-css3-alt text-blue-500 text-4xl"></i>
                                 </div>
-                                <span class="text-sm font-medium text-gray-700">CSS3</span>
+                                <span class="text-sm font-medium text-black-700">CSS3</span>
                             </div>
                             <div class="flex flex-col items-center min-w-[7rem]">
                                 <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
                                     <i class="fab fa-js text-yellow-500 text-4xl"></i>
                                 </div>
-                                <span class="text-sm font-medium text-gray-700">JavaScript</span>
+                                <span class="text-sm font-medium text-black-700">JavaScript</span>
                             </div>
                             <div class="flex flex-col items-center min-w-[7rem]">
                                 <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
                                     <i class="fab fa-php text-purple-700 text-4xl"></i>
                                 </div>
-                                <span class="text-sm font-medium text-gray-700">PHP</span>
+                                <span class="text-sm font-medium text-black-700">PHP</span>
                             </div>
                             <div class="flex flex-col items-center min-w-[7rem]">
                                 <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
                                     <i class="fas fa-database text-blue-400 text-4xl"></i>
                                 </div>
-                                <span class="text-sm font-medium text-gray-700">SQL</span>
+                                <span class="text-sm font-medium text-black-700">SQL</span>
                             </div>
                             <div class="flex flex-col items-center min-w-[7rem]">
                                 <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
                                     <i class="fas fa-terminal text-gray-800 text-4xl"></i>
                                 </div>
-                                <span class="text-sm font-medium text-gray-700">C/C++</span>
+                                <span class="text-sm font-medium text-black-700">C/C++</span>
+                            </div>
+                            <div class="flex flex-col items-center min-w-[7rem]">
+                                <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
+                                    <i class="fab fa-java text-orange-600 text-4xl"></i>
+                                </div>
+                                <span class="text-sm font-medium text-black-700">Java</span>
+                            </div>
+                            <div class="flex flex-col items-center min-w-[7rem]">
+                                <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg">
+                                    <i class="fab fa-python text-blue-600 text-4xl"></i>
+                                </div>
+                                <span class="text-sm font-medium text-black-700">Python</span>
                             </div>
                             <div class="flex flex-col items-center min-w-[7rem]">
                                 <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg flex items-center justify-center">
-                                    <img src="https://th.bing.com/th/id/OIP.4j7LvA999TgVzlsDg_Uu7AHaEx?w=301&h=193&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Tailwind CSS" class="w-12 h-12">
+                                    <img src="images/tailwind-css.png" alt="Tailwind CSS" class="w-12 h-12">
                                 </div>
-                                <span class="text-sm font-medium text-gray-700">Tailwind CSS</span>
+                                <span class="text-sm font-medium text-black-700">Tailwind CSS</span>
                             </div>
                             <div class="flex flex-col items-center min-w-[7rem]">
                                 <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg flex items-center justify-center">
                                     <img src="https://static.canva.com/static/images/favicon.ico" alt="Canva" class="w-12 h-12">
                                 </div>
-                                <span class="text-sm font-medium text-gray-700">Canva</span>
+                                <span class="text-sm font-medium text-black-700">Canva</span>
                             </div>
                             <div class="flex flex-col items-center min-w-[7rem]">
                                 <div class="bg-gray-100 p-6 rounded-full mb-2 shadow-lg flex items-center justify-center">
-                                    <img src="https://th.bing.com/th/id/OIP.nYQJ8xcSBFuXQSiKzvAFngHaEn?w=284&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Flutter" class="w-12 h-12">
+                                    <img src="images/flutter.png" alt="Flutter" class="w-12 h-12">
                                 </div>
-                                <span class="text-sm font-medium text-gray-700">Flutter</span>
+                                <span class="text-sm font-medium text-black-700">Flutter</span>
                             </div>
                         </div>
                     </div>
@@ -686,7 +1042,7 @@
                         // Horizontal infinite scroll effect for tools carousel (seamless, keeps names)
                         const carousel = document.getElementById('tools-carousel');
                         let scrollAmount = 0;
-                        const speed = 3.5; // px per frame
+                        const speed = 2.5; // px per frame
 
                         function animateCarousel() {
                             scrollAmount += speed;
@@ -703,31 +1059,31 @@
                     </script>
                 </div>
                 <!-- Certificates Section -->
-                <div id="certsSection" class="py-8 hidden">
-                    <h3 class="text-2xl font-bold mb-6 text-center gradient-text flex items-center justify-center gap-3">
+                <div id="certsSection" class="py-6 sm:py-8 hidden">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center gradient-text flex items-center justify-center gap-2 sm:gap-3">
                         Certificates & diplomas
                     </h3>
-                    <p class="text-gray-600 text-center mb-8 max-w-xl mx-auto">
+                    <p class="text-gray-600 text-center mb-6 sm:mb-8 max-w-xl mx-auto px-4 text-sm sm:text-base">
                         Recognitions and achievements earned through professional development, online courses, and academic excellence.
                     </p>
 
-                    <div class="flex flex-wrap justify-center items-stretch gap-8 px-4">
-                        <div class="w-64 sm:w-72 md:w-80 flex flex-col items-center">
-                        <div class="w-full aspect-video rounded-lg overflow-hidden flex items-center justify-center bg-white">
-                            <img src="certificates/cert1.jpg" alt="Certificate 1" class="max-w-full max-h-full object-contain" />
-                        </div>
-                        </div>
-
-                        <div class="w-64 sm:w-72 md:w-80 flex flex-col items-center">
-                        <div class="w-full aspect-video rounded-lg overflow-hidden flex items-center justify-center bg-white">
-                            <img src="certificates/cert2.jpg" alt="Certificate 2" class="max-w-full max-h-full object-contain" />
-                        </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-4">
+                        <div class="flex flex-col items-center">
+                            <div class="w-full max-w-xs aspect-video rounded-lg overflow-hidden flex items-center justify-center bg-white shadow-lg">
+                                <img src="certificates/cert1.jpg" alt="Certificate 1" class="max-w-full max-h-full object-contain" />
+                            </div>
                         </div>
 
-                        <div class="w-64 sm:w-72 md:w-80 flex flex-col items-center">
-                        <div class="w-full aspect-video rounded-lg overflow-hidden flex items-center justify-center bg-white">
-                            <img src="certificates/cert3.jpg" alt="Certificate 3" class="max-w-full max-h-full object-contain" />
+                        <div class="flex flex-col items-center">
+                            <div class="w-full max-w-xs aspect-video rounded-lg overflow-hidden flex items-center justify-center bg-white shadow-lg">
+                                <img src="certificates/cert2.jpg" alt="Certificate 2" class="max-w-full max-h-full object-contain" />
+                            </div>
                         </div>
+
+                        <div class="flex flex-col items-center sm:col-span-2 lg:col-span-1">
+                            <div class="w-full max-w-xs aspect-video rounded-lg overflow-hidden flex items-center justify-center bg-white shadow-lg">
+                                <img src="certificates/cert3.jpg" alt="Certificate 3" class="max-w-full max-h-full object-contain" />
+                            </div>
                         </div>
 
                         <!-- autres certificats -->
@@ -766,149 +1122,129 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-2">Get In <span class="gradient-text">Touch</span></h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto mt-4">
-                    Have a project in mind or want to collaborate? Feel free to reach out!
+    <section id="contact" class="py-16 sm:py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 relative overflow-hidden">
+        <!-- Background elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-60 h-60 sm:w-80 sm:h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse"></div>
+            <div class="absolute -bottom-40 -left-40 w-60 h-60 sm:w-80 sm:h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse" style="animation-delay: 2s;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-white">Let's Work <span class="gradient-text">Together</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-4 sm:mb-6"></div>
+                <p class="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">
+                    Ready to bring your ideas to life? I'm available for freelance projects, full-time opportunities, and exciting collaborations.
                 </p>
             </div>
             
-            <div class="flex flex-col md:flex-row gap-12">
-                <div class="md:w-1/2">
-                    <div class="bg-white p-8 rounded-xl shadow-md">
-                        <h3 class="text-xl font-semibold mb-6">Send Me a Message</h3>
-                        <form id="contact-form" action="https://formspree.io/f/xqadwvgn" method="POST">
-                            <div class="mb-6">
-                                <label for="name" class="block text-gray-700 mb-2">Your Name</label>
-                                <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <div class="grid lg:grid-cols-2 gap-8 sm:gap-12">
+                <!-- Contact Form -->
+                <div class="bg-white/10 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-white/20">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-white">Send Me a Message</h3>
+                    <form id="contact-form" action="https://formspree.io/f/xqadwvgn" method="POST" class="space-y-4 sm:space-y-6">
+                        <div class="grid sm:grid-cols-2 gap-4 sm:gap-6">
+                            <div>
+                                <label for="name" class="block text-gray-300 mb-2 font-medium text-sm sm:text-base">Your Name</label>
+                                <input type="text" id="name" name="name" required 
+                                       class="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent backdrop-blur-sm text-sm sm:text-base">
                             </div>
-                            <div class="mb-6">
-                                <label for="email" class="block text-gray-700 mb-2">Your Email</label>
-                                <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <div>
+                                <label for="email" class="block text-gray-300 mb-2 font-medium text-sm sm:text-base">Your Email</label>
+                                <input type="email" id="email" name="email" required 
+                                       class="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent backdrop-blur-sm text-sm sm:text-base">
                             </div>
-                            <div class="mb-6">
-                                <label for="subject" class="block text-gray-700 mb-2">Subject</label>
-                                <input type="text" id="subject" name="subject" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            </div>
-                            <div class="mb-6">
-                                <label for="message" class="block text-gray-700 mb-2">Your Message</label>
-                                <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                            </div>
-                            <div class="flex justify-center">
-                                <button type="submit" id="messsageBtn" class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:from-blue-600 hover:to-purple-700 hover:scale-105 transition duration-300 inline-flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-blue-400" style="font-size:1.15rem;">Send message</button>
-                            </div>
-                        </form>
-                    </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-300 mb-2 font-medium text-sm sm:text-base">Subject</label>
+                            <input type="text" id="subject" name="subject" required 
+                                   class="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent backdrop-blur-sm text-sm sm:text-base">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-300 mb-2 font-medium text-sm sm:text-base">Your Message</label>
+                            <textarea id="message" name="message" rows="4" required 
+                                      class="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent backdrop-blur-sm resize-none text-sm sm:text-base"></textarea>
+                        </div>
+                        <div class="flex justify-center">
+                            <button type="submit" id="messsageBtn" 
+                                    class="px-8 sm:px-10 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold shadow-lg hover:from-blue-600 hover:to-purple-700 hover:scale-105 transition duration-300 inline-flex items-center gap-2 sm:gap-3 focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm sm:text-base">
+                                <i class="fas fa-paper-plane mr-1 sm:mr-2"></i>
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
                 </div>
                 
-                <div class="md:w-1/2">
-                    <div class="bg-white p-8 rounded-xl shadow-md h-full">
-                        <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
-                        <p class="text-gray-600 mb-8">
-                            Feel free to reach out through any of these channels. I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
+                <!-- Contact Information -->
+                <div class="space-y-6 sm:space-y-8">
+                    <div class="bg-white/10 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-white/20">
+                        <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-white">Get In Touch</h3>
+                        <p class="text-gray-300 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
+                            I'm always excited to discuss new opportunities, innovative projects, and potential collaborations. 
+                            Whether you're looking for a developer to join your team or need help bringing your digital vision to life, 
+                            I'd love to hear from you.
                         </p>
                         
-                        <div class="space-y-6">
-                            <div class="flex items-start">
-                                <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                    <i class="fas fa-envelope text-blue-500"></i>
+                        <!-- Contact Methods -->
+                        <div class="space-y-4 sm:space-y-6">
+                            <div class="flex items-center p-3 sm:p-4 bg-white/5 rounded-xl border border-white/10">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mr-3 sm:mr-4">
+                                    <i class="fas fa-envelope text-blue-400 text-lg sm:text-xl"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold">Email</h4>
-                                    <a href="mailto:dahnaouimohsine@gmail.com" class="text-gray-600 hover:text-blue-500">dahnaouimohsine@gmail.com</a>
+                                    <h4 class="font-semibold text-white text-sm sm:text-base">Email</h4>
+                                    <a href="mailto:dahnaouimohsine@gmail.com" class="text-gray-300 hover:text-blue-400 transition-colors text-xs sm:text-sm break-all">dahnaouimohsine@gmail.com</a>
                                 </div>
                             </div>
                             
-                            <div class="flex items-start">
-                                <div class="bg-green-100 p-3 rounded-full mr-4">
-                                    <i class="fas fa-phone-alt text-green-500"></i>
+                            <div class="flex items-center p-3 sm:p-4 bg-white/5 rounded-xl border border-white/10">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-green-500/20 rounded-xl flex items-center justify-center mr-3 sm:mr-4">
+                                    <i class="fas fa-phone-alt text-green-400 text-lg sm:text-xl"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold">Phone</h4>
-                                    <a href="tel:+212 6 58 60 34 38" class="text-gray-600 hover:text-blue-500">+212 6 58 60 34 38</a>
+                                    <h4 class="font-semibold text-white text-sm sm:text-base">Phone</h4>
+                                    <a href="tel:+212658603438" class="text-gray-300 hover:text-green-400 transition-colors text-xs sm:text-base">+212 6 58 60 34 38</a>
                                 </div>
                             </div>
                             
-                            <div class="flex items-start">
-                                <div class="bg-purple-100 p-3 rounded-full mr-4">
-                                    <i class="fas fa-map-marker-alt text-purple-500"></i>
+                            <div class="flex items-center p-3 sm:p-4 bg-white/5 rounded-xl border border-white/10">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mr-3 sm:mr-4">
+                                    <i class="fas fa-map-marker-alt text-purple-400 text-lg sm:text-xl"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold">Location</h4>
-                                    <p id="address-hover" class="text-gray-600 cursor-pointer hover:text-blue-500 transition">
-                                        Bloc 5, Hay El Massira Oued Zem, Morocco
+                                    <h4 class="font-semibold text-white text-sm sm:text-base">Location</h4>
+                                    <p id="address-hover" class="text-gray-300 cursor-pointer hover:text-purple-400 transition-colors text-xs sm:text-sm">
+                                        Oued Zem, Morocco
                                     </p>
-                                    <!-- Modal for Google Maps -->
-                                    <div id="maps-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 hidden">
-                                        <div class="bg-white rounded-xl shadow-2xl p-4 relative w-full max-w-2xl">
-                                            <button id="close-maps-modal" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900">
-                                                <i class="fas fa-times text-2xl"></i>
-                                            </button>
-                                            <h3 class="text-lg font-semibold mb-4">Location Map</h3>
-                                            <div class="w-full h-96">
-                                                <iframe
-                                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19794.360398119257!2d-6.56983965!3d32.86044385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda402d7a958cfd7%3A0xd64525ebba1eca9a!2sOued%20Zem!5e1!3m2!1sen!2sma!4v1753645380762!5m2!1sen!2sma"
-                                                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <script>
-                                        // Show modal on hover
-                                        const addressHover = document.getElementById('address-hover');
-                                        const mapsModal = document.getElementById('maps-modal');
-                                        const closeMapsModal = document.getElementById('close-maps-modal');
-                                        let mapsTimeout;
-
-                                        addressHover.addEventListener('mouseenter', () => {
-                                            clearTimeout(mapsTimeout);
-                                            mapsModal.classList.remove('hidden');
-                                        });
-
-                                        addressHover.addEventListener('mouseleave', () => {
-                                            mapsTimeout = setTimeout(() => {
-                                                mapsModal.classList.add('hidden');
-                                            }, 200);
-                                        });
-
-                                        mapsModal.addEventListener('mouseenter', () => {
-                                            clearTimeout(mapsTimeout);
-                                        });
-
-                                        mapsModal.addEventListener('mouseleave', () => {
-                                            mapsModal.classList.add('hidden');
-                                        });
-
-                                        closeMapsModal.addEventListener('click', () => {
-                                            mapsModal.classList.add('hidden');
-                                        });
-                                    </script>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="mt-12">
-                            <h4 class="font-semibold mb-4">Connect With Me</h4>
-                            <div class="flex space-x-4">
-                                <a href="https://www.linkedin.com/in/mohsine-dahnaoui-005246368/" class="bg-gray-100 p-3 rounded-full text-gray-700 hover:bg-blue-100 hover:text-blue-500 transition duration-300">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="https://github.com/MOHSINEDAHNAOUI" class="bg-gray-100 p-3 rounded-full text-gray-700 hover:bg-gray-800 hover:text-white transition duration-300">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="https://www.instagram.com/mohsine_dahnaoui" class="bg-gray-100 p-3 rounded-full text-gray-700 hover:bg-pink-100 hover:text-pink-500 transition duration-300">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="https://wa.me/212658603438" class="bg-gray-100 p-3 rounded-full text-gray-700 hover:bg-green-400 hover:text-white transition duration-300">
-                                    <i class="fab fa-whatsapp"></i>
-                                </a>
-                                <a href="mailto:dahnaouimohsine@gmail.com" class="bg-gray-100 p-3 rounded-full text-gray-700 hover:bg-blue-400 hover:text-white transition duration-300">
-                                    <i class="fas fa-envelope"></i>
-                                </a>
-                            </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="bg-white/10 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-white/20">
+                        <h4 class="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-white">Connect With Me</h4>
+                        <div class="flex flex-wrap gap-3 sm:gap-4">
+                            <a href="https://www.linkedin.com/in/mohsine-dahnaoui-005246368/" 
+                               class="flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-blue-600/20 text-blue-300 rounded-xl hover:bg-blue-600/30 transition-all duration-300 border border-blue-500/30 text-sm sm:text-base">
+                                <i class="fab fa-linkedin-in mr-2 sm:mr-3"></i>
+                                LinkedIn
+                            </a>
+                            <a href="https://github.com/MOHSINEDAHNAOUI" 
+                               class="flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gray-600/20 text-gray-300 rounded-xl hover:bg-gray-600/30 transition-all duration-300 border border-gray-500/30 text-sm sm:text-base">
+                                <i class="fab fa-github mr-2 sm:mr-3"></i>
+                                GitHub
+                            </a>
+                            <a href="https://wa.me/212658603438" 
+                               class="flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-green-600/20 text-green-300 rounded-xl hover:bg-green-600/30 transition-all duration-300 border border-green-500/30 text-sm sm:text-base">
+                                <i class="fab fa-whatsapp mr-2 sm:mr-3"></i>
+                                WhatsApp
+                            </a>
+                            <a href="https://www.instagram.com/mohsine_dahnaoui/" 
+                               class="flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-purple-600/20 text-purple-300 rounded-xl hover:bg-purple-600/30 transition-all duration-300 border border-purple-500/30 text-sm sm:text-base">
+                                <i class="fab fa-instagram mr-2 sm:mr-3"></i>
+                                Instagram
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -917,70 +1253,82 @@
     </section>
 
     <!-- Footer -->
-    <footer class="text-white py-12" style="background: linear-gradient(160deg, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.92) 100%), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=60'); background-size: cover; background-position: center; background-blend-mode: overlay;">
+    <footer class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white py-12 sm:py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <a href="#home" class="text-xl font-bold gradient-text">Mohsine Dahnaoui</a>
-                    <p class="text-gray-200 mt-2">Web Developer</p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
+                <!-- Brand Section -->
+                <div class="sm:col-span-2 lg:col-span-2">
+                    <a href="#home" class="text-xl sm:text-2xl font-bold gradient-text mb-3 sm:mb-4 block">Mohsine Dahnaoui</a>
+                    <p class="text-gray-300 mb-4 sm:mb-6 max-w-md leading-relaxed text-sm sm:text-base">
+                        Full-Stack Web Developer passionate about creating innovative digital solutions that drive business growth and enhance user experiences.
+                    </p>
+                    <div class="flex space-x-3 sm:space-x-4">
+                        <a href="https://www.linkedin.com/in/mohsine-dahnaoui-005246368/" 
+                           class="w-8 h-8 sm:w-10 sm:h-10 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 hover:bg-blue-600/30 transition-all duration-300">
+                            <i class="fab fa-linkedin-in text-sm sm:text-base"></i>
+                        </a>
+                        <a href="https://github.com/MOHSINEDAHNAOUI" 
+                           class="w-8 h-8 sm:w-10 sm:h-10 bg-gray-600/20 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gray-600/30 transition-all duration-300">
+                            <i class="fab fa-github text-sm sm:text-base"></i>
+                        </a>
+                        <a href="https://wa.me/212658603438" 
+                           class="w-8 h-8 sm:w-10 sm:h-10 bg-green-600/20 rounded-lg flex items-center justify-center text-green-400 hover:bg-green-600/30 transition-all duration-300">
+                            <i class="fab fa-whatsapp text-sm sm:text-base"></i>
+                        </a>
+                        <a href="mailto:dahnaouimohsine@gmail.com" 
+                           class="w-8 h-8 sm:w-10 sm:h-10 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 hover:bg-blue-600/30 transition-all duration-300">
+                            <i class="fas fa-envelope text-sm sm:text-base"></i>
+                        </a>
+                        <a href="https://www.instagram.com/mohsine_dahnaoui/" 
+                           class="w-8 h-8 sm:w-10 sm:h-10 bg-purple-600/20 rounded-lg flex items-center justify-center text-purple-400 hover:bg-purple-600/30 transition-all duration-300">
+                            <i class="fab fa-instagram text-sm sm:text-base"></i>
+                        </a>
+                    </div>
                 </div>
                 
-                <div class="flex flex-col md:flex-row md:space-x-12 space-y-4 md:space-y-0">
-                    <div>
-                        <h4 class="font-semibold mb-3">Quick Links</h4>
-                        <ul class="space-y-2">
-                            <li><a href="#home" class="text-gray-200 hover:text-white transition duration-300">Home</a></li>
-                            <li><a href="#about" class="text-gray-200 hover:text-white transition duration-300">About</a></li>
-                            <li><a href="#projects" class="text-gray-200 hover:text-white transition duration-300">Projects</a></li>
-                            <li><a href="#contact" class="text-gray-200 hover:text-white transition duration-300">Contact</a></li>
-                        </ul>
-                    </div>
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Quick Links</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="#home" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base">About</a></li>
+                        <li><a href="#projects" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base">Projects</a></li>
+                        <li><a href="#skills" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base">Skills</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base">Contact</a></li>
+                    </ul>
+                </div>
                     
-                    <div>
-                        <h4 class="font-semibold mb-3">My Work</h4>
-                        <ul class="space-y-2">
-                            <li><a href="#projects" class="text-gray-200 hover:text-white transition duration-300">Web Development</a></li>
-                            <li><a href="#projects" class="text-gray-200 hover:text-white transition duration-300">Programming</a></li>
-                            <li><a href="#about" class="text-gray-200 hover:text-white transition duration-300">Published Books</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <h4 class="font-semibold mb-3">Legal</h4>
-                        <ul class="space-y-2">
-                            <li><a href="privacy-policy.html" class="text-gray-200 hover:text-white transition duration-300">Privacy Policy</a></li>
-                            <li><a href="terms-of-service.html" class="text-gray-200 hover:text-white transition duration-300">Terms of Service</a></li>
-                        </ul>
-                    </div>
+                <!-- Services -->
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Services</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><span class="text-gray-300 text-sm sm:text-base">Web Development</span></li>
+                        <li><span class="text-gray-300 text-sm sm:text-base">Full-Stack Solutions</span></li>
+                        <li><span class="text-gray-300 text-sm sm:text-base">Database Design</span></li>
+                        <li><span class="text-gray-300 text-sm sm:text-base">UI/UX Design</span></li>
+                        <li><span class="text-gray-300 text-sm sm:text-base">Performance Optimization</span></li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="border-t border-gray-200/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-200 mb-4 md:mb-0">© 2025 Mohsine Dahnaoui. All rights reserved.</p>
-                <div class="flex space-x-6">
-                    <a href="https://www.linkedin.com/in/mohsine-dahnaoui-005246368/" class="text-gray-200 hover:text-white transition duration-300">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/MOHSINEDAHNAOUI" class="text-gray-200 hover:text-white transition duration-300">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.instagram.com/mohsine_dahnaoui" class="text-gray-200 hover:text-white transition duration-300">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://wa.me/212658603438" class="text-gray-200 hover:text-white transition duration-300">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="mailto:dahnaouimohsine@gmail.com" class="text-gray-200 hover:text-white transition duration-300">
-                        <i class="fas fa-envelope"></i>
-                    </a>
+            <!-- Bottom Section -->
+            <div class="border-t border-gray-700 pt-6 sm:pt-8">
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <p class="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
+                        © 2025 Mohsine Dahnaoui. All rights reserved. Built with passion and modern web technologies.
+                    </p>
+                    <div class="flex items-center space-x-4 sm:space-x-6">
+                        <a href="privacy-policy.html" class="text-gray-400 hover:text-white transition-colors duration-300 text-xs sm:text-sm">Privacy Policy</a>
+                        <a href="terms-of-service.html" class="text-gray-400 hover:text-white transition-colors duration-300 text-xs sm:text-sm">Terms of Service</a>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 bg-gradient-to-r from-blue-500 to-purple-600 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
-        <i class="fas fa-arrow-up"></i>
+    <button id="back-to-top" class="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 bg-gradient-to-r from-blue-500 to-purple-600 text-white p-2 sm:p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:scale-110">
+        <i class="fas fa-arrow-up text-sm sm:text-base"></i>
     </button>
 
     <script>
@@ -991,6 +1339,45 @@
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+        
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const darkModeToggleMobile = document.getElementById('dark-mode-toggle-mobile');
+        const darkModeIcon = document.getElementById('dark-mode-icon');
+        const darkModeIconMobile = document.getElementById('dark-mode-icon-mobile');
+        
+        // Check for saved dark mode preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        // Apply the saved theme on page load
+        if (currentTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+            darkModeIcon.className = 'fas fa-sun text-yellow-400';
+            darkModeIconMobile.className = 'fas fa-sun text-yellow-400 text-xl';
+        }
+        
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            const isDark = document.documentElement.classList.contains('dark');
+            
+            if (isDark) {
+                // Switch to light mode
+                document.documentElement.classList.remove('dark');
+                darkModeIcon.className = 'fas fa-moon text-gray-600';
+                darkModeIconMobile.className = 'fas fa-moon text-gray-600 text-xl';
+                localStorage.setItem('theme', 'light');
+            } else {
+                // Switch to dark mode
+                document.documentElement.classList.add('dark');
+                darkModeIcon.className = 'fas fa-sun text-yellow-400';
+                darkModeIconMobile.className = 'fas fa-sun text-yellow-400 text-xl';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+        
+        // Add event listeners for both toggle buttons
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+        darkModeToggleMobile.addEventListener('click', toggleDarkMode);
         
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
