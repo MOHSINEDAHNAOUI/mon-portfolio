@@ -1,783 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="logo.svg">
-    
+
     <!-- SEO Meta Tags -->
-    <title>All Projects | Mohsine Dahnaoui</title>
-    <meta name="description" content="Explore the complete portfolio of Mohsine Dahnaoui's web development projects. Full-stack applications, database solutions, and innovative digital experiences.">
-    <meta name="keywords" content="web development projects, full-stack applications, portfolio, PHP, JavaScript, HTML, CSS, MySQL, database design, Morocco developer">
-    <meta name="author" content="Mohsine Dahnaoui">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="All Projects | Mohsine Dahnaoui - Full-Stack Web Developer">
-    <meta property="og:description" content="Complete portfolio showcasing web development projects, full-stack applications, and innovative digital solutions.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mohsinedahnaoui.github.io/projects.html">
-    <meta property="og:image" content="images/mon image0.jpg">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="All Projects | Mohsine Dahnaoui - Full-Stack Web Developer">
-    <meta name="twitter:description" content="Complete portfolio showcasing web development projects and innovative digital solutions.">
-    <meta name="twitter:image" content="images/mon image0.jpg">
-    
-    <!-- Additional Meta Tags -->
-    <meta name="theme-color" content="#3b82f6">
-    <meta name="msapplication-TileColor" content="#3b82f6">
-    <link rel="canonical" href="https://mohsinedahnaoui.github.io/projects.html">
+    <title>Archive | Mohsine Dahnaoui</title>
+    <meta name="description"
+        content="Complete archive of projects by Mohsine Dahnaoui. Full-stack development, interactive UI, and digital systems.">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="all-projects-data.js"></script>
+
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script src="projects-data.js"></script>
+    <script src="3d-scene.js" defer></script>
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary: #3b82f6;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --bg-dark: #050816;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
-        
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
         .gradient-text {
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            background: linear-gradient(90deg, #60a5fa, #a78bfa, #22d3ee);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            background-size: 200% auto;
+            animation: shine 3s linear infinite;
         }
-        
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        .active::after {
-            width: 100%;
-        }
-        
-        .hero-pattern {
-            background-image: radial-gradient(#3b82f620 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
-        
-        /* Custom animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
+
+        @keyframes shine {
             to {
-                opacity: 1;
-                transform: translateY(0);
+                background-position: 200% center;
             }
         }
-        
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+
+
+        nav.glass-nav {
+            background: rgba(5, 8, 22, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
         }
-        
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
         }
-        
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-        
-        .animate-fade-in-left {
-            animation: fadeInLeft 0.8s ease-out forwards;
-        }
-        
-        .animate-fade-in-right {
-            animation: fadeInRight 0.8s ease-out forwards;
-        }
-        
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Custom scrollbar */
+
+        /* Scrollbar */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
-        
+
         ::-webkit-scrollbar-track {
-            background: #f1f1f1;
+            background: var(--bg-dark);
         }
-        
+
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
-            border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(45deg, #2563eb, #7c3aed);
-        }
-        
-        /* Filter button animations */
-        .filter-btn {
-            transition: all 0.3s ease;
-        }
-        
-        .filter-btn:hover {
-            transform: translateY(-2px);
-        }
-        
-        /* Project card hover effects */
-        .project-card {
-            transition: all 0.3s ease;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Dark Mode Styles */
-        .dark {
-            color-scheme: dark;
-        }
-        
-        .dark body {
-            background-color: #0f172a;
-            color: #e2e8f0;
-        }
-        
-        .dark .bg-white {
-            background-color: #1e293b !important;
-        }
-        
-        .dark .bg-gray-50 {
-            background-color: #0f172a !important;
-        }
-        
-        .dark .bg-gray-100 {
-            background-color: #334155 !important;
-        }
-        
-        .dark .text-gray-800 {
-            color: #e2e8f0 !important;
-        }
-        
-        .dark .text-gray-600 {
-            color: #94a3b8 !important;
-        }
-        
-        .dark .text-gray-500 {
-            color: #64748b !important;
-        }
-        
-        .dark .border-gray-200 {
-            border-color: #334155 !important;
-        }
-        
-        .dark .border-gray-300 {
-            border-color: #475569 !important;
-        }
-        
-        .dark .shadow-md {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2) !important;
-        }
-        
-        .dark .shadow-lg {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2) !important;
-        }
-        
-        .dark .shadow-xl {
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2) !important;
-        }
-        
-        /* Dark mode navigation */
-        .dark nav {
-            background-color: #1e293b !important;
-            border-bottom: 1px solid #334155;
-        }
-        
-        /* Dark mode form inputs */
-        .dark input, .dark textarea {
-            background-color: #334155 !important;
-            border-color: #475569 !important;
-            color: #e2e8f0 !important;
-        }
-        
-        .dark input::placeholder, .dark textarea::placeholder {
-            color: #94a3b8 !important;
-        }
-        
-        /* Dark mode cards */
-        .dark .bg-gradient-to-br {
-            background: linear-gradient(to bottom right, #1e293b, #0f172a) !important;
-        }
-        
-        /* Dark mode scrollbar */
-        .dark ::-webkit-scrollbar-track {
-            background: #1e293b;
-        }
-        
-        .dark ::-webkit-scrollbar-thumb {
-            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
-        }
-        
-        .dark ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(45deg, #2563eb, #7c3aed);
+            background: linear-gradient(var(--primary), var(--secondary));
+            border-radius: 10px;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-white shadow-sm z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <a href="index.html" class="text-xl font-bold gradient-text">Mohsine Dahnaoui</a>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html#home" class="nav-link">Home</a>
-                    <a href="index.html#about" class="nav-link">About</a>
-                    <a href="index.html#projects" class="nav-link">Projects</a>
-                    <a href="index.html#skills" class="nav-link">Skills</a>
-                    <a href="index.html#contact" class="nav-link">Contact</a>
-                    <!-- Dark Mode Toggle -->
-                    <button id="dark-mode-toggle" class="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-300 dark:bg-gray-700 dark:hover:bg-gray-600">
-                        <i id="dark-mode-icon" class="fas fa-moon text-gray-600 dark:text-yellow-400"></i>
-                    </button>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button id="menu-btn" class="text-gray-600 hover:text-gray-900">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
+
+<body class="bg-[#050816] text-white">
+
+    <!-- 3D Go Home Button -->
+    <div class="fixed top-6 left-1/2 -translate-x-1/2 z-[100]" style="perspective: 1200px;">
+        <a href="index.html" id="go-home-btn"
+            class="glass-card group relative px-10 py-3 overflow-hidden transition-all duration-500 hover:scale-110 block"
+            style="transform-style: preserve-3d; border-radius: 50px;">
+
+            <!-- Hover Glow Layer -->
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity">
             </div>
-        </div>
-        
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="fixed inset-0 z-50 hidden md:hidden flex items-center justify-center">
-            <div class="absolute inset-0 bg-black bg-opacity-40" onclick="document.getElementById('mobile-menu').classList.add('hidden')"></div>
-            <div class="relative bg-white rounded-2xl shadow-2xl w-96 max-w-full flex flex-col items-center py-10 px-8">
-                <button class="absolute top-4 right-4 text-gray-600 hover:text-gray-900" onclick="document.getElementById('mobile-menu').classList.add('hidden')">
-                    <i class="fas fa-times text-2xl"></i>
-                </button>
-                <div class="flex flex-col items-center mb-6 mt-2">
-                    <div class="w-28 h-28 rounded-full overflow-hidden border-4 border-gradient-to-r from-blue-500 to-purple-600 shadow-lg mb-3 flex items-center justify-center">
-                        <img src="images/mon image0.jpg" alt="Mohsine Dahnaoui" class="w-full h-full object-cover">
-                    </div>
-                    <span class="font-bold text-xl gradient-text text-center">Mohsine Dahnaoui</span>
-                    <span class="text-gray-500 text-sm mt-1 text-center">Web Developer</span>
-                </div>
-                <nav class="w-full mt-4">
-                    <ul class="flex flex-col items-center gap-4">
-                        <li><a href="index.html#home" class="nav-link text-gray-700 font-medium text-lg hover:gradient-text transition text-center" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a></li>
-                        <li><a href="index.html#about" class="nav-link text-gray-700 font-medium text-lg hover:gradient-text transition text-center" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About</a></li>
-                        <li><a href="index.html#projects" class="nav-link text-gray-700 font-medium text-lg hover:gradient-text transition text-center" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Projects</a></li>
-                        <li><a href="index.html#skills" class="nav-link text-gray-700 font-medium text-lg hover:gradient-text transition text-center" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Skills</a></li>
-                        <li><a href="index.html#contact" class="nav-link text-gray-700 font-medium text-lg hover:gradient-text transition text-center" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact</a></li>
-                    </ul>
-                </nav>
-                <div class="flex justify-center gap-4 mt-8">
-                    <a href="https://www.linkedin.com/in/mohsine-dahnaoui-005246368/" class="text-gray-500 hover:text-blue-600 transition"><i class="fab fa-linkedin-in text-2xl"></i></a>
-                    <a href="https://github.com/MOHSINEDAHNAOUI" class="text-gray-500 hover:text-gray-900 transition"><i class="fab fa-github text-2xl"></i></a>
-                    <a href="https://www.instagram.com/mohsine_dahnaoui" class="text-gray-500 hover:text-pink-500 transition"><i class="fab fa-instagram text-2xl"></i></a>
-                    <a href="https://wa.me/212658603438" class="text-gray-500 hover:text-green-400 transition"><i class="fab fa-whatsapp text-2xl"></i></a>
-                    <a href="mailto:dahnaouimohsine@gmail.com" class="text-gray-500 hover:text-blue-500 transition"><i class="fas fa-envelope text-2xl"></i></a>
-                </div>
-                <!-- Dark Mode Toggle for Mobile -->
-                <div class="mt-6 flex justify-center">
-                    <button id="dark-mode-toggle-mobile" class="p-3 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-300 dark:bg-gray-700 dark:hover:bg-gray-600">
-                        <i id="dark-mode-icon-mobile" class="fas fa-moon text-gray-600 dark:text-yellow-400 text-xl"></i>
-                    </button>
-                </div>
-                <div class="mt-6 text-center w-full">
-                    <span class="text-sm text-gray-400">© 2025 Mohsine Dahnaoui. All rights reserved.</span>
-                </div>
+
+            <span class="relative z-10 flex items-center justify-center h-full" style="transform: translateZ(20px);">
+                <!-- Hover Icon -->
+                <i
+                    class="fas fa-home text-blue-400 text-lg absolute left-0 -translate-x-10 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500"></i>
+
+                <!-- Text -->
+                <span
+                    class="gradient-text font-black uppercase tracking-[0.3em] text-[10px] inline-block transition-transform duration-500 group-hover:translate-x-6">Go
+                    Home</span>
+            </span>
+
+            <!-- Subtle Tech Accent -->
+            <div
+                class="absolute inset-0 border border-white/5 rounded-full group-hover:border-blue-500/30 transition-colors">
             </div>
-        </div>
-    </nav>
+        </a>
+    </div>
+
 
     <!-- Header Section -->
-    <section class="pt-24 pb-16 md:pt-32 md:pb-24 relative overflow-hidden">
-        <!-- Background with gradient overlay -->
-        <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"></div>
-        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1500&q=80')] bg-cover bg-center opacity-20"></div>
-        
-        <!-- Animated background elements -->
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-            <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
-        </div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center">
-                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white leading-tight">
-                    All <span class="gradient-text">Projects</span>
-                </h1>
-                <p class="text-xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-                    A comprehensive showcase of my web development journey, featuring <span class="text-blue-300 font-semibold">full-stack applications</span>, 
-                    <span class="text-purple-300 font-semibold">database-driven solutions</span>, and 
-                    <span class="text-green-300 font-semibold">innovative digital experiences</span>.
-                </p>
-                
-                <!-- Project Stats -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 max-w-2xl mx-auto">
-                    <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
-                        <div class="text-2xl font-bold text-white">6+</div>
-                        <div class="text-sm text-gray-300">Projects</div>
-                    </div>
-                    <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
-                        <div class="text-2xl font-bold text-white">5+</div>
-                        <div class="text-sm text-gray-300">Technologies</div>
-                    </div>
-                    <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
-                        <div class="text-2xl font-bold text-white">100%</div>
-                        <div class="text-sm text-gray-300">Success Rate</div>
-                    </div>
-                    <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
-                        <div class="text-2xl font-bold text-white">2+</div>
-                        <div class="text-sm text-gray-300">Years</div>
-                    </div>
-                </div>
-                
-                <div class="flex justify-center">
-                    <a href="index.html" class="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-xl font-semibold hover:bg-white/20 transition-all duration-300 flex items-center gap-3">
-                        <i class="fas fa-arrow-left"></i>
-                        Back to Home
-                    </a>
-                </div>
-            </div>
+    <section id="archive-header" class="pt-40 pb-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-5xl sm:text-7xl font-black mb-6 reveal-up">
+                Project <span class="gradient-text">Archive</span>
+            </h1>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto reveal-up">
+                A complete chronological log of my digital experiments, client work, and full-stack systems.
+            </p>
+
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="py-20 bg-gradient-to-br from-gray-50 to-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4">Project <span class="gradient-text">Showcase</span></h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Explore my complete portfolio of web development projects, each demonstrating different aspects of my technical expertise and problem-solving capabilities.
-                </p>
-            </div>
-
-            <!-- Filter Buttons -->
-            <div class="flex flex-wrap justify-center gap-4 mb-12">
-                <button class="filter-btn px-6 py-3 bg-blue-500 text-white rounded-xl font-semibold shadow-lg hover:bg-blue-600 transition duration-300" data-filter="all">
-                    All Projects
-                </button>
-                <button class="filter-btn px-6 py-3 bg-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-300 transition duration-300" data-filter="web-development">
-                    Web Development
-                </button>
-                <button class="filter-btn px-6 py-3 bg-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-300 transition duration-300" data-filter="educational">
-                    Educational
-                </button>
-                <button class="filter-btn px-6 py-3 bg-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-300 transition duration-300" data-filter="data-visualization">
-                    Data Visualization
-                </button>
-            </div>
-
-            <!-- Projects Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
-                <!-- Les projets seront générés dynamiquement par JavaScript depuis le fichier all-projects-data.js -->
-            </div>
-
-            <!-- Load More Button (if needed) -->
-            <div class="text-center mt-12">
-                <button id="load-more-btn" class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold shadow-lg hover:from-blue-600 hover:to-purple-700 hover:scale-105 transition duration-300 inline-flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-blue-400" style="display: none;">
-                    <i class="fas fa-plus mr-2"></i>
-                    Load More Projects
-                </button>
+    <!-- Projects Grid -->
+    <section class="pb-40 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="projects-grid">
+                <!-- Projects injected by JS -->
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                <!-- Brand Section -->
-                <div class="lg:col-span-2">
-                    <a href="index.html" class="text-2xl font-bold gradient-text mb-4 block">Mohsine Dahnaoui</a>
-                    <p class="text-gray-300 mb-6 max-w-md leading-relaxed">
-                        Full-Stack Web Developer passionate about creating innovative digital solutions that drive business growth and enhance user experiences.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="https://www.linkedin.com/in/mohsine-dahnaoui-005246368/" 
-                           class="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 hover:bg-blue-600/30 transition-all duration-300">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://github.com/MOHSINEDAHNAOUI" 
-                           class="w-10 h-10 bg-gray-600/20 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gray-600/30 transition-all duration-300">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://wa.me/212658603438" 
-                           class="w-10 h-10 bg-green-600/20 rounded-lg flex items-center justify-center text-green-400 hover:bg-green-600/30 transition-all duration-300">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="mailto:dahnaouimohsine@gmail.com" 
-                           class="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 hover:bg-blue-600/30 transition-all duration-300">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a href="https://www.instagram.com/mohsine_dahnaoui" 
-                           class="w-10 h-10 bg-pink-600/20 rounded-lg flex items-center justify-center text-pink-400 hover:bg-pink-600/30 transition-all duration-300">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Quick Links -->
-                <div>
-                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
-                    <ul class="space-y-3">
-                        <li><a href="index.html#home" class="text-gray-300 hover:text-white transition-colors duration-300">Home</a></li>
-                        <li><a href="index.html#about" class="text-gray-300 hover:text-white transition-colors duration-300">About</a></li>
-                        <li><a href="index.html#projects" class="text-gray-300 hover:text-white transition-colors duration-300">Projects</a></li>
-                        <li><a href="index.html#skills" class="text-gray-300 hover:text-white transition-colors duration-300">Skills</a></li>
-                        <li><a href="index.html#contact" class="text-gray-300 hover:text-white transition-colors duration-300">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Services -->
-                <div>
-                    <h4 class="text-lg font-semibold mb-6">Services</h4>
-                    <ul class="space-y-3">
-                        <li><span class="text-gray-300">Web Development</span></li>
-                        <li><span class="text-gray-300">Full-Stack Solutions</span></li>
-                        <li><span class="text-gray-300">Database Design</span></li>
-                        <li><span class="text-gray-300">UI/UX Design</span></li>
-                        <li><span class="text-gray-300">Performance Optimization</span></li>
-                    </ul>
-                </div>
+    <footer class="py-20 border-t border-white/10 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl font-black gradient-text mb-8">MOHSINE DAHNAOUI</h2>
+            <div class="flex justify-center space-x-8 mb-12">
+                <a href="https://wa.me/212658603438"
+                    class="text-blue-400 hover:text-white transition-all transform hover:scale-110">
+                    <i class="fab fa-whatsapp text-2xl"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/mohsine-dahnaoui-005246368/"
+                    class="text-blue-400 hover:text-white transition-all transform hover:scale-110">
+                    <i class="fab fa-linkedin-in text-2xl"></i>
+                </a>
+                <a href="https://github.com/MOHSINEDAHNAOUI"
+                    class="text-blue-400 hover:text-white transition-all transform hover:scale-110">
+                    <i class="fab fa-github text-2xl"></i>
+                </a>
+                <a href="https://www.instagram.com/mohsine_dahnaoui"
+                    class="text-blue-400 hover:text-white transition-all transform hover:scale-110">
+                    <i class="fab fa-instagram text-2xl"></i>
+                </a>
             </div>
-            
-            <!-- Bottom Section -->
-            <div class="border-t border-gray-700 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 mb-4 md:mb-0">
-                        © 2025 Mohsine Dahnaoui. All rights reserved. Built with passion and modern web technologies.
-                    </p>
-                    <div class="flex items-center space-x-6">
-                        <a href="privacy-policy.html" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm">Privacy Policy</a>
-                        <a href="terms-of-service.html" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm">Terms of Service</a>
-                    </div>
-                </div>
-            </div>
+            <p class="text-gray-600 text-sm tracking-widest uppercase">© 2026 Mohsine Dahnaoui — All Rights Reserved.
+            </p>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 bg-gradient-to-r from-blue-500 to-purple-600 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
-        <i class="fas fa-arrow-up"></i>
+    <button id="backToTop"
+        class="fixed bottom-8 right-8 z-50 p-4 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 hover:bg-blue-500 hover:text-white transition-all duration-300 opacity-0 invisible transform translate-y-4 hover:scale-110 shadow-[0_0_20px_rgba(59,130,246,0.5)]">
+        <i class="fas fa-arrow-up text-xl"></i>
     </button>
 
     <script>
-        // Fonction pour générer les cartes de projets
-        function generateProjectCards(projects = allProjectsData) {
-            const projectsContainer = document.querySelector('#projects-grid');
-            if (!projectsContainer) return;
+        // GSAP Initialization
+        gsap.registerPlugin(ScrollTrigger);
 
-            projectsContainer.innerHTML = '';
+        // Back To Top Logic
+        const backToTopBtn = document.getElementById('backToTop');
 
-            projects.forEach((project, index) => {
-                const projectCard = `
-                    <div class="project-card bg-white rounded-xl overflow-hidden shadow-md transition duration-500 transform hover:scale-105" 
-                         data-project-id="${project.id}" 
-                         data-category="${project.category}"
-                         style="animation-delay: ${index * 0.1}s;">
-                        <div class="h-48 overflow-hidden relative">
-                            <img src="${project.image}" 
-                                 alt="${project.title}" 
-                                 class="w-full h-full object-cover transition duration-500 hover:scale-105">
-                            <div class="absolute top-4 right-4 flex flex-col gap-2">
-                                <span class="px-2 py-1 text-xs rounded-full ${getStatusColor(project.status)}">
-                                    ${getStatusInFrench(project.status)}
-                                </span>
-                                <span class="px-2 py-1 text-xs rounded-full ${getCategoryColor(project.category)}">
-                                    ${project.category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
-                                </span>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex items-center mb-3">
-                                <div class="${project.bgColor} p-2 rounded-full mr-3">
-                                    <i class="${project.icon} ${project.iconColor}"></i>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-semibold">${project.title}</h3>
-                                    <p class="text-sm text-gray-500">${project.year} • ${formatDuration(project.duration)}</p>
-                                </div>
-                            </div>
-                            <p class="text-gray-600 mb-4">
-                                ${project.description}
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                ${project.technologies.slice(0, 4).map(tech => 
-                                    `<span class="px-3 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">${tech}</span>`
-                                ).join('')}
-                                ${project.technologies.length > 4 ? `<span class="px-3 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">+${project.technologies.length - 4} more</span>` : ''}
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm text-gray-500">${project.teamSize}</span>
-                                <a href="#" class="text-blue-500 font-medium flex items-center hover:text-blue-700 view-project-btn" data-project-id="${project.id}">
-                                    View Project <i class="fas fa-arrow-right ml-2"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                projectsContainer.innerHTML += projectCard;
-            });
-
-            // Ajouter les event listeners pour les boutons "View Project"
-            document.querySelectorAll('.view-project-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const projectId = parseInt(this.getAttribute('data-project-id'));
-                    showProjectModal(projectId);
-                });
-            });
-
-            // Animation d'entrée pour les cartes
-            animateProjectCards();
-        }
-
-        // Fonction pour obtenir la couleur du statut
-        function getStatusColor(status) {
-            const statusColors = {
-                'completed': 'bg-green-100 text-green-800',
-                'ongoing': 'bg-yellow-100 text-yellow-800',
-                'in-development': 'bg-red-100 text-red-800'
-            };
-            return statusColors[status] || 'bg-gray-100 text-gray-800';
-        }
-
-        // Fonction pour animer les cartes de projets
-        function animateProjectCards() {
-            const cards = document.querySelectorAll('.project-card');
-            cards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                
-                setTimeout(() => {
-                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, index * 100);
-            });
-        }
-
-        // Fonction pour afficher le modal de projet détaillé
-        function showProjectModal(projectId) {
-            const project = allProjectsData.find(p => p.id === projectId);
-            if (!project) return;
-
-            const modal = `
-                <div id="project-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-                    <div class="bg-white rounded-xl shadow-2xl max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
-                        <div class="p-6">
-                            <div class="flex justify-between items-start mb-6">
-                                <div>
-                                    <h2 class="text-2xl font-bold">${project.title}</h2>
-                                    <p class="text-gray-600 mt-2">${project.longDescription}</p>
-                                </div>
-                                <button id="close-project-modal" class="text-gray-500 hover:text-gray-700">
-                                    <i class="fas fa-times text-2xl"></i>
-                                </button>
-                            </div>
-                            
-                            <!-- Image Gallery -->
-                            ${project.gallery.length > 0 ? `
-                                <div class="mb-6">
-                                    <h3 class="text-lg font-semibold mb-3">Project Gallery</h3>
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        ${project.gallery.map(img => `
-                                            <img src="${img}" alt="${project.title}" class="w-full h-48 object-cover rounded-lg hover:scale-105 transition duration-300">
-                                        `).join('')}
-                                    </div>
-                                </div>
-                            ` : ''}
-                            
-                            <!-- Project Details -->
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <h3 class="text-lg font-semibold mb-3">Features</h3>
-                                    <ul class="list-disc list-inside text-gray-600 mb-4 space-y-1">
-                                        ${project.features.map(feature => `<li>${feature}</li>`).join('')}
-                                    </ul>
-                                    
-                                    <h3 class="text-lg font-semibold mb-3">Challenges & Solutions</h3>
-                                    <div class="space-y-3">
-                                        <div>
-                                            <h4 class="font-medium text-red-600">Challenges:</h4>
-                                            <ul class="list-disc list-inside text-gray-600 text-sm ml-4">
-                                                ${project.challenges.map(challenge => `<li>${challenge}</li>`).join('')}
-                                            </ul>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-medium text-green-600">Solutions:</h4>
-                                            <ul class="list-disc list-inside text-gray-600 text-sm ml-4">
-                                                ${project.solutions.map(solution => `<li>${solution}</li>`).join('')}
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div>
-                                    <h3 class="text-lg font-semibold mb-3">Project Info</h3>
-                                    <div class="space-y-2 text-sm">
-                                        <p><strong>Status:</strong> <span class="capitalize ${getStatusColor(project.status)} px-2 py-1 rounded">${project.status}</span></p>
-                                        <p><strong>Year:</strong> ${project.year}</p>
-                                        <p><strong>Duration:</strong> ${project.duration}</p>
-                                        <p><strong>Team Size:</strong> ${project.teamSize}</p>
-                                    </div>
-                                    
-                                    <h3 class="text-lg font-semibold mb-3 mt-6">Technologies</h3>
-                                    <div class="flex flex-wrap gap-2">
-                                        ${project.technologies.map(tech => 
-                                            `<span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">${tech}</span>`
-                                        ).join('')}
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Highlights -->
-                            <div class="mt-6">
-                                <h3 class="text-lg font-semibold mb-3">Key Highlights</h3>
-                                <div class="flex flex-wrap gap-2">
-                                    ${project.highlights.map(highlight => 
-                                        `<span class="px-3 py-1 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 text-xs rounded-full font-medium">${highlight}</span>`
-                                    ).join('')}
-                                </div>
-                            </div>
-                            
-                            <!-- Action Buttons -->
-                            <div class="flex justify-center gap-4 mt-8">
-                                ${project.liveDemo !== '#' ? `
-                                    <a href="${project.liveDemo}" target="_blank" class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300">
-                                        <i class="fas fa-external-link-alt mr-2"></i>Live Demo
-                                    </a>
-                                ` : ''}
-                                ${project.github !== '#' ? `
-                                    <a href="${project.github}" target="_blank" class="px-6 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition duration-300">
-                                        <i class="fab fa-github mr-2"></i>View Code
-                                    </a>
-                                ` : ''}
-                                <button class="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition duration-300" onclick="document.getElementById('project-modal').remove()">
-                                    Close
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            document.body.insertAdjacentHTML('beforeend', modal);
-
-            // Event listener pour fermer le modal
-            document.getElementById('close-project-modal').addEventListener('click', () => {
-                document.getElementById('project-modal').remove();
-            });
-
-            // Fermer le modal en cliquant à l'extérieur
-            document.getElementById('project-modal').addEventListener('click', (e) => {
-                if (e.target.id === 'project-modal') {
-                    document.getElementById('project-modal').remove();
-                }
-            });
-        }
-
-        // Mobile menu toggle
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Dark Mode Toggle
-        const darkModeToggle = document.getElementById('dark-mode-toggle');
-        const darkModeToggleMobile = document.getElementById('dark-mode-toggle-mobile');
-        const darkModeIcon = document.getElementById('dark-mode-icon');
-        const darkModeIconMobile = document.getElementById('dark-mode-icon-mobile');
-        
-        // Check for saved dark mode preference or default to light mode
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        
-        // Apply the saved theme on page load
-        if (currentTheme === 'dark') {
-            document.documentElement.classList.add('dark');
-            darkModeIcon.className = 'fas fa-sun text-yellow-400';
-            darkModeIconMobile.className = 'fas fa-sun text-yellow-400 text-xl';
-        }
-        
-        // Function to toggle dark mode
-        function toggleDarkMode() {
-            const isDark = document.documentElement.classList.contains('dark');
-            
-            if (isDark) {
-                // Switch to light mode
-                document.documentElement.classList.remove('dark');
-                darkModeIcon.className = 'fas fa-moon text-gray-600';
-                darkModeIconMobile.className = 'fas fa-moon text-gray-600 text-xl';
-                localStorage.setItem('theme', 'light');
-            } else {
-                // Switch to dark mode
-                document.documentElement.classList.add('dark');
-                darkModeIcon.className = 'fas fa-sun text-yellow-400';
-                darkModeIconMobile.className = 'fas fa-sun text-yellow-400 text-xl';
-                localStorage.setItem('theme', 'dark');
-            }
-        }
-        
-        // Add event listeners for both toggle buttons
-        darkModeToggle.addEventListener('click', toggleDarkMode);
-        darkModeToggleMobile.addEventListener('click', toggleDarkMode);
-
-        // Back to top button
-        const backToTopBtn = document.getElementById('back-to-top');
-        
         window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.remove('opacity-0', 'invisible');
-                backToTopBtn.classList.add('opacity-100', 'visible');
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible', 'translate-y-4');
+                backToTopBtn.classList.add('opacity-100', 'visible', 'translate-y-0');
             } else {
-                backToTopBtn.classList.remove('opacity-100', 'visible');
-                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-0', 'invisible', 'translate-y-4');
+                backToTopBtn.classList.remove('opacity-100', 'visible', 'translate-y-0');
             }
         });
-        
+
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
@@ -785,112 +204,61 @@
             });
         });
 
-        // Fonction pour filtrer les projets
-        function filterProjects(category) {
-            const projectsContainer = document.querySelector('#projects-grid');
-            const allProjects = allProjectsData;
-            
-            let filteredProjects;
-            if (category === 'all') {
-                filteredProjects = allProjects;
-            } else {
-                filteredProjects = allProjects.filter(project => project.category === category);
-            }
-            
-            // Clear current projects
-            projectsContainer.innerHTML = '';
-            
-            // Generate filtered projects
-            filteredProjects.forEach((project, index) => {
-                const projectCard = `
-                    <div class="project-card bg-white rounded-xl overflow-hidden shadow-md transition duration-500 transform hover:scale-105" 
-                         data-project-id="${project.id}" 
-                         data-category="${project.category}"
-                         style="animation-delay: ${index * 0.1}s;">
-                        <div class="h-48 overflow-hidden relative">
-                            <img src="${project.image}" 
-                                 alt="${project.title}" 
-                                 class="w-full h-full object-cover transition duration-500 hover:scale-105">
-                            <div class="absolute top-4 right-4 flex flex-col gap-2">
-                                <span class="px-2 py-1 text-xs rounded-full ${getStatusColor(project.status)}">
-                                    ${getStatusInFrench(project.status)}
-                                </span>
-                                <span class="px-2 py-1 text-xs rounded-full ${getCategoryColor(project.category)}">
-                                    ${project.category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
-                                </span>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex items-center mb-3">
-                                <div class="${project.bgColor} p-2 rounded-full mr-3">
-                                    <i class="${project.icon} ${project.iconColor}"></i>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-semibold">${project.title}</h3>
-                                    <p class="text-sm text-gray-500">${project.year} • ${formatDuration(project.duration)}</p>
-                                </div>
-                            </div>
-                            <p class="text-gray-600 mb-4">
-                                ${project.description}
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                ${project.technologies.slice(0, 4).map(tech => 
-                                    `<span class="px-3 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">${tech}</span>`
-                                ).join('')}
-                                ${project.technologies.length > 4 ? `<span class="px-3 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">+${project.technologies.length - 4} more</span>` : ''}
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm text-gray-500">${project.teamSize}</span>
-                                <a href="#" class="text-blue-500 font-medium flex items-center hover:text-blue-700 view-project-btn" data-project-id="${project.id}">
-                                    View Project <i class="fas fa-arrow-right ml-2"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                projectsContainer.innerHTML += projectCard;
-            });
 
-            // Add event listeners for view project buttons
-            document.querySelectorAll('.view-project-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const projectId = parseInt(this.getAttribute('data-project-id'));
-                    showProjectModal(projectId);
+        // Initialize Reveal Animations
+        function initRevelations() {
+            gsap.utils.toArray('.reveal-up').forEach((el) => {
+                gsap.to(el, {
+                    opacity: 1, y: 0, duration: 1, ease: "power4.out",
+                    scrollTrigger: { trigger: el, start: "top 90%" }
                 });
-            });
-
-            // Animate project cards
-            animateProjectCards();
-        }
-
-        // Fonction pour mettre à jour l'état des boutons de filtre
-        function updateFilterButtons(activeFilter) {
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                const filter = btn.getAttribute('data-filter');
-                if (filter === activeFilter) {
-                    btn.classList.remove('bg-gray-200', 'text-gray-700');
-                    btn.classList.add('bg-blue-500', 'text-white');
-                } else {
-                    btn.classList.remove('bg-blue-500', 'text-white');
-                    btn.classList.add('bg-gray-200', 'text-gray-700');
-                }
             });
         }
 
-        // Initialiser les cartes de projets quand le DOM est chargé
-        document.addEventListener('DOMContentLoaded', function() {
-            generateProjectCards();
-            
-            // Event listeners pour les filtres
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const filter = this.getAttribute('data-filter');
-                    filterProjects(filter);
-                    updateFilterButtons(filter);
+        window.addEventListener('load', initRevelations);
+
+
+        // Mobile Menu
+        const menuBtn = document.querySelector('#menu-btn');
+        const mobileMenu = document.querySelector('#mobile-menu');
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Go Home Button Logic
+        const goHomeBtn = document.getElementById('go-home-btn');
+        if (goHomeBtn) {
+            goHomeBtn.addEventListener('mousemove', (e) => {
+                const rect = goHomeBtn.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 5;
+                const rotateY = (centerX - x) / 10;
+
+                gsap.to(goHomeBtn, {
+                    rotateX: rotateX,
+                    rotateY: rotateY,
+                    scale: 1.1,
+                    duration: 0.5,
+                    ease: "power2.out"
                 });
             });
-        });
+
+            goHomeBtn.addEventListener('mouseleave', () => {
+                gsap.to(goHomeBtn, {
+                    rotateX: 0,
+                    rotateY: 0,
+                    scale: 1,
+                    duration: 0.5,
+                    ease: "power2.out"
+                });
+            });
+        }
     </script>
 </body>
+
 </html>

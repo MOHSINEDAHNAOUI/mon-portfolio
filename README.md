@@ -4,14 +4,13 @@ A modern, professional portfolio website showcasing full-stack web development p
 
 ## ✨ Features
 
-- **Modern Design**: Clean, professional interface with smooth animations
-- **Dark/Light Mode**: Toggle between dark and light themes with persistent preferences
+- **Modern Design**: Premium "Deep Space" 3D interface with smooth 60fps animations
+- **Permanent Dark Theme**: Unified, immersive dark aesthetic optimized for developer workflows
 - **Responsive Layout**: Optimized for all devices and screen sizes
-- **Interactive Projects**: Detailed project showcases with filtering capabilities
+- **Interactive Projects**: Detailed project showcases with high-performance filtering
 - **Professional Presentation**: Career-focused content and skills demonstration
 - **SEO Optimized**: Complete meta tags and social media integration
 - **Performance Focused**: Fast loading times and smooth user experience
-- **Accessibility**: High contrast modes and keyboard navigation support
 
 ## 🛠️ Technologies Used
 
@@ -38,22 +37,16 @@ A modern, professional portfolio website showcasing full-stack web development p
 
 ```
 portfolio/
-├── index.html              # Main portfolio page
-├── projects.html           # Complete projects showcase
-├── cv.html                 # Interactive CV/Resume page
-├── projects-data.js        # Projects data for homepage
+├── index.html              # Main portfolio page (Deep Space theme)
+├── projects.html           # Complete projects archive
+├── cv.html                 # Interactive dark CV/Resume page
+├── projects-data.js        # Projects data and initialization
 ├── all-projects-data.js    # Complete projects data
-├── dark-mode.js           # Dark mode utility script
 ├── images/                 # Project images and assets
 ├── certificates/           # Professional certificates
-├── project1/              # Individual project assets
-├── project2/
-├── project3/
-├── project4/
-├── project5/
 ├── logo.svg               # Portfolio logo
-├── privacy-policy.html    # Privacy policy
-├── terms-of-service.html  # Terms of service
+├── privacy-policy.html    # Privacy policy (Dark theme)
+├── terms-of-service.html  # Terms of service (Dark theme)
 └── README.md              # This file
 ```
 
@@ -102,14 +95,13 @@ The portfolio is fully responsive and optimized for:
 - **Tablet** (768px - 1199px)
 - **Mobile** (320px - 767px)
 
-## 🌙 Dark Mode Features
+## 🌌 Design Aesthetic
 
-- **Toggle Button**: Easy switching between light and dark themes
-- **Persistent Preferences**: User choice saved in localStorage
-- **Smooth Transitions**: Animated theme switching
-- **Icon Updates**: Dynamic sun/moon icons based on current theme
-- **Cross-Page Consistency**: Theme preference maintained across all pages
-- **Mobile Support**: Dark mode toggle available in mobile menu
+- **Deep Space Motif**: Dark backgrounds with neon blue and purple accents
+- **3D Interactive Elements**: GSAP and Three.js powered animations
+- **Typography**: Modern Outfit font family
+- **Glassmorphism**: Premium frosted-glass UI components
+- **Developer Cursor**: Custom terminal-themed cursor logic
 
 ## 📄 Interactive CV Features
 

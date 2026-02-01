@@ -1,46 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="logo.svg">
-    
+
     <!-- SEO Meta Tags -->
     <title>CV | Mohsine Dahnaoui</title>
-    <meta name="description" content="Professional CV of Mohsine Dahnaoui - Full-Stack Web Developer with expertise in modern web technologies and digital solutions.">
-    <meta name="keywords" content="CV, resume, Mohsine Dahnaoui, web developer, full-stack developer, portfolio, Morocco">
+    <meta name="description"
+        content="Professional CV of Mohsine Dahnaoui - Full-Stack Web Developer with expertise in modern web technologies and digital solutions.">
+    <meta name="keywords"
+        content="CV, resume, Mohsine Dahnaoui, web developer, full-stack developer, portfolio, Morocco">
     <meta name="author" content="Mohsine Dahnaoui">
     <meta name="robots" content="index, follow">
-    
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="CV | Mohsine Dahnaoui - Full-Stack Web Developer">
     <meta property="og:description" content="Professional CV showcasing web development skills and experience.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mohsinedahnaoui.github.io/cv.html">
     <meta property="og:image" content="images/mon image0.jpg">
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="dark-mode.js"></script>
+
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script src="3d-scene.js" defer></script>
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary: #3b82f6;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --bg-dark: #050816;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            overflow-x: hidden;
             scroll-behavior: smooth;
         }
-        
+
+        /* 3D Glassmorphism Card */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+            transform: translateY(-5px) scale(1.02);
+        }
+
         .gradient-text {
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            background: linear-gradient(90deg, #60a5fa, #a78bfa, #22d3ee);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            background-size: 200% auto;
+            animation: shine 3s linear infinite;
         }
-        
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .neon-border {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neon-border::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            z-index: -1;
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .neon-border:hover::after {
+            opacity: 1;
+        }
+
+        /* Sticky Reveal Header */
+        nav.glass-nav {
+            background: rgba(5, 8, 22, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        /* Animated Section Headers */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(#2563eb, #7c3aed);
+        }
+
+        /* CV Specific Styles */
+        .cv-container {
+            max-width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+        }
+
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            margin: 2rem 0;
+            opacity: 0.5;
+        }
+
+        .skill-bar {
+            height: 6px;
+            border-radius: 10px;
+            background-color: var(--glass-border);
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            transition: width 1s ease-in-out;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid rgba(59, 130, 246, 0.3);
+            margin-left: 6px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        /* Navigation Link */
         .nav-link {
             position: relative;
+            transition: all 0.3s ease;
         }
-        
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -51,361 +200,124 @@
             background: linear-gradient(90deg, #3b82f6, #8b5cf6);
             transition: width 0.3s ease;
         }
-        
+
         .nav-link:hover::after {
             width: 100%;
         }
-        
-        .active::after {
-            width: 100%;
-        }
-        
-        .cv-container {
-            max-width: 210mm;
-            min-height: 297mm;
-        }
-        
-        .section-divider {
-            height: 2px;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            margin: 2rem 0;
-        }
-        
-        .skill-bar {
-            height: 8px;
-            border-radius: 4px;
-            background-color: #e5e7eb;
-            overflow: hidden;
-        }
-        
-        .skill-progress {
-            height: 100%;
-            border-radius: 4px;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            transition: width 1s ease-in-out;
-        }
-        
-        .timeline-item {
-            position: relative;
-            padding-left: 2rem;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.5rem;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            left: 5px;
-            top: 1.5rem;
-            width: 2px;
-            height: calc(100% - 1rem);
-            background: linear-gradient(180deg, #3b82f6, #8b5cf6);
-        }
-        
-        .timeline-item:last-child::after {
-            display: none;
-        }
-        
-        /* Custom animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-        
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
-            border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(45deg, #2563eb, #7c3aed);
-        }
-        
-        /* ===== COMPREHENSIVE DARK MODE STYLES ===== */
-        
-        /* Dark mode base styles */
-        .dark {
-            color-scheme: dark;
-        }
-        
-        .dark body {
-            background-color: #0f172a;
-            color: #e2e8f0;
-        }
-        
-        /* Navigation dark mode */
-        .dark nav {
-            background-color: #1e293b !important;
-            border-bottom: 1px solid #334155;
-        }
-        
-        .dark .nav-link {
-            color: #cbd5e1;
-        }
-        
-        .dark .nav-link:hover {
-            color: #f1f5f9;
-        }
-        
-        /* Cards and sections dark mode */
-        .dark .bg-white {
-            background-color: #1e293b !important;
-            border: 1px solid rgba(51, 65, 85, 0.3);
-        }
-        
-        .dark .bg-gray-50 {
-            background-color: #0f172a !important;
-        }
-        
-        .dark .bg-gray-100 {
-            background-color: #334155 !important;
-        }
-        
-        .dark .bg-gray-200 {
-            background-color: #475569 !important;
-        }
-        
-        /* Text colors dark mode */
-        .dark .text-gray-600 {
-            color: #94a3b8 !important;
-        }
-        
-        .dark .text-gray-700 {
-            color: #cbd5e1 !important;
-        }
-        
-        .dark .text-gray-800 {
-            color: #e2e8f0 !important;
-        }
-        
-        .dark .text-gray-900 {
-            color: #f1f5f9 !important;
-        }
-        
-        .dark .text-gray-500 {
-            color: #64748b !important;
-        }
-        
-        /* Skills section dark mode */
-        .dark .skill-bar {
-            background-color: #334155;
-        }
-        
-        .dark .skill-progress {
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-        }
-        
-        /* Timeline dark mode */
-        .dark .timeline-item::before {
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-        }
-        
-        .dark .timeline-item::after {
-            background: linear-gradient(180deg, #3b82f6, #8b5cf6);
-        }
-        
-        /* Gradient text dark mode */
-        .dark .gradient-text {
-            background: linear-gradient(90deg, #60a5fa, #a78bfa);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        /* Links dark mode */
-        .dark a {
-            color: #60a5fa;
-        }
-        
-        .dark a:hover {
-            color: #93c5fd;
-        }
-        
-        /* Footer dark mode */
-        .dark footer {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            border-top: 1px solid rgba(51, 65, 85, 0.3);
-        }
-        
-        /* Scrollbar dark mode */
-        .dark ::-webkit-scrollbar-track {
-            background: #1e293b;
-        }
-        
-        .dark ::-webkit-scrollbar-thumb {
-            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
-        }
-        
-        .dark ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(45deg, #2563eb, #7c3aed);
-        }
-        
-        /* Dark mode transition */
-        * {
-            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-        }
-        
+
         /* Print Styles */
         @media print {
             body {
                 background: white !important;
                 color: black !important;
             }
-            
-            .no-print {
+
+            .glass-card {
+                background: none !important;
+                border: none !important;
+                box-shadow: none !important;
+                backdrop-filter: none !important;
+            }
+
+            .no-print,
+            nav {
                 display: none !important;
             }
-            
+
             .cv-container {
-                max-width: none;
-                box-shadow: none;
-                margin: 0;
-                padding: 0;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
             }
-            
-            .section-divider {
-                background: #3b82f6 !important;
-            }
-            
+
             .gradient-text {
-                color: #3b82f6 !important;
                 background: none !important;
                 -webkit-background-clip: unset !important;
-                background-clip: unset !important;
+                color: #000 !important;
+            }
+
+            .text-gray-400,
+            .text-gray-500 {
+                color: #333 !important;
             }
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-white shadow-sm z-50 no-print">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <a href="index.html#home" class="text-xl font-bold gradient-text">Mohsine Dahnaoui</a>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html#home" class="nav-link text-gray-600 hover:text-gray-900 transition">Home</a>
-                    <a href="index.html#about" class="nav-link text-gray-600 hover:text-gray-900 transition">About</a>
-                    <a href="index.html#projects" class="nav-link text-gray-600 hover:text-gray-900 transition">Projects</a>
-                    <a href="index.html#skills" class="nav-link text-gray-600 hover:text-gray-900 transition">Skills</a>
-                    <a href="index.html#contact" class="nav-link text-gray-600 hover:text-gray-900 transition">Contact</a>
-                    <!-- Dark Mode Toggle -->
-                    <button id="dark-mode-toggle" class="relative p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-all duration-300 dark:bg-gray-700 dark:hover:bg-gray-600 group" title="Toggle Dark Mode">
-                        <i id="dark-mode-icon" class="fas fa-moon text-gray-600 dark:text-yellow-400 transition-all duration-300"></i>
-                    </button>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button id="menu-btn" class="text-gray-600 hover:text-gray-900">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
+
+<body class="bg-[#050816] text-white">
+
+    <!-- 3D Go Home Button -->
+    <div class="fixed top-6 left-1/2 -translate-x-1/2 z-[100]" style="perspective: 1200px;">
+        <a href="index.html" id="go-home-btn"
+            class="glass-card group relative px-10 py-3 overflow-hidden transition-all duration-500 hover:scale-110 block"
+            style="transform-style: preserve-3d; border-radius: 50px;">
+
+            <!-- Hover Glow Layer -->
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity">
             </div>
+
+            <span class="relative z-10 flex items-center justify-center h-full" style="transform: translateZ(20px);">
+                <!-- Hover Icon -->
+                <i
+                    class="fas fa-home text-blue-400 text-lg absolute left-0 -translate-x-10 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500"></i>
+
+                <!-- Text -->
+                <span
+                    class="gradient-text font-black uppercase tracking-[0.3em] text-[10px] inline-block transition-transform duration-500 group-hover:translate-x-6">Go
+                    Home</span>
+            </span>
+
+            <!-- Subtle Tech Accent -->
+            <div
+                class="absolute inset-0 border border-white/5 rounded-full group-hover:border-blue-500/30 transition-colors">
+            </div>
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full glass-nav z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"></div>
         </div>
         <!-- Mobile menu -->
         <div id="mobile-menu" class="fixed inset-0 z-50 hidden md:hidden flex items-center justify-center p-4">
-            <div class="absolute inset-0 bg-black bg-opacity-40" onclick="document.getElementById('mobile-menu').classList.add('hidden')"></div>
-            <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-sm flex flex-col items-center py-8 px-6">
-                <button class="absolute top-3 right-3 text-gray-600 hover:text-gray-900" onclick="document.getElementById('mobile-menu').classList.add('hidden')">
-                    <i class="fas fa-times text-xl"></i>
+            <div class="absolute inset-0 bg-black bg-opacity-40"
+                onclick="document.getElementById('mobile-menu').classList.add('hidden')"></div>
+            <div
+                class="relative glass-card shadow-2xl w-full max-w-sm flex flex-col items-center py-8 sm:py-10 px-6 sm:px-8 border-white/10">
+                <button
+                    class="absolute top-3 right-3 sm:top-4 sm:right-4 text-white hover:text-blue-400 transition-colors"
+                    onclick="document.getElementById('mobile-menu').classList.add('hidden')">
+                    <i class="fas fa-times text-xl sm:text-2xl"></i>
                 </button>
-                <div class="flex flex-col items-center mb-6 mt-2">
-                    <div class="w-20 h-20 rounded-full overflow-hidden border-4 border-gradient-to-r from-blue-500 to-purple-600 shadow-lg mb-3 flex items-center justify-center">
+                <div class="flex flex-col items-center mb-4 sm:mb-6 mt-2">
+                    <div
+                        class="w-20 h-20 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-blue-500/50 shadow-lg mb-2 sm:mb-3 flex items-center justify-center bg-white/5">
                         <img src="images/mon image0.jpg" alt="Mohsine Dahnaoui" class="w-full h-full object-cover">
                     </div>
-                    <span class="font-bold text-lg gradient-text text-center">Mohsine Dahnaoui</span>
-                    <span class="text-gray-500 text-sm mt-1 text-center">Web Developer</span>
+                    <span class="font-bold text-lg sm:text-xl gradient-text text-center">Mohsine Dahnaoui</span>
+                    <span
+                        class="text-blue-400 text-xs sm:text-sm mt-1 text-center font-medium tracking-widest uppercase">Web
+                        Developer</span>
                 </div>
-                <nav class="w-full mt-4">
-                    <ul class="flex flex-col items-center gap-4">
-                        <li><a href="index.html#home" class="nav-link text-gray-700 font-medium text-base hover:gradient-text transition text-center" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a></li>
-                        <li><a href="index.html#about" class="nav-link text-gray-700 font-medium text-base hover:gradient-text transition text-center" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About</a></li>
-                        <li><a href="index.html#projects" class="nav-link text-gray-700 font-medium text-base hover:gradient-text transition text-center" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Projects</a></li>
-                        <li><a href="index.html#skills" class="nav-link text-gray-700 font-medium text-base hover:gradient-text transition text-center" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Skills</a></li>
-                        <li><a href="index.html#contact" class="nav-link text-gray-700 font-medium text-base hover:gradient-text transition text-center" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact</a></li>
-                    </ul>
-                </nav>
-                <div class="flex justify-center gap-4 mt-6">
-                    <a href="https://www.linkedin.com/in/mohsine-dahnaoui-005246368/" class="text-gray-500 hover:text-blue-600 transition"><i class="fab fa-linkedin-in text-xl"></i></a>
-                    <a href="https://github.com/MOHSINEDAHNAOUI" class="text-gray-500 hover:text-gray-900 transition"><i class="fab fa-github text-xl"></i></a>
-                    <a href="https://www.instagram.com/mohsine_dahnaoui" class="text-gray-500 hover:text-pink-500 transition"><i class="fab fa-instagram text-xl"></i></a>
-                    <a href="https://wa.me/212658603438" class="text-gray-500 hover:text-green-400 transition"><i class="fab fa-whatsapp text-xl"></i></a>
-                    <a href="mailto:dahnaouimohsine@gmail.com" class="text-gray-500 hover:text-blue-500 transition"><i class="fas fa-envelope text-xl"></i></a>
+                <div class="flex justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
+                    <a href="https://www.linkedin.com/in/mohsine-dahnaoui-005246368/"
+                        class="text-blue-400 hover:text-white transition-colors"><i
+                            class="fab fa-linkedin-in text-xl sm:text-2xl"></i></a>
+                    <a href="https://github.com/MOHSINEDAHNAOUI"
+                        class="text-blue-400 hover:text-white transition-colors"><i
+                            class="fab fa-github text-xl sm:text-2xl"></i></a>
+                    <a href="https://www.instagram.com/mohsine_dahnaoui"
+                        class="text-blue-400 hover:text-white transition-colors"><i
+                            class="fab fa-instagram text-xl sm:text-2xl"></i></a>
+                    <a href="https://wa.me/212658603438" class="text-blue-400 hover:text-white transition-colors"><i
+                            class="fab fa-whatsapp text-xl sm:text-2xl"></i></a>
+                    <a href="mailto:dahnaouimohsine@gmail.com"
+                        class="text-blue-400 hover:text-white transition-colors"><i
+                            class="fas fa-envelope text-xl sm:text-2xl"></i></a>
                 </div>
                 <!-- Contact Icons with Hover Info -->
-                <div class="mt-4 text-center">
-                    <div class="flex items-center justify-center gap-4">
-                        <!-- Phone -->
-                        <div class="relative group">
-                            <a href="tel:+212658603438" class="text-gray-500 hover:text-green-400 transition">
-                                <i class="fas fa-phone text-lg"></i>
-                            </a>
-                            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-                                +212 6 58 60 34 38
-                            </div>
-                        </div>
-                        <!-- Email -->
-                        <div class="relative group">
-                            <a href="mailto:dahnaouimohsine@gmail.com" class="text-gray-500 hover:text-blue-500 transition">
-                                <i class="fas fa-envelope text-lg"></i>
-                            </a>
-                            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-                                dahnaouimohsine@gmail.com
-                            </div>
-                        </div>
-                        <!-- Location -->
-                        <div class="relative group">
-                            <span class="text-gray-500 cursor-pointer">
-                                <i class="fas fa-map-marker-alt text-lg"></i>
-                            </span>
-                            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-                                Oued Zem, Morocco
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Dark Mode Toggle for Mobile -->
-                <div class="mt-4 flex justify-center">
-                    <button id="dark-mode-toggle-mobile" class="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-300 dark:bg-gray-700 dark:hover:bg-gray-600">
-                        <i id="dark-mode-icon-mobile" class="fas fa-moon text-gray-600 dark:text-yellow-400 text-lg"></i>
-                    </button>
-                </div>
-                <div class="mt-4 text-center w-full">
-                    <span class="text-xs text-gray-400">© 2025 Mohsine Dahnaoui. All rights reserved.</span>
-                </div>
+
             </div>
         </div>
     </nav>
@@ -415,55 +327,14 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <!-- CV Content -->
-            <div class="cv-container bg-white shadow-2xl rounded-2xl p-8 animate-fade-in-up">
+            <div class="cv-container glass-card p-8 animate-fade-in-up">
                 <!-- Header Section -->
                 <header class="text-center mb-8">
                     <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-blue-200 shadow-lg">
                         <img src="images/mon image1.jpg" alt="Mohsine Dahnaoui" class="w-full h-full object-cover">
                     </div>
                     <h1 class="text-4xl font-bold mb-2 gradient-text">Mohsine Dahnaoui</h1>
-                    <h2 class="text-2xl text-gray-600 mb-4">Full-Stack Web Developer</h2>
-                    <div class="flex justify-center space-x-6 text-gray-500">
-                        <!-- Email -->
-                        <div class="relative group">
-                            <a href="mailto:dahnaouimohsine@gmail.com" class="hover:text-blue-600 transition">
-                                <i class="fas fa-envelope text-lg"></i>
-                            </a>
-                            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-                                dahnaouimohsine@gmail.com
-                            </div>
-                        </div>
-                        <!-- Phone -->
-                        <div class="relative group">
-                            <a href="tel:+212658603438" class="hover:text-green-600 transition">
-                                <i class="fas fa-phone text-lg"></i>
-                            </a>
-                            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-                                +212 6 58 60 34 38
-                            </div>
-                        </div>
-                        <!-- Location -->
-                        <div class="relative group">
-                            <span class="cursor-pointer">
-                                <i class="fas fa-map-marker-alt text-lg"></i>
-                            </span>
-                            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-                                Bloc 5, Hay El Massira, <br>
-                                Oued Zem, Morocco
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex justify-center space-x-4 mt-4">
-                        <a href="https://www.linkedin.com/in/mohsine-dahnaoui-005246368/" class="text-blue-600 hover:text-blue-800 transition">
-                            <i class="fab fa-linkedin-in text-xl"></i>
-                        </a>
-                        <a href="https://github.com/MOHSINEDAHNAOUI" class="text-gray-600 hover:text-gray-800 transition">
-                            <i class="fab fa-github text-xl"></i>
-                        </a>
-                        <a href="https://wa.me/212658603438" class="text-green-600 hover:text-green-800 transition">
-                            <i class="fab fa-whatsapp text-xl"></i>
-                        </a>
-                    </div>
+                    <h2 class="text-2xl text-gray-400 mb-4">Full-Stack Web Developer</h2>
                 </header>
 
                 <div class="section-divider"></div>
@@ -471,11 +342,13 @@
                 <!-- Professional Summary -->
                 <section class="mb-8">
                     <h3 class="text-2xl font-bold mb-4 gradient-text">Professional Summary</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Passionate full-stack web developer with expertise in creating scalable web applications and digital solutions. 
-                        Strong foundation in modern web technologies including HTML5, CSS3, JavaScript, PHP, and MySQL. 
-                        Experienced in database design, API development, and responsive web design. 
-                        Committed to delivering high-quality code and exceptional user experiences while continuously learning 
+                    <p class="text-gray-400 leading-relaxed">
+                        Passionate full-stack web developer with expertise in creating scalable web applications and
+                        digital solutions.
+                        Strong foundation in modern web technologies including HTML5, CSS3, JavaScript, PHP, and MySQL.
+                        Experienced in database design, API development, and responsive web design.
+                        Committed to delivering high-quality code and exceptional user experiences while continuously
+                        learning
                         and adapting to new technologies and industry best practices.
                     </p>
                 </section>
@@ -483,263 +356,129 @@
                 <div class="section-divider"></div>
 
                 <!-- Technical Skills -->
+                <!-- Technical Skills (Professional Layout) -->
                 <section class="mb-8">
-                    <h3 class="text-2xl font-bold mb-6 gradient-text">Technical Skills</h3>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <!-- Frontend Skills -->
-                        <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
-                            <h4 class="text-lg font-semibold mb-4 text-blue-600 flex items-center">
-                                <i class="fas fa-paint-brush mr-2"></i>
-                                Frontend Development
-                            </h4>
-                            <div class="space-y-4">
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm font-medium">HTML5 & CSS3</span>
-                                        <span class="text-sm text-gray-500">Expert</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 95%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm font-medium">JavaScript (ES6+)</span>
-                                        <span class="text-sm text-gray-500">Advanced</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm font-medium">Tailwind CSS</span>
-                                        <span class="text-sm text-gray-500">Expert</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 90%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm font-medium">Responsive Design</span>
-                                        <span class="text-sm text-gray-500">Expert</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 95%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Backend Skills -->
-                        <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
-                            <h4 class="text-lg font-semibold mb-4 text-purple-600 flex items-center">
-                                <i class="fas fa-server mr-2"></i>
-                                Backend Development
-                            </h4>
-                            <div class="space-y-4">
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm font-medium">PHP</span>
-                                        <span class="text-sm text-gray-500">Advanced</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm font-medium">MySQL</span>
-                                        <span class="text-sm text-gray-500">Advanced</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm font-medium">Database Design</span>
-                                        <span class="text-sm text-gray-500">Advanced</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm font-medium">API Development</span>
-                                        <span class="text-sm text-gray-500">Intermediate</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 70%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="flex items-center gap-4 mb-8">
+                        <h3 class="text-2xl font-bold gradient-text">Technical Competencies</h3>
+                        <div class="h-px bg-white/10 flex-grow"></div>
                     </div>
 
-                    <!-- Additional Skills -->
-                    <div class="mt-6">
-                        <h4 class="text-lg font-semibold mb-4 text-green-600 flex items-center">
-                            <i class="fas fa-tools mr-2"></i>
-                            Tools & Technologies
-                        </h4>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                            <div class="text-center p-3 bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
-                                <i class="fab fa-git-alt text-2xl text-orange-500 mb-2"></i>
-                                <p class="text-sm font-medium">Git & GitHub</p>
-                            </div>
-                            <div class="text-center p-3 bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
-                                <i class="fas fa-code text-2xl text-blue-500 mb-2"></i>
-                                <p class="text-sm font-medium">VS Code</p>
-                            </div>
-                            <div class="text-center p-3 bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
-                                <i class="fas fa-chart-bar text-2xl text-purple-500 mb-2"></i>
-                                <p class="text-sm font-medium">Chart.js</p>
-                            </div>
-                            <div class="text-center p-3 bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
-                                <i class="fas fa-mobile-alt text-2xl text-green-500 mb-2"></i>
-                                <p class="text-sm font-medium">Responsive Design</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <div class="section-divider"></div>
-
-                <!-- Professional Experience -->
-                <section class="mb-8">
-                    <h3 class="text-2xl font-bold mb-6 gradient-text">Professional Experience</h3>
-                    <div class="space-y-6">
-                        <div class="timeline-item">
-                            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
-                                <div class="flex justify-between items-start mb-2">
-                                    <h4 class="text-lg font-semibold">Full-Stack Web Developer</h4>
-                                    <span class="text-sm text-gray-500">2023 - Present</span>
-                                </div>
-                                <p class="text-gray-600 mb-3">Freelance & Personal Projects</p>
-                                <ul class="text-sm text-gray-600 space-y-1">
-                                    <li>• Developed responsive web applications using modern technologies</li>
-                                    <li>• Designed and implemented database architectures for various projects</li>
-                                    <li>• Created interactive data visualization platforms with Chart.js and D3.js</li>
-                                    <li>• Built e-commerce solutions with payment integration</li>
-                                    <li>• Implemented security best practices and performance optimizations</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
-                                <div class="flex justify-between items-start mb-2">
-                                    <h4 class="text-lg font-semibold">Student Card Management System</h4>
-                                    <span class="text-sm text-gray-500">2025</span>
-                                </div>
-                                <p class="text-gray-600 mb-3">Internship Project - 4 Weeks</p>
-                                <ul class="text-sm text-gray-600 space-y-1">
-                                    <li>• Developed comprehensive web application for managing student card appointments</li>
-                                    <li>• Implemented user authentication and role-based access control</li>
-                                    <li>• Created administrative dashboard with real-time analytics</li>
-                                    <li>• Designed responsive UI with modern CSS frameworks</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <div class="section-divider"></div>
-
-                <!-- Key Projects -->
-                <section class="mb-8">
-                    <h3 class="text-2xl font-bold mb-6 gradient-text">Key Projects</h3>
                     <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
-                            <h4 class="text-lg font-semibold mb-2">eCartes - Student Card System</h4>
-                            <p class="text-sm text-gray-600 mb-3">Full-stack web application for managing student card appointments</p>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">HTML</span>
-                                <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">CSS</span>
-                                <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">JavaScript</span>
-                                <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">PHP</span>
-                                <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">MySQL</span>
+                        <!-- Frontend Panel -->
+                        <div class="glass-card p-6 border-l-4 border-blue-500">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center">
+                                    <i class="fas fa-code text-blue-400"></i>
+                                </div>
+                                <h4 class="font-bold text-white uppercase tracking-wider text-sm">Frontend Ecosystem
+                                </h4>
                             </div>
-                            <p class="text-sm text-gray-500">Duration: 4 weeks | Status: Completed</p>
+                            <ul class="space-y-4">
+                                <li class="flex items-center justify-between">
+                                    <span class="text-gray-300 text-sm flex items-center gap-2"><i
+                                            class="fab fa-html5 text-orange-500 w-5"></i> HTML5 / CSS3</span>
+                                    <span
+                                        class="text-[10px] font-bold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded">EXPERT</span>
+                                </li>
+                                <li class="flex items-center justify-between">
+                                    <span class="text-gray-300 text-sm flex items-center gap-2"><i
+                                            class="fab fa-js text-yellow-400 w-5"></i> JavaScript (ES6+)</span>
+                                    <span
+                                        class="text-[10px] font-bold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded">ADVANCED</span>
+                                </li>
+                                <li class="flex items-center justify-between">
+                                    <span class="text-gray-300 text-sm flex items-center gap-2"><i
+                                            class="fab fa-react text-cyan-400 w-5"></i> React.js</span>
+                                    <span
+                                        class="text-[10px] font-bold text-gray-500 bg-white/5 px-2 py-0.5 rounded">INTERMEDIATE</span>
+                                </li>
+                                <li class="flex items-center justify-between">
+                                    <span class="text-gray-300 text-sm flex items-center gap-2"><img
+                                    src="images/tailwind-css.png" alt="tailwind-css" class="w-5 h-5"> Tailwind CSS</span>
+                                    <span
+                                        class="text-[10px] font-bold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded">EXPERT</span>
+                                </li>
+                            </ul>
                         </div>
 
-                        <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
-                            <h4 class="text-lg font-semibold mb-2">DATAvIZ - Data Visualization</h4>
-                            <p class="text-sm text-gray-600 mb-3">Interactive platform for data visualization with filtering capabilities</p>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">HTML</span>
-                                <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">CSS</span>
-                                <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">JavaScript</span>
-                                <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">Chart.js</span>
-                                <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">D3.js</span>
+                        <!-- Backend Panel -->
+                        <div class="glass-card p-6 border-l-4 border-purple-500">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-8 h-8 rounded-full bg-purple-500/10 flex items-center justify-center">
+                                    <i class="fas fa-server text-purple-400"></i>
+                                </div>
+                                <h4 class="font-bold text-white uppercase tracking-wider text-sm">Backend Architecture
+                                </h4>
                             </div>
-                            <p class="text-sm text-gray-500">Duration: 4 days | Status: Completed</p>
+                            <ul class="space-y-4">
+                                <li class="flex items-center justify-between">
+                                    <span class="text-gray-300 text-sm flex items-center gap-2"><i
+                                            class="fab fa-php text-indigo-400 w-5"></i> PHP 8.x</span>
+                                    <span
+                                        class="text-[10px] font-bold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded">ADVANCED</span>
+                                </li>
+                                <li class="flex items-center justify-between">
+                                    <span class="text-gray-300 text-sm flex items-center gap-2"><i
+                                            class="fab fa-laravel text-red-500 w-5"></i> Laravel 11</span>
+                                    <span
+                                        class="text-[10px] font-bold text-gray-500 bg-white/5 px-2 py-0.5 rounded">INTERMEDIATE</span>
+                                </li>
+                                <li class="flex items-center justify-between">
+                                    <span class="text-gray-300 text-sm flex items-center gap-2"><i
+                                            class="fas fa-database text-blue-400 w-5"></i> MySQL / SQL</span>
+                                    <span
+                                        class="text-[10px] font-bold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded">ADVANCED</span>
+                                </li>
+                                <li class="flex items-center justify-between">
+                                    <span class="text-gray-300 text-sm flex items-center gap-2"><i
+                                            class="fab fa-python text-yellow-300 w-5"></i> Python</span>
+                                    <span
+                                        class="text-[10px] font-bold text-gray-500 bg-white/5 px-2 py-0.5 rounded">INTERMEDIATE</span>
+                                </li>
+                            </ul>
                         </div>
-
-                        <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
-                            <h4 class="text-lg font-semibold mb-2">Ciné Nova - Cinema Booking</h4>
-                            <p class="text-sm text-gray-600 mb-3">E-commerce platform for cinema ticket reservation</p>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded">HTML</span>
-                                <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded">CSS</span>
-                                <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded">JavaScript</span>
-                                <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded">PHP</span>
-                                <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded">MySQL</span>
-                            </div>
-                            <p class="text-sm text-gray-500">Duration: 1 week | Status: Completed</p>
-                        </div>
-
-                        <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
-                            <h4 class="text-lg font-semibold mb-2">GéoPropriétés - Real Estate</h4>
-                            <p class="text-sm text-gray-600 mb-3">Property management system with interactive maps</p>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">HTML</span>
-                                <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">Tailwind CSS</span>
-                                <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">JavaScript</span>
-                                <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">PHP</span>
-                                <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">Leaflet</span>
-                            </div>
-                            <p class="text-sm text-gray-500">Duration: 2 weeks | Status: Completed</p>
-                        </div>
-                    </div>
                 </section>
+
 
                 <div class="section-divider"></div>
 
                 <!-- Education -->
-                <section class="mb-8">
-                    <h3 class="text-2xl font-bold mb-6 gradient-text">Education</h3>
-                    <div class="timeline-item">
-                        <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
-                            <div class="flex justify-between items-start mb-2">
-                                <h4 class="text-lg font-semibold">High School Diploma</h4>
-                                <span class="text-sm text-gray-500">2023 - 2024</span>
-                            </div>
-                            <p class="text-gray-600 mb-2">Baccalauréat Sciences Physiques at Qualifying High School Ibn Tofail, Oued Zem</p>
-                            <ul class="text-sm text-gray-600 space-y-1">
-                                <li>• Focus in Physical Sciences: Mathematics, Physics, and Chemistry</li>
-                                <li>• Developed analytical and problem-solving skills</li>
-                            </ul>
+                <section class="mb-12">
+                    <h3 class="text-2xl font-bold mb-8 gradient-text">Education</h3>
+
+                    <div class="space-y-6">
+                        <!-- Item 1 -->
+                        <div class="glass-card p-6 border-white/10 hover:border-purple-500/50 transition-colors group">
+                            <span class="text-[10px] font-bold text-purple-400 tracking-[0.2em] uppercase">2023 -
+                                2024</span>
+                            <h4
+                                class="text-xl font-bold text-white mt-1 mb-3 group-hover:text-purple-400 transition-colors uppercase">
+                                High School Diploma
+                            </h4>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-2">
+                                Qualifying High School Ibn Tofail, Oued Zem
+                            </p>
+                            <p class="text-gray-500 text-sm leading-relaxed">
+                                Baccalauréat Sciences Physiques. Focus in Mathematics, Physics, and Chemistry
+                                (Scientific Analysis).
+                            </p>
                         </div>
-                    </div>
-                    <br>
-                    <div class="timeline-item">
-                        <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
-                            <div class="flex justify-between items-start mb-2">
-                                <h4 class="text-lg font-semibold">Computer Science Studies</h4>
-                                <span class="text-sm text-gray-500">2024 - Present</span>
-                            </div>
-                            <p class="text-gray-600 mb-2">Self-directed learning and practical experience</p>
-                            <ul class="text-sm text-gray-600 space-y-1">
-                                <li>• Web Development Fundamentals (HTML, CSS, JavaScript)</li>
-                                <li>• Backend Development (PHP, MySQL)</li>
-                                <li>• Database Design and Management</li>
-                                <li>• UI/UX Design Principles</li>
-                                <li>• Version Control with Git and GitHub</li>
-                            </ul>
+
+                        <!-- Item 2 -->
+                        <div class="glass-card p-6 border-white/10 hover:border-purple-500/50 transition-colors group">
+                            <span class="text-[10px] font-bold text-purple-400 tracking-[0.2em] uppercase">2024 -
+                                Present</span>
+                            <h4
+                                class="text-xl font-bold text-white mt-1 mb-3 group-hover:text-purple-400 transition-colors uppercase">
+                                Computer Science Studies
+                            </h4>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-2">
+                                Self-Directed Learning
+                            </p>
+                            <p class="text-gray-500 text-sm leading-relaxed">
+                                Specialization in Web Technologies. Web Development Fundamentals (HTML, CSS, JS),
+                                Backend (PHP, MySQL), Database Design, and UI/UX Principles.
+                            </p>
                         </div>
                     </div>
                 </section>
@@ -747,137 +486,250 @@
                 <div class="section-divider"></div>
 
                 <!-- Certifications & Achievements -->
-                <section class="mb-8">
-                    <h3 class="text-2xl font-bold mb-6 gradient-text">Certifications & Achievements</h3>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
-                            <h4 class="text-lg font-semibold mb-2">Published Author</h4>
-                            <p class="text-sm text-gray-600 mb-2">"Le Voyage Du Développeur" & "The Magical Coloring Book"</p>
-                            <p class="text-sm text-gray-500">Available on Amazon Kindle platform</p>
+                <section class="mb-12">
+                    <h3 class="text-2xl font-bold mb-8 gradient-text">Certifications & Achievements</h3>
+
+                    <div class="space-y-6">
+                        <!-- Published Author -->
+                        <div class="glass-card p-6 border-white/10 hover:border-purple-500/50 transition-colors group">
+                            <span class="text-[10px] font-bold text-purple-400 tracking-[0.2em] uppercase">Published
+                                Author</span>
+                            <div class="flex flex-col sm:flex-row gap-6 mt-4 items-center sm:items-start">
+                                <div class="w-24 flex-shrink-0">
+                                    <img src="images/books/3D_book1.png" alt="Le Voyage Du Développeur"
+                                        class="w-full rounded shadow-lg transform group-hover:scale-105 transition-transform duration-500">
+                                </div>
+                                <div>
+                                    <h4
+                                        class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors uppercase">
+                                        "Le Voyage Du Développeur"
+                                    </h4>
+                                    <p class="text-gray-500 text-sm leading-relaxed mb-3">
+                                        An insightful journey into the world of software development, sharing
+                                        experiences and technical knowledge.
+                                    </p>
+                                    <a href="https://anyflip.com/rjxrr/xfnx" target="_blank"
+                                        class="text-xs font-bold text-blue-400 hover:text-white transition-colors tracking-widest uppercase flex items-center gap-2">
+                                        Read Book <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
-                            <h4 class="text-lg font-semibold mb-2">Professional Certificates</h4>
-                            <p class="text-sm text-gray-600 mb-2">Various web development and programming certificates</p>
-                            <p class="text-sm text-gray-500">Continuous learning and skill development</p>
+
+                        <!-- Professional Certificates -->
+                        <!-- Professional Certificates -->
+                        <div class="glass-card p-6 border-white/10 hover:border-purple-500/50 transition-colors group">
+                            <span class="text-[10px] font-bold text-purple-400 tracking-[0.2em] uppercase">Professional
+                                Certificates</span>
+                            <h4
+                                class="text-xl font-bold text-white mt-1 mb-4 group-hover:text-purple-400 transition-colors uppercase">
+                                Technical Validations
+                            </h4>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                                <!-- Certificate 1 -->
+                                <div class="group/cert relative cursor-pointer">
+                                    <div
+                                        class="aspect-[4/3] bg-white/5 rounded-lg border border-white/10 overflow-hidden relative">
+                                        <img src="certificates/cert1.jpg" alt="Certificate 1"
+                                            class="w-full h-full object-cover opacity-80 group-hover/cert:opacity-100 transition-all duration-500 group-hover/cert:scale-125">
+
+                                        <!-- Overlay -->
+                                        <div
+                                            class="absolute inset-0 bg-black/60 opacity-0 group-hover/cert:opacity-100 transition-opacity flex items-center justify-center">
+                                            <i class="fas fa-search-plus text-white text-lg"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Certificate 2 -->
+                                <div class="group/cert relative cursor-pointer">
+                                    <div
+                                        class="aspect-[4/3] bg-white/5 rounded-lg border border-white/10 overflow-hidden relative">
+                                        <img src="certificates/cert2.jpg" alt="Certificate 2"
+                                            class="w-full h-full object-cover opacity-80 group-hover/cert:opacity-100 transition-all duration-500 group-hover/cert:scale-125">
+
+                                        <!-- Overlay -->
+                                        <div
+                                            class="absolute inset-0 bg-black/60 opacity-0 group-hover/cert:opacity-100 transition-opacity flex items-center justify-center">
+                                            <i class="fas fa-search-plus text-white text-lg"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Certificate 3 -->
+                                <div class="group/cert relative cursor-pointer">
+                                    <div
+                                        class="aspect-[4/3] bg-white/5 rounded-lg border border-white/10 overflow-hidden relative">
+                                        <img src="certificates/cert3.jpg" alt="Certificate 3"
+                                            class="w-full h-full object-cover opacity-80 group-hover/cert:opacity-100 transition-all duration-500 group-hover/cert:scale-125">
+
+                                        <!-- Overlay -->
+                                        <div
+                                            class="absolute inset-0 bg-black/60 opacity-0 group-hover/cert:opacity-100 transition-opacity flex items-center justify-center">
+                                            <i class="fas fa-search-plus text-white text-lg"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Certificate 4 -->
+                                <div class="group/cert relative cursor-pointer">
+                                    <div
+                                        class="aspect-[4/3] bg-white/5 rounded-lg border border-white/10 overflow-hidden relative">
+                                        <img src="certificates/cert4.jpg" alt="Certificate 4"
+                                            class="w-full h-full object-cover opacity-80 group-hover/cert:opacity-100 transition-all duration-500 group-hover/cert:scale-125">
+
+                                        <!-- Overlay -->
+                                        <div
+                                            class="absolute inset-0 bg-black/60 opacity-0 group-hover/cert:opacity-100 transition-opacity flex items-center justify-center">
+                                            <i class="fas fa-search-plus text-white text-lg"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
+
                     </div>
-                </section>
-
-                <div class="section-divider"></div>
-
-                <!-- Languages -->
-                <section class="mb-8">
-                    <h3 class="text-2xl font-bold mb-6 gradient-text">Languages</h3>
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <div class="text-center p-4 bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
-                            <h4 class="font-semibold mb-2">Arabic</h4>
-                            <p class="text-sm text-gray-600">Native</p>
-                        </div>
-                        <div class="text-center p-4 bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
-                            <h4 class="font-semibold mb-2">French</h4>
-                            <p class="text-sm text-gray-600">Fluent</p>
-                        </div>
-                        <div class="text-center p-4 bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
-                            <h4 class="font-semibold mb-2">English</h4>
-                            <p class="text-sm text-gray-600">Advanced</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Footer -->
-                <footer class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 text-center" >
-                    <p>© 2025 Mohsine Dahnaoui. All rights reserved.</p>
-                </footer>
             </div>
         </div>
+        </section>
+
+        <!-- Languages -->
+        <section class="mb-12 pt-8">
+            <h3 class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.3em] mb-8 text-center reveal-up">
+                Linguistic Proficiency
+            </h3>
+            <div class="grid grid-cols-3 gap-4 max-w-2xl mx-auto glass-card p-8 border-white/10">
+                <div class="text-center">
+                    <div class="text-lg sm:text-xl font-black text-white">ARABIC</div>
+                    <div class="text-[9px] text-blue-400 font-bold tracking-widest mt-1">NATIVE</div>
+                </div>
+                <div class="text-center border-x border-white/5">
+                    <div class="text-lg sm:text-xl font-black text-white">FRENCH</div>
+                    <div class="text-[9px] text-blue-400 font-bold tracking-widest mt-1">FLUENT</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-lg sm:text-xl font-black text-white">ENGLISH</div>
+                    <div class="text-[9px] text-blue-400 font-bold tracking-widest mt-1">ADVANCED</div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    </div>
     </div>
 
+    </div>
+
+    <!-- Footer -->
+    <footer class="relative z-10 py-12 mt-20 border-t border-white/10 bg-black/40 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl font-black gradient-text mb-8">MOHSINE DAHNAOUI</h2>
+            <div class="flex justify-center space-x-8 mb-12">
+                <a href="https://wa.me/212658603438"
+                    class="text-blue-400 hover:text-white transition-all transform hover:scale-110">
+                    <i class="fab fa-whatsapp text-2xl"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/mohsine-dahnaoui-005246368/"
+                    class="text-blue-400 hover:text-white transition-all transform hover:scale-110">
+                    <i class="fab fa-linkedin-in text-2xl"></i>
+                </a>
+                <a href="https://github.com/MOHSINEDAHNAOUI"
+                    class="text-blue-400 hover:text-white transition-all transform hover:scale-110">
+                    <i class="fab fa-github text-2xl"></i>
+                </a>
+                <a href="https://www.instagram.com/mohsine_dahnaoui"
+                    class="text-blue-400 hover:text-white transition-all transform hover:scale-110">
+                    <i class="fab fa-instagram text-2xl"></i>
+                </a>
+            </div>
+
+            <p class="text-gray-600 text-sm tracking-widest uppercase">© 2026 Mohsine Dahnaoui — All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop"
+        class="fixed bottom-8 right-8 z-50 p-4 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 hover:bg-blue-500 hover:text-white transition-all duration-300 opacity-0 invisible transform translate-y-4 hover:scale-110 shadow-[0_0_20px_rgba(59,130,246,0.5)]">
+        <i class="fas fa-arrow-up text-xl"></i>
+    </button>
+
     <script>
-        // Mobile menu toggle
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-        
-        // Dark Mode Toggle
-        const darkModeToggle = document.getElementById('dark-mode-toggle');
-        const darkModeToggleMobile = document.getElementById('dark-mode-toggle-mobile');
-        const darkModeIcon = document.getElementById('dark-mode-icon');
-        const darkModeIconMobile = document.getElementById('dark-mode-icon-mobile');
-        
-        // Check for saved dark mode preference
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        
-        // Apply the saved theme on page load
-        if (currentTheme === 'dark') {
-            document.documentElement.classList.add('dark');
-            if (darkModeIcon) darkModeIcon.className = 'fas fa-sun text-yellow-400';
-            if (darkModeIconMobile) darkModeIconMobile.className = 'fas fa-sun text-yellow-400 text-lg';
-        }
-        
-        // Function to toggle dark mode
-        function toggleDarkMode() {
-            const isDark = document.documentElement.classList.contains('dark');
-            
-            if (isDark) {
-                document.documentElement.classList.remove('dark');
-                if (darkModeIcon) darkModeIcon.className = 'fas fa-moon text-gray-600';
-                if (darkModeIconMobile) darkModeIconMobile.className = 'fas fa-moon text-gray-600 text-lg';
-                localStorage.setItem('theme', 'light');
+        // Back To Top Logic
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible', 'translate-y-4');
+                backToTopBtn.classList.add('opacity-100', 'visible', 'translate-y-0');
             } else {
-                document.documentElement.classList.add('dark');
-                if (darkModeIcon) darkModeIcon.className = 'fas fa-sun text-yellow-400';
-                if (darkModeIconMobile) darkModeIconMobile.className = 'fas fa-sun text-yellow-400 text-lg';
-                localStorage.setItem('theme', 'dark');
+                backToTopBtn.classList.add('opacity-0', 'invisible', 'translate-y-4');
+                backToTopBtn.classList.remove('opacity-100', 'visible', 'translate-y-0');
             }
-        }
-        
-        // Add event listeners for toggle buttons
-        if (darkModeToggle) darkModeToggle.addEventListener('click', toggleDarkMode);
-        if (darkModeToggleMobile) darkModeToggleMobile.addEventListener('click', toggleDarkMode);
-        
-        // Print CV functionality (if print button exists)
-        const printBtn = document.getElementById('print-cv');
-        if (printBtn) {
-            printBtn.addEventListener('click', function() {
-                window.print();
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
-        }
-        
-        // Download CV as PDF (if download button exists)
-        const downloadBtn = document.getElementById('download-cv');
-        if (downloadBtn) {
-            downloadBtn.addEventListener('click', function() {
-                // Simple print functionality
-                window.print();
-            });
-        }
-        
-        // Animate skill bars on scroll
-        const animateSkillBars = () => {
-            const skillBars = document.querySelectorAll('.skill-progress');
-            const skillsSection = document.querySelector('section');
-            const skillsPosition = skillsSection.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.3;
-            
-            if (skillsPosition < screenPosition) {
-                skillBars.forEach(bar => {
-                    const width = bar.style.width;
-                    bar.style.width = '0';
-                    setTimeout(() => {
-                        bar.style.width = width;
-                    }, 100);
-                });
-                
-                window.removeEventListener('scroll', animateSkillBars);
-            }
+        });
+
+        // Initialize Reveal on Scroll (Simple version if GSAP not present, or just reuse if present)
+        // Check for GSAP or standard IntersectionObserver
+        const observerOptions = {
+            threshold: 0.1
         };
-        
-        window.addEventListener('scroll', animateSkillBars);
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.8s ease-out';
+            observer.observe(el);
+        });
+
+        // Go Home Button Logic
+        const goHomeBtn = document.getElementById('go-home-btn');
+        if (goHomeBtn) {
+            goHomeBtn.addEventListener('mousemove', (e) => {
+                const rect = goHomeBtn.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 5;
+                const rotateY = (centerX - x) / 10;
+
+                gsap.to(goHomeBtn, {
+                    rotateX: rotateX,
+                    rotateY: rotateY,
+                    scale: 1.1,
+                    duration: 0.5,
+                    ease: "power2.out"
+                });
+            });
+
+            goHomeBtn.addEventListener('mouseleave', () => {
+                gsap.to(goHomeBtn, {
+                    rotateX: 0,
+                    rotateY: 0,
+                    scale: 1,
+                    duration: 0.5,
+                    ease: "power2.out"
+                });
+            });
+        }
     </script>
 </body>
+
 </html>
